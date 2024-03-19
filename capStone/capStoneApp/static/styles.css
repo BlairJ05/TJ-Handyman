@@ -1,9 +1,62 @@
 body {
 
 }
-#navBar-Start {
+#navBar-Start{
 
 }
+.sideNav {
+    height: 100%;
+    width: 30vw;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+
+
+}
+.sideNav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000000;
+  display: block;
+  transition: 0.3s;
+}
+.sideNav button{
+  background-color: rgb(4, 168, 233);
+  border-top-right-radius: 1.5vw;
+  border-bottom-right-radius: 1.5vw;
+  margin-bottom: .1vw;
+  border-color: rgb(18, 19, 29);
+
+}
+.sideNav button:hover{
+  transform: scale(1.1);
+}
+
+.sideNav a:hover{
+    color: #ffffff;
+    
+}
+
+.sideNav .closebtn{
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: #ffffff;
+}
+@media screen and (max-height: 450px) {
+    .sideNav {padding-top: 15px;}
+    .sideNav a {font-size: 18px;}
+  }
+
+
 
 #tjCompany {
 

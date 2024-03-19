@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <title>TJ Company</title>
+    <title>TJ HandyMan Service</title>
 </head>
 <body>
 
@@ -24,7 +24,7 @@
     -->
 
     <section id="navBar-Start">
-        <div>
+        <div >
 
             <button id="signUp">
                 <a href="">Sign-Up</a>
@@ -33,15 +33,28 @@
             <button id="signIn">
                 <a href="">Sign-In</a>
             </button>
-
-            <nav>
-                <button><a href="">Things</a></button>
-                <button><a href="">Things</a></button>
-                <button><a href="">Things</a></button>
-                <button><a href="">Things</a></button>
-                <button><a href="">Things</a></button>
-                <button><a href="">Things</a></button> 
-            </nav>
+                <nav id="mySidenav" class="sideNav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <button><a href="">Assembly</a></button>
+                    <button><a href="">Mounting</a></button>
+                    <button><a href="">Moving</a></button>
+                    <button><a href="">Cleaning</a></button>
+                    <button><a href="">Outdoor Help</a></button>
+                    <button><a href="">Home Repairs</a></button>
+                    <button><a href="">Painting</a></button>
+                    
+                </nav>
+                <span style="font-size:30px;cursor:pointer;color:black" onclick="openNav()">&#9776; open</span>
+                    <script>
+                        function openNav() {
+                        document.getElementById("mySidenav").style.width = "250px";
+                        }
+                        
+                        function closeNav() {
+                        document.getElementById("mySidenav").style.width = "0";
+                        }
+                </script>
+            </div>    
         </div>
     </section>
 
@@ -94,16 +107,10 @@
                     Contact Me!
                 </h2>
                 <pre>
-                    603-457-2345 OR at 505 Oxford Blv
+                    <a href="228-363-3068">228-363-3068</a><p>OR at <a href="">505 Oxford Blv</a></p>
                 </pre>
             </footer>
         </div>
     </section>
-
-
-
-
-
-
 </body>
 </html>
