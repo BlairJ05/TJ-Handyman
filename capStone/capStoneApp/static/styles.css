@@ -1,8 +1,13 @@
 body {
-
+    
 }
-#navBar-Start{
-
+#navBar-Start {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+    width: 30vw;
+    padding: 20px 15px; 
 }
 .sideNav {
     height: 100%;
@@ -59,8 +64,28 @@ body {
 
 
 #tjCompany {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: rgb(93, 199, 114)
 
 }
 #headerSection {
 
+
+}
+#signIn,
+#signUp {
+    border-radius: 85px;
+    background-color: rgb(59, 135, 202);
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+#signUp {
+    margin-left: 1000px;
+}
+
+#signIn {
+    margin-left: 5px;
 }

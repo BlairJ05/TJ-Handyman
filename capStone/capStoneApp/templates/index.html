@@ -10,6 +10,19 @@
 <body>
 
 <!--
+    Sign-In and Sign-Up Buttons
+-->
+
+    <button id="signUp">
+        <a href="{% url 'signUp' %}" style="text-decoration: none;color: aliceblue;">Sign-Up</a>
+    </button>
+
+    <button id="signIn">
+        <a href="{% url 'signIn' %}" style="text-decoration: none;color: aliceblue;">Sign-In</a>
+    </button>
+
+
+<!--
     This is the header-Section Add what we need Please
 -->
 
@@ -20,19 +33,10 @@
     </section>
 
     <!-- 
-        This Section is for the nav bar and signup/signin buttons 
+        This Section is for the nav bar
     -->
-
     <section id="navBar-Start">
         <div >
-
-            <button id="signUp">
-                <a href="{% url 'signUp' %}">Sign-Up</a>
-            </button>
-
-            <button id="signIn">
-                <a href="{% url 'signIn' %}">Sign-In</a>
-            </button>
                 <nav id="mySidenav" class="sideNav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <button><a href="">Assembly</a></button>
