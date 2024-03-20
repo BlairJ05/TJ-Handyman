@@ -20,8 +20,10 @@
     <button id="signIn">
         <a href="{% url 'signIn' %}" style="text-decoration: none;color: aliceblue;">Sign-In</a>
     </button>
-
-
+    <br>
+    <div>
+        <span id="openTab" style="font-size:30px;cursor:pointer;color:black" onclick="openNav()">&#9776; Open</span>
+    </div>
 <!--
     This is the header-Section Add what we need Please
 -->
@@ -31,6 +33,7 @@
             <h1 id="tjCompany">TJ's HandyMan Service</h1>
         </div>
     </section>
+    <hr>
 
     <!-- 
         This Section is for the nav bar
@@ -48,20 +51,20 @@
                     <button><a href="">Painting</a></button>
                     
                 </nav>
-                <span style="font-size:30px;cursor:pointer;color:black" onclick="openNav()">&#9776; open</span>
                     <script>
                         function openNav() {
-                        document.getElementById("mySidenav").style.width = "240px";
+                            document.getElementById("mySidenav").style.width = "240px";
                         }
                         
                         function closeNav() {
-                        document.getElementById("mySidenav").style.width = "0";
+                            document.getElementById("mySidenav").style.width = "0";
                         }
+                        // Initially hiding the nav bar
+                        document.getElementById("mySidenav").style.width = "0";
                 </script>
             </div>    
         </div>
     </section>
-    <hr>
 
 <!--
         This Section can be the carousel of pictures
@@ -112,8 +115,7 @@
             </h1>
         </div>
     </section>
-
-
+ 
 
 
 <!--
