@@ -16,7 +16,6 @@
 <!--
     Sign-In and Sign-Up Buttons
 -->
-<<<<<<< HEAD
     <div class='signIn_Container'>
         <div class='background1'>
             <button id="signUp">
@@ -31,22 +30,8 @@
         <br>
         </div>
     <div>
-        <span id="openTab" style="font-size:2vw;cursor:pointer;color:black" onclick="openNav()">&#9776; Open</span>
+        <span id="openTab" style="font-size:2vw;cursor:pointer;color:black" onclick="openNav()">&#9776; Menu</span>
     </div>
-=======
-
-<button id="signUp">
-    <a href="{% url 'signUp' %}" style="text-decoration: none;color: aliceblue;">Sign-Up</a>
-</button>
-
-<button id="signIn">
-    <a href="{% url 'signIn' %}" style="text-decoration: none;color: aliceblue;">Sign-In</a>
-</button>
-<br>
-<div>
-    <span id="openTab" style="font-size:30px;cursor:pointer;color:black" onclick="openNav()">&#9776; Menu</span>
-</div>
->>>>>>> e7e57ebf9ee544520d93287104004f00f50d080c
 <!--
     This is the header-Section Add what we need Please
 -->
@@ -58,7 +43,6 @@
 </section>
 <hr>
 
-<<<<<<< HEAD
     <!-- 
         This Section is for the nav bar
     -->
@@ -90,40 +74,6 @@
             </div>    
         </div>
     </section>
-=======
-<!-- 
-    This Section is for the nav bar
--->
-<section id="navBar-Start">
-    <div >
-        <nav id="mySidenav" class="sideNav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <button><a href="">Assembly</a></button>
-            <button><a href="">Mounting</a></button>
-            <button><a href="">Moving</a></button>
-            <button><a href="">Cleaning</a></button>
-            <button><a href="">Outdoor Help</a></button>
-            <button><a href="">Home Repairs</a></button>
-            <button><a href="">Painting</a></button>
-        </nav>
-        <script>
-            function openNav() {
-                document.getElementById("mySidenav").style.width = "240px";
-            }
-            
-            function closeNav() {
-                document.getElementById("mySidenav").style.width = "0";
-            }
-            document.getElementById("mySidenav").style.width = "0";
-
-            window.addEventListener('beforeunload', function () {
-                window.scrollTo(0, 0);
-            });
-        </script>
-    </div>    
-</div>
-</section>
->>>>>>> e7e57ebf9ee544520d93287104004f00f50d080c
 
 <!--
     This Section can be the carousel of pictures
