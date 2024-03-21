@@ -16,6 +16,7 @@
 <!--
     Sign-In and Sign-Up Buttons
 -->
+<<<<<<< HEAD
     <div class='signIn_Container'>
         <div class='background1'>
             <button id="signUp">
@@ -32,17 +33,32 @@
     <div>
         <span id="openTab" style="font-size:2vw;cursor:pointer;color:black" onclick="openNav()">&#9776; Open</span>
     </div>
+=======
+
+<button id="signUp">
+    <a href="{% url 'signUp' %}" style="text-decoration: none;color: aliceblue;">Sign-Up</a>
+</button>
+
+<button id="signIn">
+    <a href="{% url 'signIn' %}" style="text-decoration: none;color: aliceblue;">Sign-In</a>
+</button>
+<br>
+<div>
+    <span id="openTab" style="font-size:30px;cursor:pointer;color:black" onclick="openNav()">&#9776; Menu</span>
+</div>
+>>>>>>> e7e57ebf9ee544520d93287104004f00f50d080c
 <!--
     This is the header-Section Add what we need Please
 -->
 
-    <section id="headerSection">
-        <div>
-            <h1 id="tjCompany">TJ's HandyMan Service</h1>
-        </div>
-    </section>
-    <hr>
+<section id="headerSection">
+    <div>
+        <h1 id="tjCompany">TJ's HandyMan Service</h1>
+    </div>
+</section>
+<hr>
 
+<<<<<<< HEAD
     <!-- 
         This Section is for the nav bar
     -->
@@ -74,56 +90,89 @@
             </div>    
         </div>
     </section>
+=======
+<!-- 
+    This Section is for the nav bar
+-->
+<section id="navBar-Start">
+    <div >
+        <nav id="mySidenav" class="sideNav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <button><a href="">Assembly</a></button>
+            <button><a href="">Mounting</a></button>
+            <button><a href="">Moving</a></button>
+            <button><a href="">Cleaning</a></button>
+            <button><a href="">Outdoor Help</a></button>
+            <button><a href="">Home Repairs</a></button>
+            <button><a href="">Painting</a></button>
+        </nav>
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "240px";
+            }
+            
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+            document.getElementById("mySidenav").style.width = "0";
+
+            window.addEventListener('beforeunload', function () {
+                window.scrollTo(0, 0);
+            });
+        </script>
+    </div>    
+</div>
+</section>
+>>>>>>> e7e57ebf9ee544520d93287104004f00f50d080c
 
 <!--
-        This Section can be the carousel of pictures
-
+    This Section can be the carousel of pictures
 -->
 
-    <section>
-        <div id="spinningPictures">
-            <ul>
-                <img src="">
-                <img src="">
-                <img src="">
-            </ul>
-        </div>
-    </section>
+<section>
+    <div id="spinningPictures">
+        <ul>
+            <img src="">
+            <img src="">
+            <img src="">
+        </ul>
+    </div>
+</section>
 
 <!--
     this can be the Section can be the body
 -->
 
-    <section>
-        <div>
-            <h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </h1>
-            <pre>
-                Lorem ipsum dolor sit amet consectetur adipisicing 
-                elit. Impedit, sequi. Odit aliquam amet quo voluptas 
-                tempora!
-                Lorem ipsum dolor, sit amet consectetur 
-                adipisicing elit. Ab, a. Sed natus a obcaecati 
-                error? Culpa incidunt repudiandae est quam in aperiam nesciunt.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Debitis, laudantium ut eveniet error nobis quis odit tempore.
-                Aspernatur, temporibus. Ipsam ipsum qui iusto! Odio ducimus voluptatum eligendi ab, error itaque.
-            </pre>
-        </div>
-    </section>
+<section>
+    <div>
+        <h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </h1>
+        <pre>
+            Lorem ipsum dolor sit amet consectetur adipisicing 
+            elit. Impedit, sequi. Odit aliquam amet quo voluptas 
+            tempora!
+            Lorem ipsum dolor, sit amet consectetur 
+            adipisicing elit. Ab, a. Sed natus a obcaecati 
+            error? Culpa incidunt repudiandae est quam in aperiam nesciunt.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Debitis, laudantium ut eveniet error nobis quis odit tempore.
+            Aspernatur, temporibus. Ipsam ipsum qui iusto! Odio ducimus voluptatum eligendi ab, error itaque.
+        </pre>
+    </div>
+</section>
 
 <!--
     This Section will be the reviews for customers
 -->
 
-    <section>
-        <div>
-            <h1>
-                Please Leave A Review
-            </h1>
-        </div>
-    </section>
+<section>
+    <div>
+        <h1>
+            Please Leave A Review
+        </h1>
+    </div>
+</section>
  
 
 
@@ -131,17 +180,18 @@
     This can be the Footer
 -->
 
-    <section>
-        <div>
-            <footer>
-                <h3>
-                    Contact Me!
-                </h3>
-                <pre>
-                    <a href="228-363-3068">228-363-3068</a><p>OR at <a href="">505 Oxford Blv</a></p>
-                </pre>
-            </footer>
-        </div>
-    </section>
+<section>
+    <div>
+        <footer>
+            <h3>
+                Contact Me!
+            </h3>
+            <pre>
+                <a href="tel:228-363-3068">228-363-3068</a><p>OR at <a href="">505 Oxford Blv</a></p>
+            </pre>
+        </footer>
+    </div>
+</section>
+
 </body>
 </html>
