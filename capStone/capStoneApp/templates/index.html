@@ -2,6 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alike&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cambo&amp;display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
@@ -9,6 +13,25 @@
 </head>
 <body>
 
+<!--
+    Sign-In and Sign-Up Buttons
+-->
+    <div class='signIn_Container'>
+        <div class='background1'>
+            <button id="signUp">
+                <a href="{% url 'signUp' %}" style="text-decoration: none;color: white;">Sign-Up</a>
+            </button>
+        </div>
+        <div class="background2">
+            <button id="signIn">
+                <a href="{% url 'signIn' %}" style="text-decoration: none;color: white;">Log-In</a>
+            </button>
+        </div>
+        <br>
+        </div>
+    <div>
+        <span id="openTab" style="font-size:2vw;cursor:pointer;color:black" onclick="openNav()">&#9776; Open</span>
+    </div>
 <!--
     This is the header-Section Add what we need Please
 -->
@@ -18,21 +41,13 @@
             <h1 id="tjCompany">TJ's HandyMan Service</h1>
         </div>
     </section>
+    <hr>
 
     <!-- 
-        This Section is for the nav bar and signup/signin buttons 
+        This Section is for the nav bar
     -->
-
     <section id="navBar-Start">
         <div >
-
-            <button id="signUp">
-                <a href="">Sign-Up</a>
-            </button>
-
-            <button id="signIn">
-                <a href="">Sign-In</a>
-            </button>
                 <nav id="mySidenav" class="sideNav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <button><a href="">Assembly</a></button>
@@ -44,20 +59,21 @@
                     <button><a href="">Painting</a></button>
                     
                 </nav>
-                <span class="open_nav" style="font-size:30px;cursor:pointer;color:black;position:relative" onclick="openNav()">&#9776; open</span>
+
                     <script>
                         function openNav() {
-                        document.getElementById("mySidenav").style.width = "250px";
+                            document.getElementById("mySidenav").style.width = "240px";
                         }
                         
                         function closeNav() {
-                        document.getElementById("mySidenav").style.width = "0";
+                            document.getElementById("mySidenav").style.width = "0";
                         }
+                        // Initially hiding the nav bar
+                        document.getElementById("mySidenav").style.width = "0";
                 </script>
             </div>    
         </div>
     </section>
-    <hr>
 
 <!--
         This Section can be the carousel of pictures
@@ -108,8 +124,7 @@
             </h1>
         </div>
     </section>
-
-
+ 
 
 
 <!--

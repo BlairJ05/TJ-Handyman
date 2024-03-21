@@ -1,8 +1,12 @@
 body {
-
+    
 }
-#navBar-Start{
-
+#navBar-Start {
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+    width: 30vw;
+    padding: 20px 15px; 
 }
 .sideNav {
     height: 100%;
@@ -28,11 +32,89 @@ body {
 }
 .sideNav button{
   background-color: rgb(4, 168, 233);
-  border-top-right-radius: 1.5vw;
-  border-bottom-right-radius: 1.5vw;
-  margin-bottom: .1vw;
+  border-top-right-radius: 1vw;
+  border-bottom-right-radius: 1vw;
+  margin-bottom: .2vw;
   border-color: rgb(18, 19, 29);
 
+}
+@property --gradient-angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes rotation{
+  0% { --gradient-angle: 0deg;}
+  100% { --gradient-angle: 350deg}
+}
+:root{
+  --clr-1:rgb(191, 246, 250);
+  --clr-2:rgb(151, 250, 245);
+  --clr-3:rgb(158, 217, 247);
+  --clr-4:rgb(73, 128, 152);
+  --clr-5:rgb(27, 78, 144);
+  
+}
+.background1::before,
+.background1::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:  linear-gradient(
+    var(--gradient-angle),
+    var(--clr-3),
+    var(--clr-4),
+    var(--clr-5));
+  border-radius: inherit;
+  animation: rotation 3s linear infinite;
+  z-index: -1;
+}
+
+.background1{
+  cursor: pointer;
+  border-radius: 15px;
+  position: relative;
+  top: 3vw;
+  right: 4.5vw;
+  transition: all 0.35s;
+  
+
+}
+.background2::before,
+.background2::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:  linear-gradient(
+    var(--gradient-angle),
+    var(--clr-3),
+    var(--clr-4),
+    var(--clr-5));
+  border-radius: inherit;
+  animation: rotation 5s linear infinite;
+  z-index: -1;
+}
+.background1:hover{
+  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+.background2:hover{
+  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+.background1:hover, #signOut{
+  scale:1;
+  border-radius: 12px;
+}
+.background2:hover, #signIn{
+  scale:1;
+  border-radius: 12px;
+}
+.background2{
+  cursor: pointer;
+  border-radius: 16px;
+  position: relative;
+  top: 3vw;
+  right: 2.5vw;
+  transition: all 0.35s;
 }
 .sideNav button:hover{
   transform: scale(1.1);
@@ -59,8 +141,50 @@ body {
 
 
 #tjCompany {
+    position: relative;
+    font-family: "Cambo", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    font-size: 6vw;
+    color: rgb(16, 26, 134);
+    top: -1vw;
+    letter-spacing: .5vw;
+
 
 }
 #headerSection {
 
+
+}
+#signIn,
+#signUp {
+  height: 100%;
+  border-radius: 12px;
+  background-color: rgba(1, 0, 75, 0.458);
+  padding: 10px;
+  font-size: 1.5vw;
+  text-align: center;
+  border-color: transparent;
+
+
+
+}
+.signIn_Container{
+  display: flex;
+  justify-content: end;
+}
+
+
+#signUp:hover {
+  transform: scale(.97);
+}
+
+#signIn:hover {
+  transform: scale(.97);
+}
+#openTab {
+    position: relative;
+    top: -1vw;
+    left: 3vw;
 }
