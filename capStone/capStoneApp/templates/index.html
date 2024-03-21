@@ -12,26 +12,35 @@
     <title>TJ HandyMan Service</title>
 </head>
 <body>
-
-<!--
-    Sign-In and Sign-Up Buttons
--->
     <div class='signIn_Container'>
         <div class='background1'>
+            {% if user.is_authenticated %}
+            <div>
+                <span style="color:whitesmoke;font-size: x-large;">{{ user.username }}</span>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'signOut' %}">Sign Out</a></li>
+                </ul>
+            </div>
+            {% else %}
             <button id="signUp">
                 <a href="{% url 'signUp' %}" style="text-decoration: none;color: white;">Sign-Up</a>
             </button>
+            {% endif %}
         </div>
         <div class="background2">
+            {% if user.is_authenticated %}
+            {% else %}
             <button id="signIn">
                 <a href="{% url 'signIn' %}" style="text-decoration: none;color: white;">Log-In</a>
             </button>
+            {% endif %}
         </div>
         <br>
-        </div>
+    </div>
     <div>
         <span id="openTab" style="font-size:2vw;cursor:pointer;color:black" onclick="openNav()">&#9776; Menu</span>
     </div>
+
 <!--
     This is the header-Section Add what we need Please
 -->
@@ -70,6 +79,9 @@
                         }
                         // Initially hiding the nav bar
                         document.getElementById("mySidenav").style.width = "0";
+                        window.addEventListener('beforeunload', function () {
+                            window.scrollTo(0, 0);
+                        });
                 </script>
             </div>    
         </div>
