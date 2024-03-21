@@ -45,12 +45,12 @@ body {
 }
 @keyframes rotation{
   0% { --gradient-angle: 0deg;}
-  100% { --gradient-angle: 350deg}
+  100% { --gradient-angle: 360deg}
 }
 :root{
   --clr-1:rgb(191, 246, 250);
   --clr-2:rgb(151, 250, 245);
-  --clr-3:rgb(158, 217, 247);
+  --clr-3:rgb(177, 204, 217);
   --clr-4:rgb(73, 128, 152);
   --clr-5:rgb(27, 78, 144);
   
@@ -76,7 +76,7 @@ body {
   position: relative;
   top: 3vw;
   right: 4.5vw;
-  transition: all 0.35s;
+  transition: all 0.5s;
   
 
 }
@@ -147,9 +147,10 @@ body {
     font-style: normal;
     text-align: center;
     font-size: 6vw;
-    color: rgb(16, 26, 134);
+    color: rgb(30, 39, 115);
     top: -1vw;
     letter-spacing: .5vw;
+    text-shadow: 2px 5px 10px black;
 
 
 }
