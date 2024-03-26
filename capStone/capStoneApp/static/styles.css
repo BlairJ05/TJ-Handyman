@@ -80,8 +80,6 @@ body {
   top: 0vw;
   right: 4.5vw;
   transition: all 0.5s;
-  
-
 }
 .background2::before,
 .background2::after{
@@ -260,6 +258,3 @@ body {
   color: rgb(6, 127, 193);
   font-size: 5vw;
 }
-
-
-/*////////////////////// Sign-In Html \\\\\\\\\\\\\\\\\\\\\\\\\*/
