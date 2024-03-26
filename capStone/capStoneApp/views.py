@@ -57,7 +57,7 @@ def Carpenter(request):
 def Home_Repairs(request):
     return render(request, 'Home_Repairs.html')
 
-def Instulation(request):
+def Installation(request):
     return render(request, 'Instulation.html')
 
 def More_About_Me(request):
