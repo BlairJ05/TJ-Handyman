@@ -11,43 +11,44 @@
     <title>TJ HandyMan Service</title>
 </head>
 <body>
-    <div class='signIn_Container'>
-        <div class='background1'>
-            {% if user.is_authenticated %}
-            <div>
-                <span style="color:whitesmoke;font-size: x-large;">{{ user.username }}</span>
-                <ul class="dropdown-menu">
-                    <li><a href="{% url 'signOut' %}">Sign Out</a></li>
-                </ul>
+    <section id="headerSection">
+        <div class='signIn_Container'>
+            <div class='background1'>
+                {% if user.is_authenticated %}
+                <div>
+                    <span style="color:whitesmoke;font-size: x-large;">{{ user.username }}</span>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'signOut' %}">Sign Out</a></li>
+                    </ul>
+                </div>
+                {% else %}
+                <button id="signUp">
+                    <a href="{% url 'signUp' %}" style="text-decoration: none;color: white;">Register</a>
+                </button>
+                {% endif %}
             </div>
-            {% else %}
-            <button id="signUp">
-                <a href="{% url 'signUp' %}" style="text-decoration: none;color: white;">Register</a>
-            </button>
-            {% endif %}
+            <div class="background2">
+                {% if user.is_authenticated %}
+                {% else %}
+                <button id="signIn">
+                    <a href="{% url 'signIn' %}" style="text-decoration: none;color: white;">Log-In</a>
+                </button>
+                {% endif %}
+            </div>
+            <br>
         </div>
-        <div class="background2">
-            {% if user.is_authenticated %}
-            {% else %}
-            <button id="signIn">
-                <a href="{% url 'signIn' %}" style="text-decoration: none;color: white;">Log-In</a>
-            </button>
-            {% endif %}
+        <div>
+            <span id="openTab" style="font-size:2vw;cursor:pointer;color:rgb(29, 149, 240)" onclick="openNav()">&#9776; Menu</span>
         </div>
-        <br>
-    </div>
-    <div>
-        <span id="openTab" style="font-size:2vw;cursor:pointer;color:rgb(29, 149, 240)" onclick="openNav()">&#9776; Menu</span>
-    </div>
 
-<!--
-    This is the header-Section Add what we need Please
--->
+    <!--
+        This is the header-Section Add what we need Please
+    -->
 
-<section id="headerSection">
-    <div>
-        <h1 id="tjCompany">TJ's HandyMan Service</h1>
-    </div>
+
+        <div>
+            <h1 id="tjCompany">TJ's HANDYMAN SERVICE</h1>
+        </div>
 </section>
 <hr>
 
@@ -57,7 +58,7 @@
     <section id="navBar-Start">
         <div >
                 <nav id="mySidenav" class="sideNav">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="javascript:void(0)" class="closebtn" style="position: absolute;top:2vw;" onclick="closeNav()">&times;</a>
                     <button><a href="">Assembly</a></button>
                     <button><a href="">Moving/Hauling</a></button>
                     <button><a href="">Instulation</a></button>
