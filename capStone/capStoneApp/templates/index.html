@@ -15,11 +15,10 @@
         <div class='signIn_Container'>
             <div class='background1'>
                 {% if user.is_authenticated %}
-                <div>
-                    <span style="color:whitesmoke;font-size: x-large;">{{ user.username }}</span>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'signOut' %}">Sign Out</a></li>
-                    </ul>
+                <div class="signOutBackground">
+                    <div>
+                        <a href="{% url 'signOut' %}" style="text-decoration: none;color: aliceblue;">Sign Out</a>
+                    </div>
                 </div>
                 {% else %}
                 <button id="signUp">
@@ -40,16 +39,11 @@
         <div>
             <span id="openTab" style="font-size:2vw;cursor:pointer;color:rgb(29, 149, 240)" onclick="openNav()">&#9776; Menu</span>
         </div>
-
-    <!--
-        This is the header-Section Add what we need Please
-    -->
-
-
         <div>
             <h1 id="tjCompany">TJ's HANDYMAN SERVICE</h1>
         </div>
-</section>
+    </section>
+    
 <hr>
 
     <!-- 

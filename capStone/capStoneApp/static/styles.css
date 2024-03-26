@@ -80,8 +80,6 @@ body {
   top: 0vw;
   right: 4.5vw;
   transition: all 0.5s;
-  
-
 }
 .background2::before,
 .background2::after{
@@ -259,4 +257,17 @@ body {
   justify-content: center;
   color: rgb(6, 127, 193);
   font-size: 5vw;
+}
+
+.signOutBackground {
+  background-color: rgba(1, 0, 75, 0.458);
+  padding: 10px; 
+  border-radius: 12px; 
+  color: white; 
+  font-size: 1.5vw;
+  text-align: center; 
+  border-color: transparent;
+  z-index: 1;
+  top: 1vw;
+  height: 100%;
 }
