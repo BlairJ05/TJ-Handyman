@@ -257,7 +257,6 @@ body {
   color: rgb(6, 127, 193);
   font-size: 5vw;
 }
-<<<<<<< HEAD
 
 /* //////////////////////////////// Services \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 /* Container 1 */
@@ -373,16 +372,3 @@ body {
 .box{
   display: block;
 }
-=======
-.signOutBackground {
-  background-color: rgba(1, 0, 75, 0.458); 
-  padding: 12px;
-  border-radius: 12px;
-  color: white; 
-  font-size: 1.5vw; 
-  text-align: center; 
-  border-color: transparent; 
-  z-index: 1;
-  top: 1vw;
-}
->>>>>>> 1718b8aa381960e8efefb8a21d1299c74069abc6
