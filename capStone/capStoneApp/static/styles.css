@@ -1,6 +1,5 @@
 body {
   background-color: #000000;
-    
 }
 /* #navBar-Start {
     top: 0;
@@ -257,4 +256,119 @@ body {
   justify-content: center;
   color: rgb(6, 127, 193);
   font-size: 5vw;
+}
+
+/* //////////////////////////////// Services \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+/* Container 1 */
+.container{
+  display: flex;
+  max-width: 90%;
+  max-height: 20vw;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  position: relative;
+  left: 5vw;
+}
+
+.container img{
+  width: 40vw;
+  height: 20vw;
+  transition: .5s ease;
+}
+.container img:hover{
+  
+  box-shadow: 0 0 20px 3px white;
+}
+.container p{
+  height:auto;
+  width: 35vw;
+  font-size: 15pt;
+  color: #fff;
+  position: relative;
+  left: 8vw;
+  margin-right: 0vw;
+  margin-left: 1vw;
+  line-height: 2.5vw;
+  text-align: center;
+  padding: 18px 20px 18px 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+/* Container 2 */
+.container2{
+  position: relative;
+  display: flex;
+  max-width: 90%;
+  max-height: 20vw;
+  align-items: center;
+  margin-top: 200px;
+  margin-bottom: 100px;
+  align-items: center;
+  flex-wrap: wrap;
+  right: 5vw;
+}
+.container2 p{
+  height:auto;
+  width: 35vw;
+  font-size: 15pt;
+  color: #fff;
+  position: relative;
+  line-height: 2.5vw;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  transform: translateX(-95%);
+  margin-right: 0vw;
+  margin-left: 1vw;
+  padding: 18px 20px 18px 20px;
+}
+.container2 img{
+  position: relative;
+  width: 40vw;
+  height: 20vw;
+  transform: translateX(133%);
+  margin: 30px;
+  transition: .5s ease;
+}
+.container2 img:hover{
+  box-shadow: 0 0 20px 3px white;
+}
+/* Container 3 */
+.container3{
+  display: flex;
+  max-width: 90%;
+  max-height: 20vw;
+  align-items: center;
+  margin-top: 200px;
+  margin-bottom: 100px;
+  position: relative;
+  left: 5vw;
+}
+.container3 img{
+  width: 40vw;
+  height: 20vw;
+  transition: .5s ease;
+}
+.container3 img:hover{
+  
+  box-shadow: 0 0 20px 3px white;
+}
+.container3 p{
+  height:auto;
+  width: 35vw;
+  font-size: 15pt;
+  color: #fff;
+  position: relative;
+  left: 8vw;
+  margin-right: 0vw;
+  margin-left: 1vw;
+  line-height: 2.5vw;
+  text-align: center;
+  padding: 18px 20px 18px 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.box{
+  display: block;
 }

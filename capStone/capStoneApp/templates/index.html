@@ -20,17 +20,10 @@
                         <a href="{% url 'signOut' %}" style="text-decoration: none;color: aliceblue;">Sign Out</a>
                     </div>
                 </div>
-                {% else %}
-                <button id="signUp">
-                    <a href="{% url 'signUp' %}" style="text-decoration: none;color: white;">Register</a>
-                </button>
-                {% endif %}
-            </div>
-            <div class="background2">
-                {% if user.is_authenticated %}
+
                 {% else %}
                 <button id="signIn">
-                    <a href="{% url 'signIn' %}" style="text-decoration: none;color: white;">Log-In</a>
+                    <a href="{% url 'signIn' %}" style="text-decoration: none;color: white;">Login/Sign-Up</a>
                 </button>
                 {% endif %}
             </div>
@@ -98,8 +91,21 @@
 <!--
     this can be the Section can be the body
 -->
-<h1 class="services">Services</h1>
-<div class="card-container">
+ <h1 class="services">Services</h1>
+ <div class='box'>
+    <div class="container">
+        <a href='https://www.facebook.com/permalink.php?story_fbid=pfbid0XtNmTU4e25G3jjy7odBguBbnxQh3wKAN3CMUdhQ69cVC8GVitmTsNouaVXwKwsf3l&amp;id=100077259941510' target="_blank"><img src="static/images/ManCave_after.jpg"></a>
+        <p>From this empty room my crew and I install the insulation, drywall, painting, staining the floor, installing cabinets, custom fitted countertops, backsplash, floating shelves, installing TV, furniture, handles on cabinets, small AC unit, baseboard, door trim, installing new fan, installing and cutting out sink, and etc. </p>
+    </div>
+    <div class="container2">
+        <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0wdJBrhm8uL8hbJdeVDRGYUMFRTxJxkQnKVet52Y1Nk38dn9vKVqJ7cmyBu7XZUVml&amp;id=100077259941510" target="_blank"><img src="static/images/paint_porch_after.jpg"></a>
+        <p>From this empty room my crew and I install the insulation, drywall, painting, staining the floor, installing cabinets, custom fitted countertops, backsplash, floating shelves, installing TV, furniture, handles on cabinets, small AC unit, baseboard, door trim, installing new fan, installing and cutting out sink, and etc. </p>
+    </div>
+    <div class="container3">
+        <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0pmt5qCHGZv1ckD6M5qLrerBEd37Ad4Y2VkynqEVC3dAmRwqTrCE4r7UyQKo5pWezl&amp;id=100077259941510" target="_blank"><img src="static/images/installing_sink_shelf_after.jpg"></a>
+        <p>From this empty room my crew and I install the insulation, drywall, painting, staining the floor, installing cabinets, custom fitted countertops, backsplash, floating shelves, installing TV, furniture, handles on cabinets, small AC unit, baseboard, door trim, installing new fan, installing and cutting out sink, and etc. </p>
+    </div>
+{% comment %}<div class="card-container">
     <div class="card">
         <img src="static/images/handyman.png">
         <div class="content">
@@ -164,8 +170,8 @@
             <a href="{% url  'More_About_Me'%}">Read More</a>
         </div>
     </div>
-</div>
-<section>
+</div> {% endcomment %}
+{% comment %} <section>
     <div>
         <h1 style="color:white;">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -182,7 +188,7 @@
             Aspernatur, temporibus. Ipsam ipsum qui iusto! Odio ducimus voluptatum eligendi ab, error itaque.
         </pre>
     </div>
-</section>
+</section> {% endcomment %}
 
 <!--
     This Section will be the reviews for customers
