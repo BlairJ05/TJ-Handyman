@@ -6,9 +6,17 @@ from django.contrib.auth import logout
 from django.contrib.auth.forms import AuthenticationForm
 
 
+def Request(request):
+    return render(request, 'request_a_project.html')
+
+def gallery(request):
+    return render(request, 'gallery.html')
+
 def index(request):
     return render(request, 'index.html')
 
+def pricing(request):
+    return render(request, 'pricing.html')
 
 def signUp(request):
     return render(request, 'signUp.html')
@@ -22,7 +30,7 @@ def signIn(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('index')  # Redirect to the index page after successful login
+                return redirect('index') 
     else:
         form = AuthenticationForm()
     return render(request, 'signIn.html', {'form': form})
@@ -71,3 +79,5 @@ def Outdoor_Help(request):
 
 def Painting(request):
     return render(request, 'Painting.html')
+
+

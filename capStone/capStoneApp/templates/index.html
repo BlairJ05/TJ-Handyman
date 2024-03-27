@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'navBar.css' %}">
     <title>TJ HandyMan Service</title>
 </head>
 <body>
@@ -42,42 +43,47 @@
         <div>
             <h1 id="tjCompany">TJ's HANDYMAN SERVICE</h1>
         </div>
-    </section>
-    
-<hr>
-
-    <!-- 
-        This Section is for the nav bar
+    </section>  
+    <hr>
+    <!--
+        If You Could make this bar Horizontal. Thank You
     -->
+    <nav class="startingNavBar">
+        <ul>
+            <li><a href="{% url 'index' %}"><h1 id="home">Home</h1></a></li>
+            <li><a href="{% url 'pricing' %}"><h1 id="pricing">Pricing</h1></a></li>
+            <li><a href="#reviews"><h1 id="Review">Reviews</h1></a></li>
+            <li><a href="{% url 'gallery' %}"><h1 id="gallery">Gallery</h1></a></li>
+            <li><a href="{% url 'request_a_project' %}"><h1 id="request_a_project">Request a Project</h1></a></li>
+        </ul>
+        
+    </nav>
+
     <section id="navBar-Start">
         <div >
-                <nav id="mySidenav" class="sideNav">
-                    <a href="javascript:void(0)" class="closebtn" style="position: absolute;top:2vw;" onclick="closeNav()">&times;</a>
-                    <button><a href="{% url 'Assembly'%}">Assembly</a></button>
-                    <button><a href="{% url 'Moving'%}">Moving/Hauling</a></button>
-                    <button><a href="{% url 'Installation'%}">Installation</a></button>
-                    <button><a href="{% url 'Outdoor_Help'%}">Outdoor Help</a></button>
-                    <button><a href="{% url 'Home_Repairs'%}">Home Repairs</a></button>
-                    <button><a href="{% url 'Painting'%}">Painting/Stain</a></button>
-                    <button><a href="{% url 'Carpenter'%}">Carpenter Work</a></button>
-                    
-                </nav>
-
-                    <script>
-                        function openNav() {
-                            document.getElementById("mySidenav").style.width = "240px";
-                        }
-                        
-                        function closeNav() {
-                            document.getElementById("mySidenav").style.width = "0";
-                        }
-                        // Initially hiding the nav bar
-                        document.getElementById("mySidenav").style.width = "0";
-                        window.addEventListener('beforeunload', function () {
-                            window.scrollTo(0, 0);
-                        });
-                </script>
-            </div>    
+            <nav id="mySidenav" class="sideNav">
+                <a href="javascript:void(0)" class="closebtn" style="position: absolute;top:2vw;" onclick="closeNav()">&times;</a>
+                <button><a href="{% url 'Assembly'%}">Assembly</a></button>
+                <button><a href="{% url 'Moving'%}">Moving/Hauling</a></button>
+                <button><a href="{% url 'Installation'%}">Installation</a></button>
+                <button><a href="{% url 'Outdoor_Help'%}">Outdoor Help</a></button>
+                <button><a href="{% url 'Home_Repairs'%}">Home Repairs</a></button>
+                <button><a href="{% url 'Painting'%}">Painting/Stain</a></button>
+                <button><a href="{% url 'Carpenter'%}">Carpenter Work</a></button>
+            </nav>
+            <script>
+                function openNav() {
+                    document.getElementById("mySidenav").style.width = "240px";
+                }
+                function closeNav() {
+                    document.getElementById("mySidenav").style.width = "0";
+                }
+                document.getElementById("mySidenav").style.width = "0";
+                window.addEventListener('beforeunload', function () {
+                    window.scrollTo(0, 0);
+                });
+            </script>
+        </div>
         </div>
     </section>
 
@@ -188,7 +194,7 @@
     This Section will be the reviews for customers
 -->
 
-<section>
+<section id="reviews">
     <div>
         <h1 style="color:white;">
             Please Leave A Review
