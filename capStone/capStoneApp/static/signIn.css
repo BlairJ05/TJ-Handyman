@@ -10,16 +10,16 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #06243c;
+  background: #000000;
 }
 .wrapper{
     position: relative;
     width: 750px;
     height: 450px;
     background: transparent;
-    border: 2px solid rgb(21, 228, 255);
+    border: 2px solid rgb(17, 184, 244);
     overflow: hidden;
-    box-shadow: 0 0 25px rgb(21, 228, 255);
+    box-shadow: 0 0 25px rgb(17, 184, 244);
 }
 .wrapper .container{
     position: absolute;
@@ -95,12 +95,23 @@ body {
     font-weight: 500;
     transition: .5s;
     padding-right: 23px;
-
-
+}
+.container input:active{
+    background: transparent;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px rgb(0, 0, 0) inset !important;
+}
+input:-webkit-autofill{
+    -webkit-text-fill-color: white !important;
 }
 .container input:focus,
 .container input:valid{
-    border-bottom-color: rgb(21, 228, 255);
+    border-bottom-color: rgb(17, 184, 244);
+    background-color: transparent;
 }
 .container label{
     position: absolute;
@@ -116,7 +127,7 @@ body {
 .container input:focus~label,
 .container input:valid~label{
     top: -5px;
-    color: rgb(21, 228, 255);
+    color: rgb(17, 184, 244);
 }
 .container i{
     position: absolute;
@@ -128,14 +139,14 @@ body {
 }
 .container input:focus~i,
 .container input:valid~i{
-    color: rgb(21, 228, 255);
+    color: rgb(17, 184, 244);
 }
 .btn{
     position: relative;
     width: 100%;
     height: 45px;
     background: transparent;
-    border: 2px solid rgb(21, 228, 255) ;
+    border: 2px solid rgb(17, 184, 244) ;
     outline: none;
     border-radius: 40px;
     cursor: pointer;
@@ -152,7 +163,7 @@ body {
     left: 0;
     width: 100%;
     height: 300%;
-    background: linear-gradient(#081b29, rgb(21, 228, 255),#081b29, rgb(21, 228, 255));
+    background: linear-gradient(#081b29, rgb(17, 184, 244),#081b29, rgb(17, 184, 244));
     z-index: -1;
     transition: .5s;
 }
@@ -167,7 +178,7 @@ body {
     margin: 20px 0px 10px;
 }
 .logreg-link p a{
-    color: rgb(21, 228, 255);
+    color: rgb(17, 184, 244);
     text-decoration: none;
     font-weight: 600;
 }
@@ -241,8 +252,8 @@ body {
     right: 0;
     width: 850px;
     height: 600px;
-    border-bottom: 3px solid rgb(21, 228, 255);
-    background: linear-gradient(45deg,#06243c, rgb(21, 228, 255));
+    border-bottom: 3px solid rgb(17, 184, 244);
+    background: linear-gradient(45deg,#010101, rgb(17, 184, 244));
     transform: rotate(10deg) skewY(40deg);
     transition: 1.5s ease;
     transform-origin: bottom right;
@@ -260,8 +271,8 @@ body {
     left: 250px;
     width: 850px;
     height: 700px;
-    border-top: 3px solid rgb(21, 228, 255);
-    background: #06243c;
+    border-top: 3px solid rgb(17, 184, 244);
+    background: #000000;
     transition: 1.5s ease;
     transform: rotate(0) skewY(0);
     transform-origin: bottom left;
