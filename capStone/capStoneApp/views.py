@@ -5,7 +5,6 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.forms import AuthenticationForm
 
-
 def Request(request):
     return render(request, 'request_a_project.html')
 
@@ -22,33 +21,35 @@ def signUp(request):
     return render(request, 'signUp.html')
 
 def signIn(request):
-    if request.method == 'POST':
-        form = AuthenticationForm(request, request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('index') 
-    else:
-        form = AuthenticationForm()
-    return render(request, 'signIn.html', {'form': form})
+    password_error = False
 
-def signUp(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('signIn')
-    else:
-        form = UserCreationForm()
-    return render(request, 'signUp.html', {'form': form})
+        if 'signin' in request.POST:
+            form = AuthenticationForm(request, request.POST)
+            if form.is_valid():
+                username = form.cleaned_data.get('username')
+                password = form.cleaned_data.get('password')
+                user = authenticate(username=username, password=password)
+                if user is not None:
+                    login(request, user)
+                    return redirect('index')
+        elif 'signup' in request.POST:
+            form = UserCreationForm(request.POST)
+            if form.is_valid():
+                if form.cleaned_data['password1'] != form.cleaned_data['password2']:
+                    password_error = True
+                else:
+                    form.save()
+                    username = form.cleaned_data.get('username')
+                    password = form.cleaned_data.get('password1')
+                    user = authenticate(username=username, password=password)
+                    if user is not None:
+                        login(request, user)
+                        return redirect('index')
+
+    form_signin = AuthenticationForm()
+    form_signup = UserCreationForm()
+    return render(request, 'signIn.html', {'form_signin': form_signin, 'form_signup': form_signup, 'password_error': password_error})
 
 
 def signOut(request):
