@@ -14,7 +14,6 @@
 <body>
     <section id="headerSection">
         <div class='signIn_Container'>
-            <div class='background1'>
                 {% if user.is_authenticated %}
                 <div class="signOutBackground">
                     <div>
@@ -27,8 +26,6 @@
                     <a href="{% url 'signIn' %}" style="text-decoration: none;color: white;">Login/Sign-Up</a>
                 </button>
                 {% endif %}
-            </div>
-            <br>
         </div>
         <div>
             <span id="openTab" style="font-size:2vw;cursor:pointer;color:rgb(29, 149, 240)" onclick="openNav()">&#9776; Menu</span>

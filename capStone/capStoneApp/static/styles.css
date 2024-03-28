@@ -1,5 +1,5 @@
 body {
-  background-color: #000000;
+  background-color: #ffffff;
 }
 /* #navBar-Start {
     top: 0;
@@ -38,8 +38,8 @@ body {
   border-color: rgb(18, 19, 29);
   box-shadow: 5px, 5px, 50px white;
   border-style: none;
-
 }
+/* 
 @property --gradient-angle{
   syntax: "<angle>";
   initial-value: 0deg;
@@ -56,8 +56,8 @@ body {
   --clr-4:rgb(41, 155, 204);
   --clr-5:rgb(8, 123, 206);
   
-}
-.background1::before,
+} */
+/* .background1::before,
 .background1::after{
   content: "";
   position: absolute;
@@ -70,9 +70,9 @@ body {
   border-radius: inherit;
   animation: rotation 3s linear infinite;
   z-index: -1;
-}
+} */
 
-.background1{
+/* .background1{
   cursor: pointer;
   border-radius: 15px;
   position: relative;
@@ -93,8 +93,8 @@ body {
   border-radius: inherit;
   animation: rotation 5s linear infinite;
   z-index: -1;
-}
-.background1:hover{
+} */
+/* .background1:hover{
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
 }
 .background2:hover{
@@ -107,21 +107,21 @@ body {
 .background2:hover, #signIn{
   scale:1;
   border-radius: 12px;
-}
-.background2{
+} */
+/* .background2{
   cursor: pointer;
   border-radius: 16px;
   position: relative;
   top: 0vw;
   right: 2.5vw;
   transition: all 0.35s;
-}
+} */
 .sideNav button:hover{
   transform: scale(1.1);
   box-shadow: 0px, 0px, 50px white;
   
 }
-.card-container{
+/* .card-container{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -166,7 +166,7 @@ body {
   background-color: #fff;
   color: #1565c0;
   margin-bottom: 10px;
-}
+} */
 .sideNav a:hover{
     color: #6dcaff;
     text-shadow: #d6f7fb;
@@ -201,7 +201,6 @@ body {
     font-size: 2vw;
     color: rgb(6, 127, 193);
     letter-spacing: 2px;
-    text-shadow: 1px 2px 5px rgb(79, 3, 255);
     bottom:3.5vw;
     width: fit-content;
     left: 35vw;
@@ -214,18 +213,19 @@ body {
 
 #signIn,
 #signUp {
-
+  color: #000;
   height: 100%;
   border-radius: 12px;
-  background-color: rgba(1, 0, 75, 0.458);
+  /* background-color: rgba(1, 0, 75, 0.458); */
   padding: 10px;
   font-size: 1.5vw;
   text-align: center;
   border-color: transparent;
   z-index: 1;
   top: 1vw;
-
-
+}
+#signIn a{
+  color: #000000;
 }
 .signIn_Container{
   display: flex;
@@ -233,13 +233,23 @@ body {
   position: relative;
   height:3.5vw;
   top: 1vw;
+  color: #000;
+}
+.signIn_Container a{
+  color: #000;
+}
+#signIn button a{
+  color: #000;
+}
+#signIn button{
+  color: #000;
 }
 
 
-#signUp:hover {
+/* #signUp:hover {
   transform: scale(.97);
 
-}
+} */
 
 #signIn:hover {
   transform: scale(.97);
@@ -257,6 +267,25 @@ body {
   color: rgb(6, 127, 193);
   font-size: 5vw;
 }
+.signOutBackground {
+  overflow: hidden;
+  background-color: rgba(76, 165, 249, 0.562); 
+  padding: 12px;
+  border-radius: 5px;
+  color: white; 
+  font-size: 1.5vw; 
+  text-align: center; 
+  border-color: transparent; 
+  position: relative;
+  z-index: 1;
+  right: 3vw;
+  transition: .7s ease;
+}
+.signOutBackground:hover{
+  transform: scale(1.1);
+  box-shadow: 0 0 5px 5px rgba(147, 205, 255, 0.443);
+}
+
 
 /* //////////////////////////////// Services \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 /* Container 1 */
@@ -278,13 +307,13 @@ body {
 }
 .container img:hover{
   
-  box-shadow: 0 0 20px 3px white;
+  box-shadow: 0 0 20px 3px rgba(60, 60, 60, 0.412);
 }
 .container p{
   height:auto;
   width: 35vw;
   font-size: 15pt;
-  color: #fff;
+  color: #000000;
   position: relative;
   left: 8vw;
   margin-right: 0vw;
@@ -312,7 +341,7 @@ body {
   height:auto;
   width: 35vw;
   font-size: 15pt;
-  color: #fff;
+  color: #000000;
   position: relative;
   line-height: 2.5vw;
   text-align: center;
@@ -331,7 +360,7 @@ body {
   transition: .5s ease;
 }
 .container2 img:hover{
-  box-shadow: 0 0 20px 3px white;
+  box-shadow: 0 0 20px 3px rgba(60, 60, 60, 0.412);
 }
 /* Container 3 */
 .container3{
@@ -351,13 +380,13 @@ body {
 }
 .container3 img:hover{
   
-  box-shadow: 0 0 20px 3px white;
+  box-shadow: 0 0 20px 3px rgba(60, 60, 60, 0.412);
 }
 .container3 p{
   height:auto;
   width: 35vw;
   font-size: 15pt;
-  color: #fff;
+  color: #000000;
   position: relative;
   left: 8vw;
   margin-right: 0vw;
