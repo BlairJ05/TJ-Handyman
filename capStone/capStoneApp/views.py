@@ -20,12 +20,6 @@ def pricing(request):
 def signUp(request):
     return render(request, 'signUp.html')
 
-
-from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import AuthenticationForm
-
 def signIn(request):
     password_error = False
 
