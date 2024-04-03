@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com.css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 body {
   background-color: #ffffff;
 }
@@ -117,10 +117,9 @@ body {
   right: 2.5vw;
   transition: all 0.35s;
 } */
-.sideNav button:hover{
+.sideNav button:hover, .sideNav i{
   transform: scale(1.1);
   box-shadow: 0px, 0px, 50px white;
-  
 }
 /* .card-container{
   display: flex;
@@ -270,10 +269,9 @@ body {
 }
 .signOutBackground {
   overflow: hidden;
-  background-color: rgba(76, 165, 249, 0.562); 
   padding: 12px;
   border-radius: 5px;
-  color: white; 
+  color: rgb(0, 0, 0); 
   font-size: 1.5vw; 
   text-align: center; 
   border-color: transparent; 
@@ -284,7 +282,7 @@ body {
 }
 .signOutBackground:hover{
   transform: scale(1.1);
-  box-shadow: 0 0 5px 5px rgba(147, 205, 255, 0.443);
+  box-shadow: 0 0 5px 5px rgb(0, 0, 0);
 }
 
 
@@ -322,8 +320,24 @@ body {
   line-height: 2.5vw;
   text-align: center;
   padding: 18px 20px 18px 20px;
+  border: 3px red solid;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
+}
+.container h2{
+  height:auto;
+  width: 35vw;
+  font-size: 15pt;
+  color: #000000;
+  position: relative;
+  left: 8vw;
+  margin-right: 0vw;
+  margin-left: 1vw;
+  line-height: 2.5vw;
+  text-align: center;
+  padding: 18px 20px 18px 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border: 3px red solid;
 }
 /* Container 2 */
 .container2{
@@ -402,3 +416,15 @@ body {
 .box{
   display: block;
 }
+
+/* .sideNav .bx{
+  color: #ff0fff;
+  transition: .5 ease;
+  position: relative;
+  right: .8vw;
+  top: 2px;
+}
+.sideNav .bx:hover{
+  color: #6dcaff;
+  transform: scale(1.1);
+} */

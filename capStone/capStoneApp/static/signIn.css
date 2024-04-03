@@ -10,16 +10,16 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #000000;
+  background: #ffffff;
 }
 .wrapper{
     position: relative;
     width: 750px;
     height: 450px;
     background: transparent;
-    border: 2px solid rgb(17, 184, 244);
+    border: 2px solid #7bcae7;
     overflow: hidden;
-    box-shadow: 0 0 25px rgb(17, 184, 244);
+    box-shadow: 0 0 25px #7bcae7;
 }
 .wrapper .container{
     position: absolute;
@@ -74,7 +74,7 @@ body {
 }
 .container h2{
     font-size: 32px;
-    color: #ffffff;
+    color: #08304d;
     text-align: center;
 }
 .container .form-group{
@@ -91,7 +91,7 @@ body {
     outline: none;
     border-bottom: 2px solid #fff;
     font:16px;
-    color:#fff ;
+    color:#08304d ;
     font-weight: 500;
     transition: .5s;
     padding-right: 23px;
@@ -106,11 +106,11 @@ input:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px rgb(0, 0, 0) inset !important;
 }
 input:-webkit-autofill{
-    -webkit-text-fill-color: white !important;
+    -webkit-text-fill-color: rgb(255, 255, 255) !important;
 }
 .container input:focus,
 .container input:valid{
-    border-bottom-color: rgb(17, 184, 244);
+    border-bottom-color: #7bcae7;
     background-color: transparent;
 }
 .container label{
@@ -119,7 +119,7 @@ input:-webkit-autofill{
     left: 0;
     transform: translateY(-50%);
     font-size: 16px;
-    color: #fff;
+    color: #08304d;
     pointer-events: none;
     transition: .5s;
 
@@ -127,7 +127,7 @@ input:-webkit-autofill{
 .container input:focus~label,
 .container input:valid~label{
     top: -5px;
-    color: rgb(17, 184, 244);
+    color: #7bcae7;
 }
 .container i{
     position: absolute;
@@ -135,23 +135,23 @@ input:-webkit-autofill{
     right: 0;
     transform: translateY(-50%);
     font-size: 18px;
-    color: #fff;
+    color: #08304d;
 }
 .container input:focus~i,
 .container input:valid~i{
-    color: rgb(17, 184, 244);
+    color: #7bcae7;
 }
 .btn{
     position: relative;
     width: 100%;
     height: 45px;
     background: transparent;
-    border: 2px solid rgb(17, 184, 244) ;
+    border: 2px solid #7bcae7 ;
     outline: none;
     border-radius: 40px;
     cursor: pointer;
     font-size: 16px;
-    color:#fff;
+    color:#08304d;
     font-weight: 600;
     z-index: 1;
     overflow: hidden;
@@ -163,7 +163,7 @@ input:-webkit-autofill{
     left: 0;
     width: 100%;
     height: 300%;
-    background: linear-gradient(#081b29, rgb(17, 184, 244),#081b29, rgb(17, 184, 244));
+    background: linear-gradient(#ffffff, #7bcae7,#ffffff, #7bcae7);
     z-index: -1;
     transition: .5s;
 }
@@ -173,12 +173,12 @@ input:-webkit-autofill{
 }
 .container .logreg-link{
     font-size: 14.5px;
-    color: #fff;
+    color: #08304d;
     text-align: center;
     margin: 20px 0px 10px;
 }
 .logreg-link p a{
-    color: rgb(17, 184, 244);
+    color: #161b33;
     text-decoration: none;
     font-weight: 600;
 }
@@ -237,13 +237,13 @@ input:-webkit-autofill{
 }
 .info-text h2{
     font-size: 36px;
-    color: #fff;
+    color: #08304d;
     line-height: 1.3;
     text-transform: uppercase;
 }
 .info-text p{
     font-size: 16px;
-    color:#fff ;
+    color:#08304d ;
 
 }
 .wrapper .bg-animate{
@@ -252,8 +252,8 @@ input:-webkit-autofill{
     right: 0;
     width: 850px;
     height: 600px;
-    border-bottom: 3px solid rgb(17, 184, 244);
-    background: linear-gradient(45deg,#010101, rgb(17, 184, 244));
+    border-bottom: 3px solid #7bcae7;
+    background: linear-gradient(45deg,#ffffff, #7bcae7);
     transform: rotate(10deg) skewY(40deg);
     transition: 1.5s ease;
     transform-origin: bottom right;
@@ -271,8 +271,8 @@ input:-webkit-autofill{
     left: 250px;
     width: 850px;
     height: 700px;
-    border-top: 3px solid rgb(17, 184, 244);
-    background: #000000;
+    border-top: 3px solid #7bcae7;
+    background: #ffffff;
     transition: 1.5s ease;
     transform: rotate(0) skewY(0);
     transform-origin: bottom left;
