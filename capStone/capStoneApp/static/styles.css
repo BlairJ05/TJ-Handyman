@@ -297,6 +297,7 @@ body {
   margin-bottom: 100px;
   position: relative;
   left: 5vw;
+  border: 3px red solid;
 }
 
 .container img{
@@ -304,17 +305,13 @@ body {
   height: 20vw;
   transition: .5s ease;
 }
-.container img:hover{
-  
-  box-shadow: 0 0 20px 3px rgba(60, 60, 60, 0.412);
-}
 .container p{
   height:auto;
-  width: 35vw;
+  width: auto;
   font-size: 15pt;
   color: #000000;
   position: relative;
-  left: 8vw;
+  left: -21vw;
   margin-right: 0vw;
   margin-left: 1vw;
   line-height: 2.5vw;
@@ -325,12 +322,13 @@ body {
 
 }
 .container h2{
+  top: -7vw;
   height:auto;
-  width: 35vw;
+  width: auto;
   font-size: 15pt;
   color: #000000;
   position: relative;
-  left: 8vw;
+  left: 3vw;
   margin-right: 0vw;
   margin-left: 1vw;
   line-height: 2.5vw;
@@ -374,9 +372,6 @@ body {
   margin: 30px;
   transition: .5s ease;
 }
-.container2 img:hover{
-  box-shadow: 0 0 20px 3px rgba(60, 60, 60, 0.412);
-}
 /* Container 3 */
 .container3{
   display: flex;
@@ -392,10 +387,6 @@ body {
   width: 40vw;
   height: 20vw;
   transition: .5s ease;
-}
-.container3 img:hover{
-  
-  box-shadow: 0 0 20px 3px rgba(60, 60, 60, 0.412);
 }
 .container3 p{
   height:auto;
