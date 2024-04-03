@@ -2,15 +2,7 @@
 body {
   background-color: #ffffff;
 }
-/* #navBar-Start {
-    top: 0;
-    left: 0;
-    z-index: 1000; 
-    width: 3vw;
-    padding: 20px 15px;
-    border: rgb(0, 229, 255) 3px solid; 
 
-} */
 .sideNav {
     height: 100%;
     width: auto;
@@ -40,133 +32,10 @@ body {
   box-shadow: 5px, 5px, 50px white;
   border-style: none;
 }
-/* 
-@property --gradient-angle{
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-@keyframes rotation{
-  0% { --gradient-angle: 0deg;}
-  100% { --gradient-angle: 360deg}
-}
-:root{
-  --clr-1:rgb(191, 246, 250);
-  --clr-2:rgb(151, 250, 245);
-  --clr-3:rgb(177, 204, 217);
-  --clr-4:rgb(41, 155, 204);
-  --clr-5:rgb(8, 123, 206);
-  
-} */
-/* .background1::before,
-.background1::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:  linear-gradient(
-    var(--gradient-angle),
-    var(--clr-3),
-    var(--clr-4),
-    var(--clr-5));
-  border-radius: inherit;
-  animation: rotation 3s linear infinite;
-  z-index: -1;
-} */
-
-/* .background1{
-  cursor: pointer;
-  border-radius: 15px;
-  position: relative;
-  top: 0vw;
-  right: 4.5vw;
-  transition: all 0.5s;
-}
-.background2::before,
-.background2::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:  linear-gradient(
-    var(--gradient-angle),
-    var(--clr-3),
-    var(--clr-4),
-    var(--clr-5));
-  border-radius: inherit;
-  animation: rotation 5s linear infinite;
-  z-index: -1;
-} */
-/* .background1:hover{
-  box-shadow: 0px 0px 5px rgb(0, 0, 0);
-}
-.background2:hover{
-  box-shadow: 0px 0px 5px rgb(0, 0, 0);
-}
-.background1:hover, #signOut{
-  scale:1;
-  border-radius: 12px;
-}
-.background2:hover, #signIn{
-  scale:1;
-  border-radius: 12px;
-} */
-/* .background2{
-  cursor: pointer;
-  border-radius: 16px;
-  position: relative;
-  top: 0vw;
-  right: 2.5vw;
-  transition: all 0.35s;
-} */
 .sideNav button:hover, .sideNav i{
   transform: scale(1.1);
   box-shadow: 0px, 0px, 50px white;
 }
-/* .card-container{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 100px;
-}
-.card{
-  background-color: white;
-  width:325px;
-  background-color: #1565c0;
-  margin: 10px;
-  transition: transform 0.5s ease, background-color 0.4s ease;
-}
-.card:hover{
-  transform: translateY(-15px);
-  background-color: rgba(102, 170, 248, 0.797);
-}
-.card img{
-  width:100%;
-  max-height: 200px;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-.content{
-  padding:12px;
-  color:#fff;
-}
-.content h2{
-  color: rgb(0, 0, 0);
-  font-size: 25px;
-  margin-bottom: 10px;
-}
-.content p{
-  color: rgb(0, 0, 0);
-  font-size: 15px;
-  margin-bottom: 15px;
-}
-.content a{
-  text-decoration: none;
-  font-size: 16px;
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #fff;
-  color: #1565c0;
-  margin-bottom: 10px;
-} */
 .sideNav a:hover{
     color: #6dcaff;
     text-shadow: #d6f7fb;
@@ -216,7 +85,6 @@ body {
   color: #000;
   height: 100%;
   border-radius: 12px;
-  /* background-color: rgba(1, 0, 75, 0.458); */
   padding: 10px;
   font-size: 1.5vw;
   text-align: center;
@@ -244,13 +112,6 @@ body {
 #signIn button{
   color: #000;
 }
-
-
-/* #signUp:hover {
-  transform: scale(.97);
-
-} */
-
 #signIn:hover {
   transform: scale(.97);
 }
@@ -297,7 +158,6 @@ body {
   margin-bottom: 100px;
   position: relative;
   left: 5vw;
-  border: 3px red solid;
 }
 
 .container img{
@@ -317,7 +177,6 @@ body {
   line-height: 2.5vw;
   text-align: center;
   padding: 18px 20px 18px 20px;
-  border: 3px red solid;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
@@ -335,7 +194,6 @@ body {
   text-align: center;
   padding: 18px 20px 18px 20px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  border: 3px red solid;
 }
 /* Container 2 */
 .container2{
@@ -364,7 +222,6 @@ body {
   text-align: center;
   padding: 18px 20px 18px 20px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  border: 3px red solid;
 }
 .container2 p{
   top: -15vw;
@@ -377,7 +234,6 @@ body {
   line-height: 2.5vw;
   text-align: center;
   padding: 18px 20px 18px 20px;
-  border: 3px red solid;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -399,7 +255,6 @@ body {
   margin-bottom: 100px;
   position: relative;
   left: 5vw;
-  border: 3px red solid;
 }
 .container3 h2{
   top: -6vw;
@@ -415,7 +270,6 @@ body {
   text-align: center;
   padding: 18px 20px 18px 20px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  border: 3px red solid;
 }
 .container3 img{
   width: 40vw;
@@ -435,7 +289,6 @@ body {
   line-height: 2.5vw;
   text-align: center;
   padding: 18px 20px 18px 20px;
-  border: 3px red solid;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -443,14 +296,3 @@ body {
   display: block;
 }
 
-/* .sideNav .bx{
-  color: #ff0fff;
-  transition: .5 ease;
-  position: relative;
-  right: .8vw;
-  top: 2px;
-}
-.sideNav .bx:hover{
-  color: #6dcaff;
-  transform: scale(1.1);
-} */
