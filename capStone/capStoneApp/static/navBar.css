@@ -1,18 +1,101 @@
-.startingNavBar{
-
+/* Apply box-sizing to all elements */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
-.startingNavBar ul{
 
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: "Ubuntu", sans-serif;
 }
-.startingNavBar a{
 
+a {
+    text-decoration: none;
 }
-.startingNavBar a:hover{
 
+button {
+    border: 0;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
 }
-h1{
 
+.navbar {
+    height: 90px;
+    background-color: #1a1a1a;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.startingNavBar li {
-    
+
+.navbar .logo i{
+    color: #0aa5ff;
+    font-size: 22px;
+}
+
+.navbar .logo a {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin-left: 12px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.menu-links {
+    display: flex;
+    gap: 24px;
+    border-right: 1px solid #999999;
+    padding-inline: 24px;
+}
+
+.menu-links a {
+    font-weight: 500;
+    color: #999999;
+    padding: 8px 16px;
+}
+
+.menu-links a:hover {
+    color: white;
+}
+
+.log-in {
+    font-weight: 500;
+    padding: 12px 22px;
+    background-color: transparent;
+    color: #999999;
+    border-radius: 10px;
+    border: 2px solid rgb(6, 127, 193);
+    transition: 0.2s;
+}
+
+.log-in:hover {
+    background-color: rgb(6, 127, 193);
+    color: white;
+}
+
+.menu-btn {
+    font-size: 24px;
+    color: white;
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width: 53rem) {
+    .menu-links {
+        display: none; 
+    }
+
+    .menu-btn {
+        display: block; 
+    }
 }

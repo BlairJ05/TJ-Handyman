@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Tauri&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
@@ -13,9 +14,19 @@
     <title>TJ HandyMan Service</title>
 </head>
 <body>
-    <section id="headerSection">
-        <div class='signIn_Container'>
-                {% if user.is_authenticated %}
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-font-awesome"></i>
+            <a href="#"> TJ's Handyman Service </a>
+        </div>
+        
+        <div class="menu">
+            <div class="menu-links">
+                <a href="#reviews"><h1 id="Review">Reviews</h1></a>
+                <a href="{% url 'gallery' %}"><h1 id="gallery">Gallery</h1></a>
+                <a href="{% url 'request_a_project' %}"><h1 id="request_a_project">Request a Project</h1></a>
+            </div>
+            {% if user.is_authenticated %}
                 <div class="signOutBackground">
                     <div>
                         <a href="{% url 'signOut' %}" style="text-decoration: none;color: aliceblue;">Sign Out</a>
@@ -23,33 +34,15 @@
                 </div>
 
                 {% else %}
-                <button id="signIn">
+                <button class="log-in">
                     <a href="{% url 'signIn' %}" style="text-decoration: none;color: white;">Login/Sign-Up</a>
                 </button>
-                {% endif %}
+            {% endif %}
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>            
         </div>
-        <div>
-            <span id="openTab" style="font-size:2vw;cursor:pointer;color:rgb(29, 149, 240)" onclick="openNav()">&#9776; Menu</span>
-        </div>
-        <div>
-            <h1 id="tjCompany">TJ's HANDYMAN SERVICE</h1>
-        </div>
-    </section>  
-    <hr>
-    <!--
-        If You Could make this bar Horizontal. Thank You
-    -->
-    {% comment %} <nav class="startingNavBar">
-        <ul>
-            <li><a href="{% url 'index' %}"><h1 id="home">Home</h1></a></li>
-            <li><a href="{% url 'pricing' %}"><h1 id="pricing">Pricing</h1></a></li>
-            <li><a href="#reviews"><h1 id="Review">Reviews</h1></a></li>
-            <li><a href="{% url 'gallery' %}"><h1 id="gallery">Gallery</h1></a></li>
-            <li><a href="{% url 'request_a_project' %}"><h1 id="request_a_project">Request a Project</h1></a></li>
-        </ul>
-        
-    </nav> {% endcomment %}
-
+    </nav>
     <section id="navBar-Start">
         <div >
             <nav id="mySidenav" class="sideNav">
