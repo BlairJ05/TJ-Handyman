@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* Apply box-sizing to all elements */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
+
 
 body {
     margin: 0;
@@ -40,9 +43,13 @@ button {
 
 .navbar .logo a {
     font-size: 24px;
-    font-weight: 700;
     color: white;
     margin-left: 12px;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 2px;
 }
 
 .menu {
@@ -62,10 +69,12 @@ button {
     font-weight: 500;
     color: #999999;
     padding: 8px 16px;
+    transition: .3s ease;
 }
 
 .menu-links a:hover {
     color: white;
+    transform: scale(1.1);
 }
 
 .log-in {
@@ -75,12 +84,14 @@ button {
     color: #999999;
     border-radius: 10px;
     border: 2px solid rgb(6, 127, 193);
-    transition: 0.2s;
+    transition: 0.2s ease;
 }
 
 .log-in:hover {
     background-color: rgb(6, 127, 193);
     color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgb(6, 127, 193);
 }
 
 .menu-btn {
