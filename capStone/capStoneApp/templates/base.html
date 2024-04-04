@@ -8,12 +8,13 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Tauri&amp;display=swap" rel="stylesheet">
     <title>{% block title %}TJ HandyMan Service{% endblock %}</title>
     {% block css %}
         <link rel="stylesheet" href="{% static 'styles.css' %}">
         <link rel="stylesheet" href="{% static 'navBar.css' %}">
-    {% endblock %}
+    {% endblock %}  
 </head>
 <body>
     <header>
@@ -29,21 +30,26 @@
                     <a href="{% url 'gallery' %}"><h1 id="gallery">Gallery</h1></a>
                     <a href="{% url 'request_a_project' %}"><h1 id="request_a_project">Request a Project</h1></a>
                 </div>
-                {% if user.is_authenticated %}
-                    <div class="signOutBackground">
-                        <div>
-                            <a href="{% url 'signOut' %}" style="text-decoration: none;color: aliceblue;">Sign Out</a>
-                        </div>
+                    <div class="login-signup">
+                        {% if user.is_authenticated %}
+                            <div class="signOutBackground">
+                                <div>
+                                    <a href="{% url 'signOut' %}" style="text-decoration: none;color: aliceblue;">Sign Out</a>
+                                </div>
+                            </div>
+            
+                            {% else %}
+                            <button class="log-in">
+                                <a href="{% url 'signIn' %}" style="text-decoration: none;color: white;">Login/Sign-Up</a>
+                            </button>
+                        {% endif %}
                     </div>
-    
-                    {% else %}
-                    <button class="log-in">
-                        <a href="{% url 'signIn' %}" style="text-decoration: none;color: white;">Login/Sign-Up</a>
-                    </button>
-                {% endif %}
                 <div class="menu-btn">
                     <i class="fas fa-bars"></i>
-                </div>            
+                </div>   
+                <div class="close-btn">
+                    <i class="fas fa-times"></i>
+                </div>         
             </div>
         </nav>
     </header>
@@ -59,9 +65,18 @@
         <p>&copy; 2024 Your Website. All rights reserved.</p>
     </footer>
 
-    <!-- Your JavaScript files or scripts can be included here -->
     {% block javascript %}
-        <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuBtn = document.querySelector('.menu-btn');
+            const navbar = document.querySelector('.navbar');
+        
+            menuBtn.addEventListener('click', function() {
+                navbar.classList.toggle('hide-items');
+                navbar.classList.toggle('show-links');
+            });
+        });        
+    </script>
     {% endblock %}
 </body>
 </html>
