@@ -1,6 +1,16 @@
 {% extends 'base.html'%}
 {% load static %}
 <body>
+    <style>
+        .star-button {
+            background: none;
+            border: none;
+            font-size: 30px;
+        }
+        .star-button.clicked {
+            background-color: yellow;
+        }
+    </style>
     <section id="navBar-Start">
         <div >
             <nav id="mySidenav" class="sideNav">
@@ -69,14 +79,37 @@
 <!--
     This Section will be the reviews for customers
 -->
-
 <section id="reviews">
     <div>
-        <h1 style="color:white;">
-            Please Leave A Review
-        </h1>
+        <h1 style="color: black;">Please Leave A Review</h1>
+    </div>
+
+    <div>
+        {% if user.is_authenticated %}
+            <form id="reviewForm" method="post" action="{% url 'submit_review' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <p style="color: black;">Rating:</p>
+                <div id="starRating">
+                    <button type="button" onclick="handleRatingClick(1)" class="star-button">★</button>
+                    <button type="button" onclick="handleRatingClick(2)" class="star-button">★</button>
+                    <button type="button" onclick="handleRatingClick(3)" class="star-button">★</button>
+                    <button type="button" onclick="handleRatingClick(4)" class="star-button">★</button>
+                    <button type="button" onclick="handleRatingClick(5)" class="star-button">★</button>
+                </div>
+                <label for="id_comment" style="color: black;">Review:</label><br>
+                <textarea id="id_comment" name="comment" rows="4" cols="50" style="color: black;"></textarea><br>
+                <input type="hidden" id="id_rating" name="rating">
+                <button type="button" onclick="submitReview()">Submit Review</button>
+            </form>
+        {% else %}
+            <p style="color: black;">Please <a href="{% url 'signIn' %}" style="color: blue;">log in</a> to leave a review.</p>
+        {% endif %}
     </div>
 </section>
+
+
+
  
 
 
@@ -96,4 +129,32 @@
         </footer>
     </div>
 </section>
+<script>
+        function handleRatingClick(rating) {
+            document.getElementById("id_rating").value = rating;
+    
+            document.querySelectorAll('.star-button').forEach(function(button) {
+                button.classList.remove('clicked');
+                button.style.backgroundColor = ''; 
+            });
+    
+            var clickedButton = document.querySelector('#starRating button:nth-child(' + rating + ')');
+            const allStars = document.querySelectorAll('.star-button');
+            clickedButton.classList.add('clicked');
+            clickedButton.style.backgroundColor = 'yellow'; 
+            const currentValue = Array.from(allStars).indexOf(clickedButton) + 1;
+            for (let i = currentValue; i > 0; i--) {
+                allStars[i - 1].style.backgroundColor = 'yellow';
+            }
+        }
+    
+</script>
+
+
 {% endblock content %}
+
+
+</body>
+
+
+</html>

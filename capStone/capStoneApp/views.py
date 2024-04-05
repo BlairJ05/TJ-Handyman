@@ -1,9 +1,8 @@
-from django.shortcuts import render
-from django.shortcuts import redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login
-from django.contrib.auth import logout
-from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from .forms import ReviewForm
 
 def Request(request):
     return render(request, 'request_a_project.html')
@@ -51,11 +50,9 @@ def signIn(request):
     form_signup = UserCreationForm()
     return render(request, 'signIn.html', {'form_signin': form_signin, 'form_signup': form_signup, 'password_error': password_error})
 
-
 def signOut(request):
     logout(request)
     return redirect('index')
-
 
 def Assembly(request):
     return render(request, 'Assembly.html')
@@ -80,3 +77,17 @@ def Outdoor_Help(request):
 
 def Painting(request):
     return render(request, 'Painting.html')
+
+@login_required
+def submit_review(request):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.user = request.user
+            review.save()
+            return redirect('reviews')
+    else:
+        form = ReviewForm()
+    return render(request, 'submit_review.html', {'form': form})
+

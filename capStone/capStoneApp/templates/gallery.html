@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static "gallery.css" %}">
 </head>
 <body>
+    <button onclick="goBack()" style="color: aliceblue;">Go Back</button>
     <div>
         <h2>Welcome Please Have A Look At My Work</h2>
         <p>These pictues are from different jobs I have done in the past.</p>
@@ -64,6 +65,9 @@
         }
 
         showSlide();
+        function goBack() {
+            window.history.back();
+        }
     </script>
 </body>
 </html>
