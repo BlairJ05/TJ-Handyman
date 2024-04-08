@@ -91,6 +91,7 @@
             background-color: yellow;
         }
     </style>
+<<<<<<< HEAD
     
 {% block content %}
     
@@ -104,6 +105,33 @@
             <img src="static/images/handymanPicOne.jpg">
             <h2>Crafting Your Space: Carpentry, Painting, and Custom Upgrades</h2>
             <p>Info</p>
+=======
+    <section id="navBar-Start">
+        <div >
+            <nav id="mySidenav" class="sideNav">
+                <a href="javascript:void(0)" class="closebtn" style="position: absolute;top:2vw;" onclick="closeNav()">&times;</a>
+                
+                <button><a href="{% url 'Assembly'%}"><i class='bx bx-wrench'> Assembly</i></a></button>
+                <button><a href="{% url 'Moving'%}"><i class='bx bxs-truck' > Hauling</i></a></button>
+                <button><a href="{% url 'Installation'%}"><i class='bx bx-package'> Installation</i></a></button>
+                <button><a href="{% url 'Outdoor_Help'%}"><i class='bx bx-landscape'> Outdoor Help</i></a></button>
+                <button><a href="{% url 'Home_Repairs'%}"><i class='bx bx-building-house' > Home Repairs</i></a></button>
+                <button><a href="{% url 'Painting'%}"><i class='bx bx-brush'> Painting/Stain</i></a></button>
+                <button><a href="{% url 'Carpenter'%}"><i class='bx bx-ruler'> Carpentery</i></a></button>
+            </nav>
+            <script>
+                function openNav() {
+                    document.getElementById("mySidenav").style.width = "240px";
+                }
+                function closeNav() {
+                    document.getElementById("mySidenav").style.width = "0";
+                }
+                document.getElementById("mySidenav").style.width = "0";
+                window.addEventListener('beforeunload', function () {
+                    window.scrollTo(0, 0);
+                });
+            </script>
+>>>>>>> 08147747e50a5b993cfbf4912788038b2c697eae
         </div>
         <div class="container2">
             <img src="static/images/handymanPicTwo.jpg">
@@ -208,6 +236,77 @@
         </div>
     </section>
 
+<<<<<<< HEAD
+=======
+<!--
+    This Section can be the carousel of pictures
+-->
+{% block content %}
+<section>
+    <div id="spinningPictures">
+        <ul>
+            <img src="">
+            <img src="">
+            <img src="">
+        </ul>
+    </div>
+</section>
+
+<!--
+    this can be the Section can be the body
+-->
+ <h1 class="services">Services</h1>
+ <div class='box'>
+    <div class="container">
+        <img src="static/images/handymanPicOne.jpg">
+        <h2>Crafting Your Space: Carpentry, Painting, and Custom Upgrades</h2>
+        <p>Info</p>
+    </div>
+    <div class="container2">
+        <img src="static/images/handymanPicTwo.jpg">
+        <h2>From Welding to Woodwork: Expert Services for Your Property</h2>
+        <p>Info</p>
+    </div>
+    <div class="container3">
+        <img src="static/images/handymanPicThree.jpg"></a>
+        <h2>Revamp Your Surroundings: Exterior Upgrades and Landscaping Solutions</h2>
+        <p>Info</p>
+    </div>
+ </div>
+
+<!--
+    This Section will be the reviews for customers
+-->
+<section id="reviews">
+    <div>
+        <h1 style="color: black;">Please Leave A Review</h1>
+    </div>
+
+    <div>
+        {% if user.is_authenticated %}
+            <form id="reviewForm" method="post" action="{% url 'submit_review' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <p style="color: black;">Rating:</p>
+                <div id="starRating">
+                    <button type="button" onclick="handleRatingClick(1)" class="star-button">★</button>
+                    <button type="button" onclick="handleRatingClick(2)" class="star-button">★</button>
+                    <button type="button" onclick="handleRatingClick(3)" class="star-button">★</button>
+                    <button type="button" onclick="handleRatingClick(4)" class="star-button">★</button>
+                    <button type="button" onclick="handleRatingClick(5)" class="star-button">★</button>
+                </div>
+                <label for="id_comment" style="color: black;">Review:</label><br>
+                <textarea id="id_comment" name="comment" rows="4" cols="50" style="color: black;"></textarea><br>
+                <input type="hidden" id="id_rating" name="rating">
+                <button type="submit" class="btn btn-primary">Submit Review</button> <!-- Change type to submit -->
+            </form>
+        {% else %}
+            <p style="color: black;">Please <a href="{% url 'signIn' %}" style="color: blue;">log in</a> to leave a review.</p>
+        {% endif %}
+    </div>
+</section>
+
+>>>>>>> 08147747e50a5b993cfbf4912788038b2c697eae
 
 
  

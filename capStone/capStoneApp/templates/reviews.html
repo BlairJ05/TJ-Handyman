@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Reviews</h1>
+  <div>
+    {% for review in reviews %}
+      <div>
+        <p>User: {{ review.user }}</p>
+        <p>Rating: {{ review.rating }}</p>
+        <p>Comment: {{ review.comment }}</p>
+      </div>
+    {% empty %}
+      <p>No reviews available.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

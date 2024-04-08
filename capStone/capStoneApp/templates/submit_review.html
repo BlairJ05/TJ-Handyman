@@ -1,17 +1,28 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Reviews</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Review</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
 </head>
 <body>
-    <!--
-        I will finish this soon
-    -->
+    <header>
+        <h1>Submit Review</h1>
+    </header>
+
+    <section id="submitReviewForm">
+    </section>
+
+    <section id="reviewConfirmation" {% if confirmation %}style="display: block;"{% endif %}>
+        <div class="confirmation-box">
+            <p>Thank you for the review!</p>
+            <p>You may check out other reviews at <a href="{% url 'reviews' %}">review page</a> or go back to the main screen at <a href="{% url 'index' %}">home</a>. Thank you again!</p>
+        </div>
+    </section>
+    
+
+    <script src="{% static 'main.js' %}"></script>
 </body>
 </html>
