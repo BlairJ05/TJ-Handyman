@@ -86,7 +86,7 @@ def submit_review(request):
             review = form.save(commit=False)
             review.user = request.user
             review.save()
-            return redirect('reviews')
+            return redirect('index')
     else:
         form = ReviewForm()
     return render(request, 'submit_review.html', {'form': form})

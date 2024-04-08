@@ -100,7 +100,7 @@
                 <label for="id_comment" style="color: black;">Review:</label><br>
                 <textarea id="id_comment" name="comment" rows="4" cols="50" style="color: black;"></textarea><br>
                 <input type="hidden" id="id_rating" name="rating">
-                <button type="button" onclick="submitReview()">Submit Review</button>
+                <button type="submit" class="btn btn-primary">Submit Review</button> <!-- Change type to submit -->
             </form>
         {% else %}
             <p style="color: black;">Please <a href="{% url 'signIn' %}" style="color: blue;">log in</a> to leave a review.</p>
