@@ -240,3 +240,34 @@
         </ul>
         
     </nav> {% endcomment %}
+
+
+
+    <section id="navBar-Start">
+        <div >
+            <nav id="mySidenav" class="sideNav">
+                <a href="javascript:void(0)" class="closebtn" style="position: absolute;top:2vw;" onclick="closeNav()">&times;</a>
+                
+                <button><a href="{% url 'Assembly'%}"><i class='bx bx-wrench'> Assembly</i></a></button>
+                <button><a href="{% url 'Moving'%}"><i class='bx bxs-truck' > Hauling</i></a></button>
+                <button><a href="{% url 'Installation'%}"><i class='bx bx-package'> Installation</i></a></button>
+                <button><a href="{% url 'Outdoor_Help'%}"><i class='bx bx-landscape'> Outdoor Help</i></a></button>
+                <button><a href="{% url 'Home_Repairs'%}"><i class='bx bx-building-house' > Home Repairs</i></a></button>
+                <button><a href="{% url 'Painting'%}"><i class='bx bx-brush'> Painting/Stain</i></a></button>
+                <button><a href="{% url 'Carpenter'%}"><i class='bx bx-ruler'> Carpentery</i></a></button>
+            </nav>
+            <script>
+                function openNav() {
+                    document.getElementById("mySidenav").style.width = "240px";
+                }
+                function closeNav() {
+                    document.getElementById("mySidenav").style.width = "0";
+                }
+                document.getElementById("mySidenav").style.width = "0";
+                window.addEventListener('beforeunload', function () {
+                    window.scrollTo(0, 0);
+                });
+            </script>
+        </div>
+        </div>
+    </section>

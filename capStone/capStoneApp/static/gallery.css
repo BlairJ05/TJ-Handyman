@@ -41,3 +41,11 @@
     height: 20%;
     width: 20%;
 }
+.Welcome{
+    display:block;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    text-align: center;
+}

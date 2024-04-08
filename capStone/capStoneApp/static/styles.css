@@ -145,6 +145,53 @@ body {
     color: white;
 }
 
+.slideshow{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-container {
+  width: 30%;
+  max-height: 10%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-track {
+  transition: transform 0.5s ease;
+}
+
+.gallery-track img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.prev, .next {
+  position: absolute;
+  top: auto;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+}
+
+.prev {
+  left: 0;
+  top: 50%;
+}
+
+.next {
+  right: 0;
+  top: 50%;
+}
 
 /* //////////////////////////////// Services \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 /* Container 1 */

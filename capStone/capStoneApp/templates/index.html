@@ -1,7 +1,6 @@
 {% extends 'base.html'%}
 {% load static %}
 <body>
-<<<<<<< HEAD
     <nav class="navbar">
         <div class="logo">
             <i class="fas fa-font-awesome"></i>
@@ -82,7 +81,6 @@
             </div>            
         </div>
     </nav>
-=======
     <style>
         .star-button {
             background: none;
@@ -93,145 +91,164 @@
             background-color: yellow;
         }
     </style>
->>>>>>> 0e389b7e96d73fb5de1e76bd170aecc22cf5ebff
-    <section id="navBar-Start">
-        <div >
-            <nav id="mySidenav" class="sideNav">
-                <a href="javascript:void(0)" class="closebtn" style="position: absolute;top:2vw;" onclick="closeNav()">&times;</a>
-                
-                <button><a href="{% url 'Assembly'%}"><i class='bx bx-wrench'> Assembly</i></a></button>
-                <button><a href="{% url 'Moving'%}"><i class='bx bxs-truck' > Hauling</i></a></button>
-                <button><a href="{% url 'Installation'%}"><i class='bx bx-package'> Installation</i></a></button>
-                <button><a href="{% url 'Outdoor_Help'%}"><i class='bx bx-landscape'> Outdoor Help</i></a></button>
-                <button><a href="{% url 'Home_Repairs'%}"><i class='bx bx-building-house' > Home Repairs</i></a></button>
-                <button><a href="{% url 'Painting'%}"><i class='bx bx-brush'> Painting/Stain</i></a></button>
-                <button><a href="{% url 'Carpenter'%}"><i class='bx bx-ruler'> Carpentery</i></a></button>
-            </nav>
-            <script>
-                function openNav() {
-                    document.getElementById("mySidenav").style.width = "240px";
-                }
-                function closeNav() {
-                    document.getElementById("mySidenav").style.width = "0";
-                }
-                document.getElementById("mySidenav").style.width = "0";
-                window.addEventListener('beforeunload', function () {
-                    window.scrollTo(0, 0);
-                });
-            </script>
+    
+{% block content %}
+    
+    
+    <!--
+        this can be the Section can be the body
+    -->
+    <h1 class="services">Services</h1>
+    <div class='box'>
+        <div class="container">
+            <img src="static/images/handymanPicOne.jpg">
+            <h2>Crafting Your Space: Carpentry, Painting, and Custom Upgrades</h2>
+            <p>Info</p>
         </div>
+        <div class="container2">
+            <img src="static/images/handymanPicTwo.jpg">
+            <h2>From Welding to Woodwork: Expert Services for Your Property</h2>
+            <p>Info</p>
+        </div>
+        <div class="container3">
+            <img src="static/images/handymanPicThree.jpg"></a>
+            <h2>Revamp Your Surroundings: Exterior Upgrades and Landscaping Solutions</h2>
+            <p>Info</p>
+        </div>
+    </div>
+    <!--
+        This Section can be the carousel of pictures
+    -->
+    <div class='slideshow'>
+        <div class="gallery-container">
+            <div class="gallery-track">
+                <!--
+                    These are random pics CHANGE them at the given time convenience
+                -->
+                <img src="static/images/fence_before.jpg" />
+                <img src="static/images/fence_after.jpg" />
+                <img src="static/images/flooring_before.jpg" />
+                <img src="static/images/flooring_after.jpg" />
+                <img src="static/images/ManCave_before.jpg" />
+                <img src="static/images/ManCave_after.jpg" />
+            </div>
+
+            <!--
+                These are the actual buttons for the uh arrows
+            -->
+
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+        <script>
+            let slideIndex = 0;
+
+            function showSlide() {
+                const slides = document.querySelectorAll('.gallery-track img');
+                slides.forEach(slide => slide.style.display = 'none');
+                slides[slideIndex].style.display = 'block';
+            }
+
+            function nextSlide() {
+                const slides = document.querySelectorAll('.gallery-track img');
+                if (slideIndex < slides.length - 1) {
+                    slideIndex++;
+                } else {
+                    slideIndex = 0;
+                }
+                showSlide();
+            }
+
+            function prevSlide() {
+                const slides = document.querySelectorAll('.gallery-track img');
+                if (slideIndex > 0) {
+                    slideIndex--;
+                } else {
+                    slideIndex = slides.length - 1;
+                }
+                showSlide();
+            }
+
+            showSlide();
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+    </div>
+
+    <!--
+        This Section will be the reviews for customers
+    -->
+    <section id="reviews">
+        <div>
+            <h1 style="color: black;">Please Leave A Review</h1>
+        </div>
+
+        <div>
+            {% if user.is_authenticated %}
+                <form id="reviewForm" method="post" action="{% url 'submit_review' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <p style="color: black;">Rating:</p>
+                    <div id="starRating">
+                        <button type="button" onclick="handleRatingClick(1)" class="star-button">★</button>
+                        <button type="button" onclick="handleRatingClick(2)" class="star-button">★</button>
+                        <button type="button" onclick="handleRatingClick(3)" class="star-button">★</button>
+                        <button type="button" onclick="handleRatingClick(4)" class="star-button">★</button>
+                        <button type="button" onclick="handleRatingClick(5)" class="star-button">★</button>
+                    </div>
+                    <label for="id_comment" style="color: black;">Review:</label><br>
+                    <textarea id="id_comment" name="comment" rows="4" cols="50" style="color: black;"></textarea><br>
+                    <input type="hidden" id="id_rating" name="rating">
+                    <button type="button" onclick="submitReview()">Submit Review</button>
+                </form>
+            {% else %}
+                <p style="color: black;">Please <a href="{% url 'signIn' %}" style="color: blue;">log in</a> to leave a review.</p>
+            {% endif %}
         </div>
     </section>
-
-<!--
-    This Section can be the carousel of pictures
--->
-{% block content %}
-<section>
-    <div id="spinningPictures">
-        <ul>
-            <img src="">
-            <img src="">
-            <img src="">
-        </ul>
-    </div>
-</section>
-
-<!--
-    this can be the Section can be the body
--->
- <h1 class="services">Services</h1>
- <div class='box'>
-    <div class="container">
-        <img src="static/images/handymanPicOne.jpg">
-        <h2>Crafting Your Space: Carpentry, Painting, and Custom Upgrades</h2>
-        <p>Info</p>
-    </div>
-    <div class="container2">
-        <img src="static/images/handymanPicTwo.jpg">
-        <h2>From Welding to Woodwork: Expert Services for Your Property</h2>
-        <p>Info</p>
-    </div>
-    <div class="container3">
-        <img src="static/images/handymanPicThree.jpg"></a>
-        <h2>Revamp Your Surroundings: Exterior Upgrades and Landscaping Solutions</h2>
-        <p>Info</p>
-    </div>
- </div>
-
-<!--
-    This Section will be the reviews for customers
--->
-<section id="reviews">
-    <div>
-        <h1 style="color: black;">Please Leave A Review</h1>
-    </div>
-
-    <div>
-        {% if user.is_authenticated %}
-            <form id="reviewForm" method="post" action="{% url 'submit_review' %}">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <p style="color: black;">Rating:</p>
-                <div id="starRating">
-                    <button type="button" onclick="handleRatingClick(1)" class="star-button">★</button>
-                    <button type="button" onclick="handleRatingClick(2)" class="star-button">★</button>
-                    <button type="button" onclick="handleRatingClick(3)" class="star-button">★</button>
-                    <button type="button" onclick="handleRatingClick(4)" class="star-button">★</button>
-                    <button type="button" onclick="handleRatingClick(5)" class="star-button">★</button>
-                </div>
-                <label for="id_comment" style="color: black;">Review:</label><br>
-                <textarea id="id_comment" name="comment" rows="4" cols="50" style="color: black;"></textarea><br>
-                <input type="hidden" id="id_rating" name="rating">
-                <button type="button" onclick="submitReview()">Submit Review</button>
-            </form>
-        {% else %}
-            <p style="color: black;">Please <a href="{% url 'signIn' %}" style="color: blue;">log in</a> to leave a review.</p>
-        {% endif %}
-    </div>
-</section>
 
 
 
  
 
 
-<!--
-    This can be the Footer
--->
+    <!--
+        This can be the Footer
+    -->
 
-<section>
-    <div>
-        <footer>
-            <h3 style="color:white;">
-                Contact Me!
-            </h3>
-            <pre style="color:white;">
-                <a href="tel:228-363-3068">228-363-3068</a><p>OR at <a href="">505 Oxford Blv</a></p>
-            </pre>
-        </footer>
-    </div>
-</section>
-<script>
-        function handleRatingClick(rating) {
-            document.getElementById("id_rating").value = rating;
-    
-            document.querySelectorAll('.star-button').forEach(function(button) {
-                button.classList.remove('clicked');
-                button.style.backgroundColor = ''; 
-            });
-    
-            var clickedButton = document.querySelector('#starRating button:nth-child(' + rating + ')');
-            const allStars = document.querySelectorAll('.star-button');
-            clickedButton.classList.add('clicked');
-            clickedButton.style.backgroundColor = 'yellow'; 
-            const currentValue = Array.from(allStars).indexOf(clickedButton) + 1;
-            for (let i = currentValue; i > 0; i--) {
-                allStars[i - 1].style.backgroundColor = 'yellow';
+    <section>
+        <div>
+            <footer>
+                <h3 style="color:white;">
+                    Contact Me!
+                </h3>
+                <pre style="color:white;">
+                    <a href="tel:228-363-3068">228-363-3068</a><p>OR at <a href="">505 Oxford Blv</a></p>
+                </pre>
+            </footer>
+        </div>
+    </section>
+    <script>
+            function handleRatingClick(rating) {
+                document.getElementById("id_rating").value = rating;
+        
+                document.querySelectorAll('.star-button').forEach(function(button) {
+                    button.classList.remove('clicked');
+                    button.style.backgroundColor = ''; 
+                });
+        
+                var clickedButton = document.querySelector('#starRating button:nth-child(' + rating + ')');
+                const allStars = document.querySelectorAll('.star-button');
+                clickedButton.classList.add('clicked');
+                clickedButton.style.backgroundColor = 'yellow'; 
+                const currentValue = Array.from(allStars).indexOf(clickedButton) + 1;
+                for (let i = currentValue; i > 0; i--) {
+                    allStars[i - 1].style.backgroundColor = 'yellow';
+                }
             }
-        }
-    
-</script>
+        
+    </script>
 
 
 {% endblock content %}
