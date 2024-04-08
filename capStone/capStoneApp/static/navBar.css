@@ -134,12 +134,33 @@ button {
     width: 1vw;
 }
 
-@media (max-width: 53rem) {
+.close-btn {
+    display: none;
+}
+
+@media (max-width: 75rem) {
     .menu-links {
         display: none; 
     }
 
     .menu-btn {
         display: block; 
+    }
+}
+
+
+.hide-items{
+    .logo{
+        display: none;
+    }
+
+    .login-signup{
+        display: none;
+    }
+}
+
+.show-links{
+    .menu-links{
+        display: flex;
     }
 }

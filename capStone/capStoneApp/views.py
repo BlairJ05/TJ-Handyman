@@ -1,9 +1,8 @@
-from django.shortcuts import render
-from django.shortcuts import redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login
-from django.contrib.auth import logout
-from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from .forms import ReviewForm
 
 def Request(request):
     return render(request, 'request_a_project.html')
@@ -51,11 +50,9 @@ def signIn(request):
     form_signup = UserCreationForm()
     return render(request, 'signIn.html', {'form_signin': form_signin, 'form_signup': form_signup, 'password_error': password_error})
 
-
 def signOut(request):
     logout(request)
     return redirect('index')
-
 
 def Assembly(request):
     return render(request, 'Assembly.html')
@@ -81,42 +78,16 @@ def Outdoor_Help(request):
 def Painting(request):
     return render(request, 'Painting.html')
 
-from django.shortcuts import render, redirect
-from .models import Room, Message
-from django.http import HttpResponse, JsonResponse
-
-
-def room(request, room):
-    username = request.GET.get('username')
-    room_details = Room.objects.get(name=room)
-    return render(request, 'room.html', {
-        'username': username,
-        'room': room,
-        'room_details': room_details
-    })
-
-def checkview(request):
-    room = request.POST['room_name']
-    username = request.POST['username']
-
-    if Room.objects.filter(name=room).exists():
-        return redirect('/'+room+'/?username='+username)
+@login_required
+def submit_review(request):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.user = request.user
+            review.save()
+            return redirect('reviews')
     else:
-        new_room = Room.objects.create(name=room)
-        new_room.save()
-        return redirect('/'+room+'/?username='+username)
+        form = ReviewForm()
+    return render(request, 'submit_review.html', {'form': form})
 
-def send(request):
-    message = request.POST['message']
-    username = request.POST['username']
-    room_id = request.POST['room_id']
-
-    new_message = Message.objects.create(value=message, user=username, room=room_id)
-    new_message.save()
-    return HttpResponse('Message sent successfully')
-
-def getMessages(request, room):
-    room_details = Room.objects.get(name=room)
-
-    messages = Message.objects.filter(room=room_details.id)
-    return JsonResponse({"messages":list(messages.values())})

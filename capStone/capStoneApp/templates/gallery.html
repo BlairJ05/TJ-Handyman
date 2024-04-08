@@ -1,14 +1,73 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Gallery</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link rel="stylesheet" href="{% static "gallery.css" %}">
 </head>
 <body>
-    
+    <button onclick="goBack()" style="color: aliceblue;">Go Back</button>
+    <div>
+        <h2>Welcome Please Have A Look At My Work</h2>
+        <p>These pictues are from different jobs I have done in the past.</p>
+    </div>
+        <img src="{% static 'images/pic_of_ty.jpg' %}" class="Tyler">
+
+    <div class="gallery-container">
+        <div class="gallery-track">
+            <!--
+                These are random pics CHANGE them at the given time convenience
+            -->
+            <img src="https://assets.codepen.io/6093409/philippines-1.jpg" />
+            <img src="https://assets.codepen.io/6093409/philippines-2.jpg" />
+            <img src="https://assets.codepen.io/6093409/philippines-3.jpg" />
+            <img src="https://assets.codepen.io/6093409/philippines-4.jpg" />
+            <img src="https://assets.codepen.io/6093409/philippines-5.jpg" />
+            <img src="https://assets.codepen.io/6093409/philippines-6.jpg" />
+        </div>
+
+        <!--
+            These are the actual buttons for the uh arrows
+        -->
+
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+    <script>
+        let slideIndex = 0;
+
+        function showSlide() {
+            const slides = document.querySelectorAll('.gallery-track img');
+            slides.forEach(slide => slide.style.display = 'none');
+            slides[slideIndex].style.display = 'block';
+        }
+
+        function nextSlide() {
+            const slides = document.querySelectorAll('.gallery-track img');
+            if (slideIndex < slides.length - 1) {
+                slideIndex++;
+            } else {
+                slideIndex = 0;
+            }
+            showSlide();
+        }
+
+        function prevSlide() {
+            const slides = document.querySelectorAll('.gallery-track img');
+            if (slideIndex > 0) {
+                slideIndex--;
+            } else {
+                slideIndex = slides.length - 1;
+            }
+            showSlide();
+        }
+
+        showSlide();
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>

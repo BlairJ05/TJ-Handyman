@@ -1,11 +1,11 @@
 from django.db import models
-from datetime import datetime
+from django.contrib.auth.models import User
 
-class Room(models.Model):
-    name = models.CharField(max_length=100)
-    
-class Message(models.Model):
-    value = models.CharField(max_length=100)
-    date = models.DateTimeField(default=datetime.now, blank=True)
-    user = models.CharField(max_length=100)
-    room = models.CharField(max_length=100)
+class Review(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
+    rating = models.IntegerField(default=0) 
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Review by {self.user.username}"
