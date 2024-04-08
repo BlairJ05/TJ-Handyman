@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import ReviewForm
+from .models import Review
+
 
 def Request(request):
     return render(request, 'request_a_project.html')
@@ -17,7 +19,19 @@ def pricing(request):
     return render(request, 'pricing.html')
 
 def signUp(request):
-    return render(request, 'signUp.html')
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('index')
+    else:
+        form = UserCreationForm()
+    return render(request, 'signUp.html', {'form': form})
 
 def signIn(request):
     password_error = False
@@ -78,16 +92,25 @@ def Outdoor_Help(request):
 def Painting(request):
     return render(request, 'Painting.html')
 
+
 @login_required
 def submit_review(request):
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)
-            review.user = request.user
+            review.user = request.user 
             review.save()
-            return redirect('index')
+            return redirect('index') 
+        else:
+            pass
     else:
         form = ReviewForm()
+
     return render(request, 'submit_review.html', {'form': form})
 
+
+@login_required
+def reviews(request):
+    reviews = Review.objects.all() 
+    return render(request, 'reviews.html', {'reviews': reviews})
