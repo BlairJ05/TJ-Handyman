@@ -76,6 +76,36 @@ button {
     color: white;
     transform: scale(1.1);
 }
+.menu-links ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+}
+.menu-links ul li{
+    font-size: 17pt;
+    font-family: "Ubuntu", sans-serif;
+    top: 1.5vw;
+    font-weight: 500;
+    padding: 8px 16px;
+    position: relative;
+    display: inline-block;
+    background-color: #1a1a1a;
+    width: 25vw;
+    
+    
+}
+.menu-links ul ul{
+    display: none;
+    position: absolute;
+    top: 20px;
+    text-align: left;
+    z-index: 1;
+    
+}
+.menu-links ul li:hover>ul{
+    display: inherit;
+}
 
 .log-in {
     font-weight: 500;
@@ -99,6 +129,9 @@ button {
     color: white;
     display: none;
     cursor: pointer;
+}
+.services-btn{
+    width: 1vw;
 }
 
 .close-btn {

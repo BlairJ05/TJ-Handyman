@@ -1,6 +1,88 @@
 {% extends 'base.html'%}
 {% load static %}
 <body>
+<<<<<<< HEAD
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-font-awesome"></i>
+            <a href="#"> TJ's Handyman Service </a>
+        </div>
+        
+        <div class="menu">
+            <div class="menu-links">
+                <ul>
+                    <li><a href='#'>Services</a>
+                        <ul>
+                            <li><a href='#'>Construction & Renovation</a>
+                                <ul>
+                                    <li><a href='#'>Carpentry</a></li>
+                                    <li><a href='#'>Woodwork</a></li>
+                                    <li><a href='#'>Deck Building/Repair</a></li>
+                                    <li><a href='#'>Shed/Fence Removal</a></li>
+                                    <li><a href='#'>Exterior Upgrades</a></li>
+                                    <li><a href='#'>Interior Upgrades</a>
+                                    <li><a href='#'>Custom Work</a></li>
+                                    <li><a href='#'>Pergola Building</a></li>
+                                    
+                                </ul>
+                            <li><a href='#'>Landscaping & Outdoor Services</a>
+                                <ul>
+                                    <li><a href='#'>Landscaping</a></li>
+                                    <li><a href='#'>Small Tree Removal</a></li>
+                                    <li><a href='#'>Pressure Washing</a></li>
+                                    <li><a href='#'>Firwood/Splitting</a></li>
+                                    <li><a href='#'>Wild Hog Extermination</a></li>
+                                    <li><a href='#'>Maintenance & Repair</a>
+                                </ul>
+                            </li>
+                        </li>
+                            <li><a href='#'>Maintenance & Repair</a>
+                                <ul>
+                                    <li><a href='#'>Painting</a></li>
+                                    <li><a href='#'>Welding</a></li>
+                                    <li><a href='#'>Metal Work</a></li>
+                                    <li><a href='#'>Repair Work</a></li>
+                                    <li><a href='#'>Trailer Repair</a></li>
+                                    <li><a href='#'>Cleaning</a>
+                                </ul>
+                            <li><a href='#'>Moving & Hauling</a>
+                                <ul>
+                                    <li><a href='#'>Moving</a></li>
+                                    <li><a href='#'>Hauling</a>
+                                </ul>
+                            <li><a href='#'>Other Services</a>
+                                <ul>
+                                    <li><a href='#'>Furniture Assembly</a></li>
+                                    <li><a href='#'>Blacksmithing</a></li>
+                                    <li><a href='#'>Orgenizing</a>
+                                </ul>
+                            </li> 
+                                 
+                        </ul>
+                    </li>
+                </ul>
+                <a href="#reviews"><h1 id="Review">Reviews</h1></a>
+                <a href="{% url 'gallery' %}"><h1 id="gallery">Gallery</h1></a>
+                <a href="{% url 'request_a_project' %}"><h1 id="request_a_project">Request a Project</h1></a>
+            </div>
+            {% if user.is_authenticated %}
+                <div class="signOutBackground">
+                    <div>
+                        <a href="{% url 'signOut' %}" style="text-decoration: none;color: aliceblue;">Sign Out</a>
+                    </div>
+                </div>
+
+                {% else %}
+                <button class="log-in">
+                    <a href="{% url 'signIn' %}" style="text-decoration: none;color: white;">Login/Sign-Up</a>
+                </button>
+            {% endif %}
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>            
+        </div>
+    </nav>
+=======
     <style>
         .star-button {
             background: none;
@@ -11,6 +93,7 @@
             background-color: yellow;
         }
     </style>
+>>>>>>> 0e389b7e96d73fb5de1e76bd170aecc22cf5ebff
     <section id="navBar-Start">
         <div >
             <nav id="mySidenav" class="sideNav">
