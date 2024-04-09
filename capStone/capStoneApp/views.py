@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import ReviewForm
 from .models import Review
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout
 
 
 def Request(request):
