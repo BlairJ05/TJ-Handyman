@@ -20,13 +20,13 @@ Conner - Middle Man
 Things To Do
 - Review page
 
-- Request a project page
+- Request a project page [X]
 
-- Slide Show Pics - Conner
+- Slide Show Pics - Conner [X]
 
 - Better styling
 
-- Making user
+- Making user [X]
 
 - Pic of dude
 
@@ -35,8 +35,6 @@ Things To Do
 - More about him and his work
 
 - Pricings page/Pricing per job
-
-- ChatRoom - Conner
 
 - System Notifications - Conner
 
