@@ -77,7 +77,7 @@ body {
 
 }
 #headerSection {
-  height: 5vw;
+  height: 10vw;
 }
 
 #signIn,
@@ -323,7 +323,7 @@ body {
 }
 .hero-section{
   position: relative;
-  height: 25vw;
+  height: 38vw;
   overflow: hidden;
   transform-style: preserve-3d;
 
@@ -343,7 +343,7 @@ body {
   position: absolute;
   transform: translate(-50,-50);
   left: 15%;
-  top: 15%;
+  top: 0%;
   color: rgb(255, 255, 255);
   text-align: center;
   text-transform: uppercase;
