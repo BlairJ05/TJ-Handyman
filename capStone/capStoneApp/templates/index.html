@@ -93,6 +93,7 @@
                         showSlide();
                     }
 
+<<<<<<< HEAD
                     function prevSlide() {
                         const slides = document.querySelectorAll('.gallery-track img');
                         if (slideIndex > 0) {
@@ -113,6 +114,15 @@
     <!--
             This Section will be the reviews for customers
         -->
+=======
+                showSlide();
+                function goBack() {
+                    window.history.back();
+                }
+            </script>
+        </div> 
+
+>>>>>>> 5db5c5f7b659950edf29e0c96ef6174fbb3fbb7a
         <section id="reviews">
             <div>
                 <h1 style="color: black;">Please Leave A Review</h1>
@@ -134,7 +144,7 @@
                         <label for="id_comment" style="color: black;">Review:</label><br>
                         <textarea id="id_comment" name="comment" rows="4" cols="50" style="color: black;"></textarea><br>
                         <input type="hidden" id="id_rating" name="rating">
-                        <button type="button" onclick="submitReview()">Submit Review</button>
+                        <button type="submit" onclick="submitReview()">Submit Review</button>
                     </form>
                 {% else %}
                     <p style="color: black;">Please <a href="{% url 'signIn' %}" style="color: blue;">log in</a> to leave a review.</p>
