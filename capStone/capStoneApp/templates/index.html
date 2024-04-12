@@ -13,16 +13,19 @@
     <div class='wrapper_outer'>
             <div class='wrapper'>
                 <div class='hero-section'>
-                    <img src='static/images/Hero_section.jpg'>
-                    <h1>Hello, I am Tyler <br><span>Get it done right the first time!<br><b>Located at Bay St. Louis, MS, United States, Mississippi<p>Office: 228-363-3068</p><p>Email:tjhandymanservicellc21@gmail.com</p></span>  <h1>
+                    <img src='static/images/handymanPicTwo.jpg'>
+                    <h1>TJ's Handyman Service<br><span>Get it done right the first time!<br><b>Located at Bay St. Louis, MS, United States, Mississippi<p>Office: 228-363-3068</p><p>Email:tjhandymanservicellc21@gmail.com</p></span>  <h1>
                 </div>
             </div>
-        
+    </div>    
 
         <!--
             this can be the Section can be the body
         -->
-        <h1 class="services">Services</h1>
+        <h1 class="services">Services
+            
+        </h1>
+        <div class='underline'></div>
         <div class='box'>
             <div class="container">
                 <img src="static/images/handymanPicOne.jpg">
@@ -48,57 +51,70 @@
         <!--
             This Section can be the carousel of pictures
         -->
-        <div class='before_after'>
-            <h3>Before & After Pictures</h3>
-        </div>
-        <div class='slideshow'>
-            
-            <div class="gallery-container">
-                <div class="gallery-track">
-                    <img src="static/images/fence_before.jpg" />
-                    <img src="static/images/fence_after.jpg" />
-                    <img src="static/images/flooring_before.jpg" />
-                    <img src="static/images/flooring_after.jpg" />
-                    <img src="static/images/ManCave_before.jpg" />
-                    <img src="static/images/ManCave_after.jpg" />
-                </div>
-
-                <!--
-                    These are the actual buttons for the uh arrows
-                -->
-
-                <button class="prev" onclick="prevSlide()">&#10094;</button>
-                <button class="next" onclick="nextSlide()">&#10095;</button>
+        <div class='slideshow_box'>
+            <div class='before_after'>
+                <h3>Before & After Pictures</h3>
             </div>
-            <script>
-                let slideIndex = 0;
+            <div class='slideshow'>
+                
+                <div class="gallery-container">
+                    <div class="gallery-track">
+                        <img src="static/images/fence_before.jpg" />
+                        <img src="static/images/fence_after.jpg" />
+                        <img src="static/images/flooring_before.jpg" />
+                        <img src="static/images/flooring_after.jpg" />
+                        <img src="static/images/ManCave_before.jpg" />
+                        <img src="static/images/ManCave_after.jpg" />
+                    </div>
 
-                function showSlide() {
-                    const slides = document.querySelectorAll('.gallery-track img');
-                    slides.forEach(slide => slide.style.display = 'none');
-                    slides[slideIndex].style.display = 'block';
-                }
+                    <!--
+                        These are the actual buttons for the uh arrows
+                    -->
 
-                function nextSlide() {
-                    const slides = document.querySelectorAll('.gallery-track img');
-                    if (slideIndex < slides.length - 1) {
-                        slideIndex++;
-                    } else {
-                        slideIndex = 0;
+                    <button class="prev" onclick="prevSlide()">&#10094;</button>
+                    <button class="next" onclick="nextSlide()">&#10095;</button>
+                </div>
+                <script>
+                    let slideIndex = 0;
+
+                    function showSlide() {
+                        const slides = document.querySelectorAll('.gallery-track img');
+                        slides.forEach(slide => slide.style.display = 'none');
+                        slides[slideIndex].style.display = 'block';
                     }
-                    showSlide();
-                }
 
-                function prevSlide() {
-                    const slides = document.querySelectorAll('.gallery-track img');
-                    if (slideIndex > 0) {
-                        slideIndex--;
-                    } else {
-                        slideIndex = slides.length - 1;
+                    function nextSlide() {
+                        const slides = document.querySelectorAll('.gallery-track img');
+                        if (slideIndex < slides.length - 1) {
+                            slideIndex++;
+                        } else {
+                            slideIndex = 0;
+                        }
+                        showSlide();
                     }
-                    showSlide();
-                }
 
+<<<<<<< HEAD
+                    function prevSlide() {
+                        const slides = document.querySelectorAll('.gallery-track img');
+                        if (slideIndex > 0) {
+                            slideIndex--;
+                        } else {
+                            slideIndex = slides.length - 1;
+                        }
+                        showSlide();
+                    }
+
+                    showSlide();
+                    function goBack() {
+                        window.history.back();
+                    }
+                </script>
+            </div> 
+        </div>
+    <!--
+            This Section will be the reviews for customers
+        -->
+=======
                 showSlide();
                 function goBack() {
                     window.history.back();
@@ -106,7 +122,7 @@
             </script>
         </div> 
 
-        <section>
+        <section id="reviews">
             <div>
                 <h1 style="color: black;">Please Leave A Review</h1>
             </div>
@@ -139,7 +155,7 @@
             This can be the Footer
         -->
 
-        <section>
+        {% comment %} <section>
             <div>
                 <footer>
                     <h3 style="color:white;">
@@ -150,7 +166,7 @@
                     </pre>
                 </footer>
             </div>
-        </section>
+        </section> {% endcomment %}
         <script>
                 function handleRatingClick(rating) {
                     document.getElementById("id_rating").value = rating;
@@ -171,8 +187,54 @@
                 }
             
         </script>
+        <footer class='footer-distributed'>
+            <div class='footer-left'>
+                <h3><span>TJ's Handyman Service</span></h3>
+                
+                <p class='footer-links'>
+                    <a href='#'>Home</a>
+                    |
+                    <a href='#'>Reviews</a>
+                    |
+                    <a href='#'>Gallery</a>
+                    |
+                    <a href='#'>Request Project</a>
+                </p>
 
-</div>
+                <p class="footer-company-name">Copyright &copy 2024 <strong>TJ's Handyman Services LLC</strong>
+                    All rights reserved
+                </p>   
+            </div> 
+            <div class="footer-center">
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p><span>Bay St. Louis</span>Mississippi</p>
+                </div>
+                <div>
+                    <i class='fa fa-phone'></i>
+                    <p>+1 228-363-3068</p>
+                </div>
+                <div>
+                    <i class='fa fa-envelope'></i>
+                    <p><a href='#'>xyz@gmail.com</a></p>
+                </div>
+            </div>
+            <div class='footer-right'>
+                <p class="footer-company-about">
+                    <span><b>About the company</b></span>
+                    <strong>TJ's Handyman Service</strong> is a handyman service
+                        where you can meet all of your handyman needs. Assembling, 
+                        carpentry, and yard work are just a few things TJ has to offer.
+                </p>
+                <div class="footer-icons">
+                    <a href='#'><i class='fa fa-facebook'></i></a>
+                    <a href='#'><i class='fa fa-instagram'></i></a>
+                </div>
+            </div>
+            
+        </footer>
+
+
 {% endblock content %}
 
 
