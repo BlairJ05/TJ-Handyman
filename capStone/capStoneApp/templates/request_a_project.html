@@ -32,7 +32,15 @@
           </div>
         </div>
         <div class="form-group">
-          <!-- Calendar Input -->
+          <label for="location">Select Location:</label>
+          <select id="location" name="location" class="form-control" required>
+            <option value="">Select Location</option>
+            <option value="Location 1">BAY ST. LOUIS</option>
+            <option value="Location 2">Location 1</option>
+            <option value="Location 3">Location 2</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label for="date">Select Date:</label>
           <input type="date" id="date" name="date" class="form-control" required>
         </div>
@@ -46,7 +54,7 @@
   <script>
     function goBack() {
       window.history.back();
-  }
+    }
   </script>
 </body>
 </html>
