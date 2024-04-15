@@ -36,6 +36,10 @@
                     <h2>Beyond the Basics: Specialized Services for Home and Property</h2>
                     <p>From blacksmithing to furniture assembly and odd jobs, trust us for a wide array of specialized services to meet your unique requirements.</p>
                 </div>
+<<<<<<< HEAD
+=======
+            </div>
+>>>>>>> 3fc45c5e668e75acd41b1c262cc194ac8bdbcff8
                 <script>
                     function showSlide() {
                         const slides = document.querySelectorAll('.gallery-track img');
@@ -223,7 +227,13 @@
                     </div>
                 </div> 
             </div>
+<<<<<<< HEAD
             <div class='rating-body'>             
+=======
+            {% if user.is_authenticated %}
+            <div class='rating-body'>
+                <header class='rate-us'>Rate Us!<header>
+>>>>>>> 3fc45c5e668e75acd41b1c262cc194ac8bdbcff8
                 <div class="rating-container">
                   <header class='rate-us'>Rate Us!</header>
                   <div class="post">
@@ -253,6 +263,10 @@
                   </div>
                 </div>
               </div>
+            {% else %}
+            
+              {% endif %}
+              
               <script>
                 const btn = document.querySelector('#postbutton');
                 const post = document.querySelector('.post');
@@ -271,6 +285,7 @@
                   return false;
                 }
               </script>
+              
 
     {% endblock content %}
 
