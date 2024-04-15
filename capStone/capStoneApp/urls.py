@@ -18,5 +18,5 @@ urlpatterns = [
     path('gallery/', views.gallery, name='gallery'),
     path('request_a_project/', views.Request, name='request_a_project'),
     path('submit_review/', views.submit_review, name='submit_review'),
-    path('reviews/', views.reviews, name='reviews')
+    path('reviews/', views.reviews, name='rating')
 ]

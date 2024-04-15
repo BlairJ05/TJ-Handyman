@@ -28,39 +28,27 @@
                 <input type="text" name="name" class="form-control" placeholder="Full Name" required>
               </div>
               <div class="col">
+                <input type="phone" name="number" class="form-control" placeholder="Phone Number" required>
+              </div>
+              <div class="col">
                 <input type="email" name="email" class="form-control" placeholder="Email Address" required>
               </div>
             </div>
           </div>
-<<<<<<< HEAD
-          <div class="form-group">
-            <!-- Calendar Input -->
-            <label for="date">Select Date:</label>
-            <input type="date" id="date" name="date" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
-          </div>
-          <button type="submit" class="btn">Submit Form</button>
-        </form>
-      </div>
-    </section>
-    <script>
-      function goBack() {
-        window.history.back();
-    }
-    </script>
-  </body>
-{% endblock content %}
-=======
         </div>
         <div class="form-group">
           <label for="location">Select Location:</label>
           <select id="location" name="location" class="form-control" required>
             <option value="">Select Location</option>
             <option value="Location 1">BAY ST. LOUIS</option>
-            <option value="Location 2">Location 1</option>
-            <option value="Location 3">Location 2</option>
+            <option value="Location 2">DIAMONDHEAD</option>
+            <option value="Location 3">WAVELAND</option>
+            <option value="Location 4">PASS CHRISTIAN</option>
+            <option value="Location 5">DELISLE</option>
+            <option value="Location 6">KILN</option>
+            <option value="Location 7">LONG BEACH</option>
+            <option value="Location 8">GULFPORT</option>
+            <option value="Location 9">SLIDELL</option>
           </select>
         </div>
         <div class="form-group">
@@ -69,6 +57,16 @@
         </div>
         <div class="form-group">
           <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="date">Select Date:</label>
+          <input type="date" id="date" name="date" class="form-control" required>
+        </div>
+        <p>Click on the "Choose File" button to upload a file:</p>
+        <div class='form-group'>
+          <form action="/action_page.php">
+            <input type="file" id="myFile" name="filename">
+          </form>
         </div>
         <button type="submit" class="btn">Submit Form</button>
       </form>
@@ -79,6 +77,6 @@
       window.history.back();
     }
   </script>
+  {% endblock content %}
 </body>
->>>>>>> dfb971c709daaa4c3a69220dc9946bb79faa9d36
 </html>

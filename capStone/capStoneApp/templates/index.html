@@ -15,7 +15,6 @@
                 </div>
         </div>    
 
-<<<<<<< HEAD
             <!--
                 this can be the Section can be the body
             -->
@@ -42,47 +41,6 @@
                     <h2>Beyond the Basics: Specialized Services for Home and Property</h2>
                     <p>From blacksmithing to furniture assembly and odd jobs, trust us for a wide array of specialized services to meet your unique requirements.</p>
                 </div>
-=======
-                    function showSlide() {
-                        const slides = document.querySelectorAll('.gallery-track img');
-                        slides.forEach(slide => slide.style.display = 'none');
-                        slides[slideIndex].style.display = 'block';
-                    }
-
-                    function nextSlide() {
-                        const slides = document.querySelectorAll('.gallery-track img');
-                        if (slideIndex < slides.length - 1) {
-                            slideIndex++;
-                        } else {
-                            slideIndex = 0;
-                        }
-                        showSlide();
-                    }
-
-                    function prevSlide() {
-                        const slides = document.querySelectorAll('.gallery-track img');
-                        if (slideIndex > 0) {
-                            slideIndex--;
-                        } else {
-                            slideIndex = slides.length - 1;
-                        }
-                        showSlide();
-                    }
-
-                    showSlide();
-                    function goBack() {
-                        window.history.back();
-                    }
-                </script>
-            </div> 
-        </div>
-            </script>
-        </div> 
-
-        <section id="reviews">
-            <div>
-                <h1 style="color: black;">Please Leave A Review</h1>
->>>>>>> dfb971c709daaa4c3a69220dc9946bb79faa9d36
             </div>
             <!--
                 This Section can be the carousel of pictures
@@ -228,6 +186,52 @@
                     </div>
                 </div> 
             </div>
+            <div class='rating-body'>
+                <header class='rate-us'>Rate Us!<header>
+                <div class="rating-container">
+                  <div class="post">
+                    <div class="text"> Thanks for rating us!</div>
+                    <div class="edit">EDIT</div>
+                  </div>
+                  <div class="star-widget">
+                    <input type='radio' name='rate' id='rate-5'>
+                    <label for='rate-5' class='fas fa-star'></label>
+                    <input type='radio' name='rate' id='rate-4'>
+                    <label for='rate-4' class='fas fa-star'></label>
+                    <input type='radio' name='rate' id='rate-3'>
+                    <label for='rate-3' class='fas fa-star'></label>
+                    <input type='radio' name='rate' id='rate-2'>
+                    <label for='rate-2' class='fas fa-star'></label>
+                    <input type='radio' name='rate' id='rate-1'>
+                    <label for='rate-1' class='fas fa-star'></label>
+                    <form action='#'>
+                      <header></header>
+                      <div class='textarea'>
+                        <textarea cols='30' placeholder='Describe your experience...'></textarea>
+                      </div>
+                      <div class="btn">
+                        <button id='postbutton'type="submit">Post</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <script>
+                const btn = document.querySelector('#postbutton');
+                const post = document.querySelector('.post');
+                const widget = document.querySelector('.star-widget');
+                const editBtn = document.querySelector('.edit');
+                btn.onclick = ()=>{
+                  widget.style.display = 'none';
+                  post.style.display = 'block';
+                  editBtn.onclick = ()=>{
+                      widget.style.display = 'block';
+                      post.style.display = 'none';
+                      
+                    }
+                    return false
+                }
+                
+              </script>
 
     {% endblock content %}
 
