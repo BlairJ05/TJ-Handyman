@@ -18,5 +18,10 @@ urlpatterns = [
     path('gallery/', views.gallery, name='gallery'),
     path('request_a_project/', views.Request, name='request_a_project'),
     path('submit_review/', views.submit_review, name='submit_review'),
+<<<<<<< HEAD
     path('reviews/', views.reviews, name='rating')
+=======
+    path('reviews/', views.reviews, name='reviews'),
+    path('accounts/login/', views.signIn, name='login'),
+>>>>>>> 45b05c89cee01d2ab6826ddf4886332ef1da3b35
 ]
