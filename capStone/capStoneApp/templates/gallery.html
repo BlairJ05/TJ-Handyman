@@ -1,20 +1,27 @@
 {% extends 'base.html'%}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% block content %}    
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo Gallery</title>
     <link rel="stylesheet" href="{% static "gallery.css" %}">
-    <link rel="stylesheet" href="{% static 'navBar.css' %}">
 </head>
 <body>
-{% block content %}
-    <div class='Welcome'>
+
+    <div class='Gallery-container'>
         <h2>Welcome Please Have A Look At My Work</h2>
         <p>These pictues are from different jobs I have done in the past.</p>
+        <div class="header">Carpentry</div>
+        <div class="card-container">
+            <div class="card">
+                <img src='static/images/Tjs.png'>
+                <div class="content">
+                    <h2>Title</h2>
+                    <p>Info</p>
+                    <a href="#">Read More</a>
+                </div>
+        </div>
     </div>
+    
 {% endblock content %}    
 </body>
 </html>

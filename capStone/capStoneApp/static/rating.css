@@ -25,14 +25,16 @@
     display: none;
 }
 .rating-container .text{
+    position: relative;
     font-size: 25px;
     color: #666;
     font-weight: 500;
+    top: 15px;
 }
 .rating-container .edit{
-    position: absolute;
-    right: 10px;
-    top: 5px;
+    position: relative;
+    left: 160px;
+    bottom: 40px;
     font-size: 16px;
     color: #666;
     font-weight: 500;

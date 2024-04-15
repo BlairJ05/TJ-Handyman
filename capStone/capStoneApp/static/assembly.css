@@ -10,10 +10,12 @@
   background-color: #1565c0;
   margin: 10px;
   transition: transform 0.5s ease, background-color 0.4s ease;
+  box-shadow: 0 10px 20px gray;
 }
 .card:hover{
   transform: translateY(-15px);
   background-color: rgba(102, 170, 248, 0.797);
+
 }
 .card img{
   width:100%;

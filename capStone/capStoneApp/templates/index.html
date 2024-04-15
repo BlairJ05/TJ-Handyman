@@ -1,11 +1,6 @@
 {% extends 'base.html'%}
 {% load static %}
-<body>
-    <nav class="navbar">
-        <div class="logo">
-            <i class="fas fa-font-awesome"></i>
-            <a href="#"> TJ's Handyman Service </a>
-        </div>
+
     {% block content %}
         <div class='wrapper_outer'>
                 <div class='wrapper'>
@@ -41,9 +36,6 @@
                     <h2>Beyond the Basics: Specialized Services for Home and Property</h2>
                     <p>From blacksmithing to furniture assembly and odd jobs, trust us for a wide array of specialized services to meet your unique requirements.</p>
                 </div>
-<<<<<<< HEAD
-            </div>
-=======
                 <script>
                     function showSlide() {
                         const slides = document.querySelectorAll('.gallery-track img');
@@ -87,7 +79,6 @@
                     <h1 style="color: black;">Please Log In To Leave A Review</h1>
                 </div>
             {% endif %}
->>>>>>> 45b05c89cee01d2ab6826ddf4886332ef1da3b35
             <!--
                 This Section can be the carousel of pictures
             -->
@@ -232,9 +223,9 @@
                     </div>
                 </div> 
             </div>
-            <div class='rating-body'>
-                <header class='rate-us'>Rate Us!<header>
+            <div class='rating-body'>             
                 <div class="rating-container">
+                  <header class='rate-us'>Rate Us!</header>
                   <div class="post">
                     <div class="text"> Thanks for rating us!</div>
                     <div class="edit">EDIT</div>
@@ -256,8 +247,9 @@
                         <textarea cols='30' placeholder='Describe your experience...'></textarea>
                       </div>
                       <div class="btn">
-                        <button id='postbutton'type="submit">Post</button>
+                        <button id='postbutton' type="submit">Post</button>
                       </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -266,17 +258,18 @@
                 const post = document.querySelector('.post');
                 const widget = document.querySelector('.star-widget');
                 const editBtn = document.querySelector('.edit');
-                btn.onclick = ()=>{
+                const rateUs = document.querySelector('.rate-us');
+              
+                btn.onclick = () => {
                   widget.style.display = 'none';
+                  rateUs.style.display = 'none'; // Hide the "Rate Us!" header
                   post.style.display = 'block';
-                  editBtn.onclick = ()=>{
-                      widget.style.display = 'block';
-                      post.style.display = 'none';
-                      
-                    }
-                    return false
+                  editBtn.onclick = () => {
+                    widget.style.display = 'block';
+                    post.style.display = 'none';
+                  }
+                  return false;
                 }
-                
               </script>
 
     {% endblock content %}
