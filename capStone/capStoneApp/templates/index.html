@@ -15,7 +15,6 @@
                 </div>
         </div>    
 
-<<<<<<< HEAD
             <!--
                 this can be the Section can be the body
             -->
@@ -42,7 +41,7 @@
                     <h2>Beyond the Basics: Specialized Services for Home and Property</h2>
                     <p>From blacksmithing to furniture assembly and odd jobs, trust us for a wide array of specialized services to meet your unique requirements.</p>
                 </div>
-=======
+                <script>
                     function showSlide() {
                         const slides = document.querySelectorAll('.gallery-track img');
                         slides.forEach(slide => slide.style.display = 'none');
@@ -76,14 +75,15 @@
                 </script>
             </div> 
         </div>
-            </script>
         </div> 
 
         <section id="reviews">
-            <div>
-                <h1 style="color: black;">Please Leave A Review</h1>
->>>>>>> dfb971c709daaa4c3a69220dc9946bb79faa9d36
-            </div>
+            {% if user.is_authenticated %}
+            {% else %}
+                <div>
+                    <h1 style="color: black;">Please Log In To Leave A Review</h1>
+                </div>
+            {% endif %}
             <!--
                 This Section can be the carousel of pictures
             -->
