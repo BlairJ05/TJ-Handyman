@@ -19,9 +19,6 @@ urlpatterns = [
     path('request_a_project/', views.Request, name='request_a_project'),
     path('submit_review/', views.submit_review, name='submit_review'),
     path('reviews/', views.reviews, name='rating'),
-<<<<<<< HEAD
-=======
     path('reviews/', views.reviews, name='reviews'),
->>>>>>> 3fc45c5e668e75acd41b1c262cc194ac8bdbcff8
     path('accounts/login/', views.signIn, name='login'),
 ]
