@@ -1,18 +1,17 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
-from .forms import ReviewForm
-from .models import Review
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth import authenticate, login, logout
-
+from .forms import *
+from .models import *
+from .decorators import *
+from django.contrib.auth.decorators import *
 
 def Request(request):
     return render(request, 'request_a_project.html')
 
 def gallery(request):
-    return render(request, 'gallery.html')
+    cards = CreateCard.objects.all()
+    return render(request, 'gallery.html', {'cards': cards})
 
 def index(request):
     return render(request, 'index.html')
@@ -116,3 +115,14 @@ def submit_review(request):
 def reviews(request):
     reviews = Review.objects.all() 
     return render(request, 'rating.html', {'reviews': reviews})
+
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
+def card(request):
+    form = CreateCardForm()
+    if request.method == 'POST':
+        form = CreateCardForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render(request, 'create.html', {'form': form})
+    return render(request, 'create.html', {'form': form})

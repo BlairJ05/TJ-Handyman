@@ -1,10 +1,12 @@
 .rating-body{
+    position: relative;
     display: grid;
     height: 40vh;
     place-items: center;
     text-align: center;
     font-family: "Poppins", sans-serif;
     align-items: center;
+    margin: 0;
 }
 
 .rating-container{
