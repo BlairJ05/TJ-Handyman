@@ -13,11 +13,11 @@
         <div class="header">Carpentry</div>
         <div class="card-container">
             <div class="card">
-                <img src='static/images/Tjs.png'>
+                <img src='{% static 'images/Tjs.png' %}'>
                 <div class="content">
                     <h2>Title</h2>
                     <p>Info</p>
-                    <a href="#">Read More</a>
+                    <a href="{% url 'index' %}">Read More</a>
                 </div>
         </div>
     </div>
