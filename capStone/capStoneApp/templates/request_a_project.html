@@ -3,98 +3,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Request</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='{% static "navBar.css" %}'>
-    <script src='main.js'></script>
+    <style>
+        .container {
+            margin: auto;
+            width: 80%;
+            text-align: center;
+            top: 80px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            margin-bottom: 20px;
+            text-align: left;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .form-control {
+            width: calc(33.33% - 10px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 {% block content %}
-  <style>
-    h1 {
-      text-align: center;
-      margin: 35px 0 20px 0;
-    }
-  </style>
-  <body>
-    <section>
-      <div class="container">
-        <h1>FormSubmit Demo</h1>
+<body>
+    <div class="container">
         <form target="_blank" action="https://formsubmit.co/chcleland2@gmail.com" method="POST">
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col">
-                <input type="text" name="name" class="form-control" placeholder="Full Name" required>
-              </div>
-              <div class="col">
-                <input type="phone" name="number" class="form-control" placeholder="Phone Number" required>
-              </div>
-              <div class="col">
-                <input type="email" name="email" class="form-control" placeholder="Email Address" required>
-              </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Full Name" required>
+                    <label for="number">Phone Number:</label>
+                    <input type="phone" id="number" name="number" class="form-control" placeholder="Phone Number" required>
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email Address" required>
+                </div>
             </div>
-          </div>
-          <div class="form-group">
-            <!-- Calendar Input -->
-            <label for="date">Select Date:</label>
-            <input type="date" id="date" name="date" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
-          </div>
-          <button type="submit" class="btn">Submit Form</button>
+            <div class="form-group">
+                <label for="location">Select Location:</label>
+                <select id="location" name="location" class="form-control" required>
+                    <option value="">Select Location</option>
+                    <option value="Location 1">BAY ST. LOUIS</option>
+                    <option value="Location 2">DIAMONDHEAD</option>
+                    <option value="Location 3">WAVELAND</option>
+                    <option value="Location 4">PASS CHRISTIAN</option>
+                    <option value="Location 5">DELISLE</option>
+                    <option value="Location 6">KILN</option>
+                    <option value="Location 7">LONG BEACH</option>
+                    <option value="Location 8">GULFPORT</option>
+                    <option value="Location 9">SLIDELL</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="message">What Exactly Is The Problem: </label>
+                <textarea id="message" placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
+            </div>
+            <div class='form-group'>
+                <label for="myFile" class="custom-file-upload">Choose File</label>
+                <input type="file" id="myFile" name="filename">
+            </div>
+            <button type="submit" class="btn">Submit Form</button>
         </form>
-      </div>
-    </section>
-    <script>
-      function goBack() {
-        window.history.back();
-    }
-    </script>
-  </body>
-        </div>
-        <div class="form-group">
-          <label for="location">Select Location:</label>
-          <select id="location" name="location" class="form-control" required>
-            <option value="">Select Location</option>
-            <option value="Location 1">BAY ST. LOUIS</option>
-            <option value="Location 2">DIAMONDHEAD</option>
-            <option value="Location 3">WAVELAND</option>
-            <option value="Location 4">PASS CHRISTIAN</option>
-            <option value="Location 5">DELISLE</option>
-            <option value="Location 6">KILN</option>
-            <option value="Location 7">LONG BEACH</option>
-            <option value="Location 8">GULFPORT</option>
-            <option value="Location 9">SLIDELL</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="date">Select Date:</label>
-          <input type="date" id="date" name="date" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="date">Select Date:</label>
-          <input type="date" id="date" name="date" class="form-control" required>
-        </div>
-        <p>Click on the "Choose File" button to upload a file:</p>
-        <div class='form-group'>
-          <form action="/action_page.php">
-            <input type="file" id="myFile" name="filename">
-          </form>
-        </div>
-        <button type="submit" class="btn">Submit Form</button>
-      </form>
     </div>
-  </section>
-  <script>
-    function goBack() {
-      window.history.back();
-    }
-  </script>
-  {% endblock content %}
 </body>
+{% endblock content %}
 </html>
