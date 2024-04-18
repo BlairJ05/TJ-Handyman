@@ -36,10 +36,10 @@
     margin: 0 1rem;
     min-width: 300px;
     flex: 1;
-    transition: 5s ease-in;
+    transition: 2.5s ease-in-out;
 }
 .review:hover{
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 .head-review{
     margin: 1.75rem auto;
