@@ -6,25 +6,35 @@
     <link rel="stylesheet" href="{% static "gallery.css" %}">
 </head>
 <body>
-
+    
+    
+    
     <div class='Gallery-container'>
-        <h2>Welcome Please Have A Look At My Work</h2>
-        <p>These pictues are from different jobs I have done in the past.</p>
-        <div class="header">Carpentry</div>
-        <div class="card-container">
-            {% for card in cards %}
-            <div class="card">
-                <img src="{{card.before_Pic.url}}">
-                <img src="{{card.after_Pic.url}}">
-                <div class="content">
-                    <h2>{{card.title}}</h2>
-                    <p>{{card.description}}</p>
-                    <a href={{card.facebook_url}} target="_blank">Read More</a>
+        <h2><br>Welcome, Please Have A Look At My Work!</h2>
+        {% for header, cards_group in cards.items %}
+            <div class="Gallery-container">
+                <div class="header">{{ header }}</div>
+                <div class="card-container">
+                    {% for card in cards_group %}
+                        <div class="card">
+                            <img src="{{ card.before_Pic.url }}">
+                            <img src="{{ card.after_Pic.url }}">
+                            <div class="content">
+                                <h2>{{ card.title }}</h2>
+                                <p>{{ card.description }}</p>
+                                {% if card.url %}
+                                    <a href="{{ card.url }}" target="_blank">Read More</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
-            {% endfor %}
-        </div>
+        {% endfor %}
     </div>
+    
+    
+
     
 {% endblock content %}    
 </body>
