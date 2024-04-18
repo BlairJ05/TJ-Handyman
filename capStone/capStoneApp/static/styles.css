@@ -1,4 +1,8 @@
 
+html {
+min-width: 550px;
+position: relative;
+}
 body {
   background-color: #ffffff;
 }
@@ -377,7 +381,6 @@ span{
 }
 
 
-/* //////////////////////////////// Footer \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 footer{
   position: relative;
   bottom: 0;

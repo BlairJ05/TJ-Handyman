@@ -19,50 +19,73 @@
     {% endblock %}  
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <i class="fas fa-font-awesome"></i>
-                <div class="tooltip">
-                    <a href="http://127.0.0.1:8000/" onclick="goBack()"> TJ's Handyman Service </a>
-                    <div class="bottom">
-                        <h3>Click to go Home</h3>
-                        <i></i>
+    
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-font-awesome"></i>
+                    <div class="tooltip">
+                        <a href="http://127.0.0.1:8000/" onclick="goBack()"> TJ's Handyman Service </a>
+                        <div class="bottom">
+                            <h3>Click to go Home</h3>
+                            <i></i>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="menu">
-                <div class="menu-links">
-                    <a href="{% url 'index' %}"><h1 id="index">Home</h1></a>
-                    <a href="{% url 'rating' %}"><h1 id="review">Rate Us</h1></a>
-                    <a href="{% url 'reviews' %}"><h1 id="Review">Reviews</h1></a>
-                    <a href="{% url 'gallery' %}"><h1 id="gallery">Gallery</h1></a>
-                    <a href="{% url 'request_a_project' %}"><h1 id="request_a_project">Request a Project</h1></a>
-                </div>
-                    <div class="login-signup">
-                        {% if user.is_authenticated %}
-                            <div class="signOutBackground">
-                                <div>
-                                    <a href="{% url 'signOut' %}" style="text-decoration: none;color: aliceblue;">Sign Out</a>
-                                </div>
+                <div class="menu">
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_staff %}
+                            <!-- Admin menu options -->
+                            <div class="menu-links">
+                                <a href="{% url 'index' %}"><h1 id="index">Home</h1></a>
+                                <a href="{% url 'reviews' %}"><h1 id="Review">Reviews</h1></a>
+                                <a href="{% url 'gallery' %}"><h1 id="gallery">Gallery</h1></a>
+                                <a href="{% url 'request_a_project' %}"><h1 id="request_a_project">Request a Project</h1></a>
+                                <a href="{% url 'create_card' %}"><h1 id="create_card">Create Project</h1></a>
                             </div>
-            
-                            {% else %}
-                            <button class="log-in">
-                                <a href="{% url 'signIn' %}" style="text-decoration: none;color: white;">Login/Sign-Up</a>
-                            </button>
+                        {% else %}
+                            <!-- Regular user menu options -->
+                            <div class="menu-links">
+                                <a href="{% url 'index' %}"><h1 id="index">Home</h1></a>
+                                <a href="{% url 'reviews' %}"><h1 id="Review">Reviews</h1></a>
+                                <a href="{% url 'gallery' %}"><h1 id="gallery">Gallery</h1></a>
+                                <a href="{% url 'request_a_project' %}"><h1 id="request_a_project">Request a Project</h1></a>
+                            </div>
                         {% endif %}
-                    </div>
-                <div class="menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>   
-                <div class="close-btn">
-                    <i class="fas fa-times"></i>
-                </div>         
-            </div>
-        </nav>
-    </header>
+                    {% else %}
+                        <!-- Non-authenticated user menu options -->
+                        <div class="menu-links">
+                            <a href="{% url 'index' %}"><h1 id="index">Home</h1></a>
+                            <a href="{% url 'reviews' %}"><h1 id="Review">Reviews</h1></a>
+                            <a href="{% url 'gallery' %}"><h1 id="gallery">Gallery</h1></a>
+                        </div>
+                    {% endif %}
+                </div>
+
+                        <div class="login-signup">
+                            {% if user.is_authenticated %}
+                                <div class="signOutBackground">
+                                    <div>
+                                        <a href="{% url 'signOut' %}" style="text-decoration: none;color: aliceblue;">Sign Out</a>
+                                    </div>
+                                </div>
+                
+                                {% else %}
+                                <button class="log-in">
+                                    <a href="{% url 'signIn' %}" style="text-decoration: none;color: white;">Login/Sign-Up</a>
+                                </button>
+                            {% endif %}
+                        </div>
+                    <div class="menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </div>   
+                    <div class="close-btn">
+                        <i class="fas fa-times"></i>
+                    </div>         
+                </div>
+            </nav>
+        </header>
+    
 
     <main>
         {% block content %}
