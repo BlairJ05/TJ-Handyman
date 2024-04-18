@@ -1,3 +1,4 @@
+from itertools import groupby
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
@@ -10,8 +11,11 @@ def Request(request):
     return render(request, 'request_a_project.html')
 
 def gallery(request):
-    cards = CreateCard.objects.all()
-    return render(request, 'gallery.html', {'cards': cards})
+    cards = CreateCard.objects.all().order_by('header')
+    grouped_cards = {}
+    for header, group in groupby(cards, key=lambda x: x.header):
+        grouped_cards[header] = list(group)
+    return render(request, 'gallery.html', {'cards': grouped_cards})
 
 def index(request):
     return render(request, 'index.html')

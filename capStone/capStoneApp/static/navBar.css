@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* Apply box-sizing to all elements */
+
 *,
 *::before,
 *::after {
@@ -35,13 +35,43 @@ button {
     justify-content: space-between;
     align-items: center;
 }
+@media (max-width: 48em) { 
+    body {
+        font-size: 14px; 
+    }
 
+    .navbar {
+        padding: 10px 20px; 
+    }
+
+    .menu-links {
+        display: none; 
+    }
+
+    .menu-btn {
+        display: block; 
+    }
+
+    .card-container {
+        width: 100%; 
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card {
+        margin-bottom: 20px; 
+    }
+
+    .header {
+        text-align: center; 
+    }
+}
 .navbar .logo i{
     color: #0aa5ff;
     font-size: 22px;
 }
 
-.navbar .logo a {
+.navbar .logo p {
     font-size: 24px;
     color: white;
     margin-left: 12px;
@@ -61,7 +91,7 @@ button {
 .menu-links {
     position: relative;
     display: flex;
-    gap: 24px;
+    gap: 14px;
     border-right: 1px solid #999999;
     padding-inline: 24px;
 }
@@ -139,7 +169,12 @@ button {
     display: none;
 }
 .signOutBackground {
+    width: 8vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: .5s ease;
+    font-size: 16pt;
     font-weight: 500;
     padding: 12px 22px;
     background-color: transparent;
@@ -147,6 +182,7 @@ button {
     border-radius: 10px;
     border: 2px solid rgb(6, 127, 193);
     transition: 0.3s ease;
+    margin-left: 4vw;
   
   
   }
@@ -211,6 +247,13 @@ button {
     background-color:#EEEEEE;
     box-shadow:0 1px 8px rgba(0,0,0,0.5);
 }
+.Hi-msg{
+    text-align: center;
+    color: white;
+    position: absolute;
+    right: 12.5vw;
+    top: .7vw;
+}
 
 
 
@@ -222,8 +265,16 @@ button {
     .menu-btn {
         display: block; 
     }
+    .Hi-msg {
+        display: none; 
+    }
 }
 
+@media (max-width: 50rem){
+    .Hi-msg {
+        display: none; 
+    }
+}
 
 .hide-items{
     .logo{

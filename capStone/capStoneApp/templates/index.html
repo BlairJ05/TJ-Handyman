@@ -74,12 +74,6 @@
         </div> 
 
         <section id="reviews">
-            {% if user.is_authenticated %}
-            {% else %}
-                <div>
-                    <h1 style="color: black;">Please Log In To Leave A Review</h1>
-                </div>
-            {% endif %}
             <!--
                 This Section can be the carousel of pictures
             -->
@@ -221,7 +215,12 @@
                     </div>
                 </div> 
             </div>
+            
+
             {% if user.is_authenticated %}
+            {% if user.is_staff%}
+
+            {%else%}
             <div class='rating-body'>
                 <div class="rating-container">
                     <header class='rate-us'>Rate Us!</header>
@@ -252,6 +251,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
               {% else %}
             
               {% endif %}
