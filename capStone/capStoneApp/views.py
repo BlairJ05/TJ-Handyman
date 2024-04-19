@@ -23,24 +23,9 @@ def index(request):
 def pricing(request):
     return render(request, 'pricing.html')
 
-def signUp(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('index')
-    else:
-        form = UserCreationForm()
-    return render(request, 'signUp.html', {'form': form})
+from django.contrib import messages
 
 def signIn(request):
-    password_error = False
-
     if request.method == 'POST':
         if 'signin' in request.POST:
             form = AuthenticationForm(request, request.POST)
@@ -51,11 +36,13 @@ def signIn(request):
                 if user is not None:
                     login(request, user)
                     return redirect('index')
+                else:
+                    messages.error(request, 'Invalid username or password.')
         elif 'signup' in request.POST:
             form = UserCreationForm(request.POST)
             if form.is_valid():
                 if form.cleaned_data['password1'] != form.cleaned_data['password2']:
-                    password_error = True
+                    messages.error(request, 'Passwords do not match. Please try again.')
                 else:
                     form.save()
                     username = form.cleaned_data.get('username')
@@ -64,10 +51,14 @@ def signIn(request):
                     if user is not None:
                         login(request, user)
                         return redirect('index')
+            else:
+                for field, errors in form.errors.items():
+                    for error in errors:
+                        messages.error(request, f'{field}: {error}')
 
     form_signin = AuthenticationForm()
     form_signup = UserCreationForm()
-    return render(request, 'signIn.html', {'form_signin': form_signin, 'form_signup': form_signup, 'password_error': password_error})
+    return render(request, 'signIn.html', {'form_signin': form_signin, 'form_signup': form_signup})
 
 def signOut(request):
     logout(request)
