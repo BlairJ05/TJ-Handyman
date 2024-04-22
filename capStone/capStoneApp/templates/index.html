@@ -215,8 +215,6 @@
                     </div>
                 </div> 
             </div>
-            
-
             {% if user.is_authenticated %}
             {% if user.is_staff%}
 
@@ -229,25 +227,36 @@
                         <div class="edit">EDIT</div>
                     </div>
                     <div class="star-widget">
-                        <input type='radio' name='rate' id='rate-5'>
+                        <input type='radio' name='rate' id='rate-5' value='5'>
                         <label for='rate-5' class='fas fa-star'></label>
-                        <input type='radio' name='rate' id='rate-4'>
+                        <input type='radio' name='rate' id='rate-4' value='4'>
                         <label for='rate-4' class='fas fa-star'></label>
-                        <input type='radio' name='rate' id='rate-3'>
+                        <input type='radio' name='rate' id='rate-3' value='3'>
                         <label for='rate-3' class='fas fa-star'></label>
-                        <input type='radio' name='rate' id='rate-2'>
+                        <input type='radio' name='rate' id='rate-2' value='2'>
                         <label for='rate-2' class='fas fa-star'></label>
-                        <input type='radio' name='rate' id='rate-1'>
+                        <input type='radio' name='rate' id='rate-1' value='1'>
                         <label for='rate-1' class='fas fa-star'></label>
-                        <form action='#'>
+                        <form method='POST' action='{% url 'submit_review' %}'>
+                            {% csrf_token %}
                             <header></header>
                             <div class='textarea'>
-                                <textarea cols='30' placeholder='Describe your experience...'></textarea>
+                                <textarea cols='30' name='review_text' placeholder='Describe your experience...'></textarea>
                             </div>
                             <div class="btn">
                                 <button id='postbutton' type="submit">Post</button>
                             </div>
                         </form>
+                        
+                        {% if messages %}
+                            <div class="messages">
+                                {% for message in messages %}
+                                    <div class="alert alert-{{ message.tags }}">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -261,17 +270,44 @@
                 const widget = document.querySelector('.star-widget');
                 const editBtn = document.querySelector('.edit');
                 const rateUs = document.querySelector('.rate-us');
-              
-                btn.onclick = () => {
-                  widget.style.display = 'none';
-                  rateUs.style.display = 'none';
-                  post.style.display = 'block';
-                  editBtn.onclick = () => {
+
+                btn.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    
+                    widget.style.display = 'none';
+                    rateUs.style.display = 'none';
+
+                    post.style.display = 'block';
+                });
+
+                editBtn.addEventListener('click', function() {
                     widget.style.display = 'block';
                     post.style.display = 'none';
-                  }
-                  return false;
-                }
+                });
+
+                document.querySelector('form').addEventListener('submit', function(event) {
+                });
+
+                btn.addEventListener('click', function(event) {
+                    widget.style.display = 'none';
+                    rateUs.style.display = 'none';
+                    post.style.display = 'block';
+                });
+
+                editBtn.addEventListener('click', function() {
+                    widget.style.display = 'block';
+                    post.style.display = 'none';
+                });
+
+                const stars = document.querySelectorAll('.star-widget input[type="radio"]');
+                    stars.forEach(star => {
+                        star.addEventListener('change', function() {
+                            const rating = 0;
+                            document.querySelector('input[name="rating"]').value = rating;
+                        });
+                });
+
+
               </script>
 
     {% endblock content %}

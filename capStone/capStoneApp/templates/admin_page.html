@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% comment %} {% extends "admin/base_site.html" %} {% endcomment %}
+
+{% load static%}
+
+
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'admin_page.css' %}">
+    <div class="admin-content">
+        <h1>Admin Page</h1>
+        
+        <div class="options-container">
+            <div class="option-button">
+                <a href="#">
+                    Manage Users
+                </a>
+            </div>
+            
+            <div class="option-button">
+                <a href="#">
+                    Manage Reviews
+                </a>
+            </div>
+            
+            <div class="option-button">
+                <a href="#">
+                    Manage Gallery Images
+                </a>
+            </div>
+
+            <div class="option-button">
+                <a href="#">
+                    Template Edits
+                </a>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

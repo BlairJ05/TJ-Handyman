@@ -9,6 +9,14 @@
     margin: 0;
 }
 
+.rating-container form .star-widget {
+    display: block;
+}
+
+.rating-container form .star-widget input[type="radio"] {
+    display: inline-block;
+}
+
 .rating-container{
     position: relative;
     width: 400px;

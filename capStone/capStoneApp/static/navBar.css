@@ -30,11 +30,12 @@ button {
 .navbar {
     height: 90px;
     background-color: #1a1a1a;
-    padding: 20px 40px;
+    padding: 40px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 @media (max-width: 48em) { 
     body {
         font-size: 14px; 
@@ -91,7 +92,7 @@ button {
 .menu-links {
     position: relative;
     display: flex;
-    gap: 14px;
+    gap: 24px;
     border-right: 1px solid #999999;
     padding-inline: 24px;
 }
@@ -99,7 +100,7 @@ button {
 .menu-links a {
     font-weight: 500;
     color: #999999;
-    padding: 8px 16px;
+    padding: 8px 32px;
     transition: .3s ease;
 }
 
