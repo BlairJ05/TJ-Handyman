@@ -4,7 +4,7 @@ from .models import *
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ['text', 'rating']
+        fields = ['rating', 'text']
 class CreateCardForm(forms.ModelForm):
     class Meta:
         model = CreateCard

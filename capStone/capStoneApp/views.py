@@ -18,7 +18,18 @@ def gallery(request):
     return render(request, 'gallery.html', {'cards': grouped_cards})
 
 def index(request):
-    return render(request, 'index.html')
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.user = request.user
+            review.save()
+        else:
+            pass
+    else:
+        form = ReviewForm()
+
+    return render(request, 'index.html', {'form': form})
 
 def pricing(request):
     return render(request, 'pricing.html')
@@ -95,7 +106,7 @@ def submit_review(request):
         form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)
-            review.user = request.user 
+            review.user = request.user.name
             review.save()
             return redirect('index') 
         else:

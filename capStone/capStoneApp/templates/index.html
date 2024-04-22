@@ -229,23 +229,26 @@
                         <div class="edit">EDIT</div>
                     </div>
                     <div class="star-widget">
-                        <input type='radio' name='rate' id='rate-5'>
-                        <label for='rate-5' class='fas fa-star'></label>
-                        <input type='radio' name='rate' id='rate-4'>
-                        <label for='rate-4' class='fas fa-star'></label>
-                        <input type='radio' name='rate' id='rate-3'>
-                        <label for='rate-3' class='fas fa-star'></label>
-                        <input type='radio' name='rate' id='rate-2'>
-                        <label for='rate-2' class='fas fa-star'></label>
-                        <input type='radio' name='rate' id='rate-1'>
-                        <label for='rate-1' class='fas fa-star'></label>
-                        <form action='#'>
-                            <header></header>
-                            <div class='textarea'>
-                                <textarea cols='30' placeholder='Describe your experience...'></textarea>
-                            </div>
-                            <div class="btn">
-                                <button id='postbutton' type="submit">Post</button>
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <input type='radio' name='rating' id='rate-5' value='5'>
+                            <label for='rate-5' class='fas fa-star'></label>
+                            <input type='radio' name='rating' id='rate-4' value='4'>
+                            <label for='rate-4' class='fas fa-star'></label>
+                            <input type='radio' name='rating' id='rate-3' value='3'>
+                            <label for='rate-3' class='fas fa-star'></label>
+                            <input type='radio' name='rating' id='rate-2' value='2'>
+                            <label for='rate-2' class='fas fa-star'></label>
+                            <input type='radio' name='rating' id='rate-1' value='1'>
+                            <label for='rate-1' class='fas fa-star'></label>
+                            <div class="rating-items">
+                                <header></header>
+                                <div class='textarea'>
+                                    <input class="ratingtext" cols='30' type='text' name="text" placeholder='Describe your experience...'/>
+                                </div>
+                                <div class="btn">
+                                    <button type="submit">Post</button>
+                                </div>
                             </div>
                         </form>
                     </div>
