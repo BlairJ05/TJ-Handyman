@@ -23,7 +23,18 @@ def gallery(request):
 
 
 def index(request):
-    return render(request, "index.html")
+    if request.method == "POST":
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.user = request.user
+            review.save()
+        else:
+            pass
+    else:
+        form = ReviewForm()
+
+    return render(request, "index.html", {"form": form})
 
 
 def pricing(request):
@@ -127,21 +138,21 @@ def Painting(request):
     return render(request, "Painting.html")
 
 
+def admin_page(request):
+    return render(request, "admin_page.html")
+
+
 def submit_review(request):
     if request.method == "POST":
         form = ReviewForm(request.POST)
         print("POST Data:", request.POST)
         if form.is_valid():
-            review_text = form.cleaned_data["review_text"]
-            rating = form.cleaned_data["rating"]
-
-            review = Review.objects.create(
-                review_text=review_text, rating=rating, user=request.user
-            )
-
-            messages.success(request, "Review submitted successfully!")
-
-            return redirect("review_detail", review_id=review.id)
+            review = form.save(commit=False)
+            review.user = request.user
+            review.save()
+            return redirect("index")
+        else:
+            pass
     else:
         form = ReviewForm()
 
@@ -150,7 +161,7 @@ def submit_review(request):
 
 def reviews(request):
     reviews = Review.objects.all()
-    return render(request, "rating.html", {"reviews": reviews})
+    return render(request, "reviews.html", {"reviews": reviews})
 
 
 @login_required

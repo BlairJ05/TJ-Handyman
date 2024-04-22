@@ -31,6 +31,13 @@
                     <p>Don't have an account? <a href="#" class="register-link">Sign up</a></p>
                 </div>
             </form>
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         </div>
         <div class='info-text login '>
             <h2 class='animation' style='--i:0; --j:20'>Welcome Back!</h2>
@@ -65,6 +72,11 @@
                     <p>Already have an account? <a href="#" class="login-link">Login</a></p>
                 </div>
             </form>
+            {% if password_error %}
+                <div class="alert alert-danger" role="alert">
+                    Passwords do not match. Please try again.
+                </div>
+            {% endif %}
         </div>
         <div class='info-text register'>
             <h2 class='animation' style='--i:17; --j:0;'>Welcome</h2>

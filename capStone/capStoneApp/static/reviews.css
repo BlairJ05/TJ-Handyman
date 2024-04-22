@@ -2,82 +2,65 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-.review-box{
-    position: relative;
+
+html{
     display: flex;
-    height: 100vh;
+    justify-content: center;
 }
-.rev-section{
-    position: relative;
-    margin: auto;
-    padding: 0 1rem;
-    max-width: 1100px;
-    text-align: center;
+
+.wrapper-container{
+    display: grid;
+    place-items: center;
+    height: 100%;
 }
-.title{
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    color: gray;
-    margin-bottom: .5rem ;
+
+.wrapper{
+    max-width: 1200px;
+    padding:  50px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
 }
-.note{
-    font-size: 1.1rem;
-    color: lightgray;
-    font-style: italic
-}
-.reviews{
-    margin: 2rem auto;
+
+/* reviews.css */
+
+.testimonial-list {
     display: flex;
     flex-wrap: wrap;
-}
-.review{
-    margin: 0 1rem;
-    min-width: 300px;
-    flex: 1;
-    transition: 2.5s ease-in-out;
-}
-.review:hover{
-    transform: scale(1.2);
-}
-.head-review{
-    margin: 1.75rem auto;
-    width: 150px;
-    height:150px;
-}
-.head-review img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 10px 25px rgba(0,0,0, .25);
-}
-.body-review{
-    background-color: white;
-    padding: 2.5rem;
-    box-shadow: 2px 2px 10px 3px white;
-}
-.name-review{
-    font-size: 1.5rem;
-    color: gray;
-    margin-bottom: .25rem;
-}
-.place-review{
-    color: rgb(6, 127, 193);
-    font-style: italic;
-}
-.ratings{
-    color: rgb(253, 180, 42);
-    margin: 1rem 0;
-}
-.desc-review{
-    line-height: 1.5rem;
-    letter-spacing: 1px;
-    color: gray;
-}
-@media(max-width:678px){
-    .review{
-        margin-top: 1.5rem;
-    }
-}
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .testimonial-item {
+    width: 45%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .testimonial-item p {
+    margin: 10px 0;
+  }
+  
+  .testimonial-heading {
+    text-align: center;
+  }
+  
+  .testimonial-heading span {
+    font-size: 18px;
+    color: #999;
+  }
+  
+  .testimonial-heading h1 {
+    margin-top: 10px;
+    font-size: 32px;
+    color: #333;
+  }
   

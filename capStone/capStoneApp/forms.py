@@ -2,9 +2,10 @@ from django import forms
 from .models import *
 
 
-class ReviewForm(forms.Form):
-    review_text = forms.CharField(widget=forms.Textarea)
-    rating = forms.IntegerField()
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ["rating", "text"]
 
 
 class CreateCardForm(forms.ModelForm):

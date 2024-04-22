@@ -7,34 +7,23 @@
 
 {% block content %}
     <link rel="stylesheet" href="{% static 'admin_page.css' %}">
-    <div class="admin-content">
-        <h1>Admin Page</h1>
-        
-        <div class="options-container">
+    <div class="admin-container">
+        <div class="admin-sidebar">
             <div class="option-button">
-                <a href="#">
-                    Manage Users
-                </a>
+                <a href="#analytics">Analytics</a>
             </div>
-            
             <div class="option-button">
-                <a href="#">
-                    Manage Reviews
-                </a>
+                <a href="#manage-users">Manage Users</a>
             </div>
-            
             <div class="option-button">
-                <a href="#">
-                    Manage Gallery Images
-                </a>
+                <a href="#manage-reviews">Manage Reviews</a>
             </div>
-
             <div class="option-button">
-                <a href="#">
-                    Template Edits
-                </a>
+                <a href="#manage-gallery">Manage Gallery Images</a>
             </div>
-
+            <div class="option-button">
+                <a href="#template-edits">Template Edits</a>
+            </div>
         </div>
-    </div>
+    </div>    
 {% endblock %}
