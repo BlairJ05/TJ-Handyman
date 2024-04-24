@@ -66,25 +66,25 @@ input#rate-5:checked ~ label{
     color: #fe7;
     text-shadow: 0 0 20px #952;
 }
-#rate-1:checked ~ form header:before{
+#rate-1:checked ~ .rating-items header:before{
     content: "It needs improvement 😠";
 }
-#rate-2:checked ~ form header:before{
+#rate-2:checked ~ .rating-items header:before{
     content: "I don't like it 😒";
 }
-#rate-3:checked ~ form header:before{
+#rate-3:checked ~ .rating-items header:before{
     content: "I just like it 😎";
 }
-#rate-4:checked ~ form header:before{
+#rate-4:checked ~ .rating-items header:before{
     content: "It is awesome 😃";
 }
-#rate-5:checked ~ form header:before{
+#rate-5:checked ~ .rating-items header:before{
     content: "I just love it 😍";
 }
-.rating-container form{
+.rating-container .rating-items{
     display: none;
 }
-input:checked ~ form{
+input:checked ~ .rating-items{
     display: block;
 }
 form header{
@@ -102,7 +102,7 @@ form .textarea{
     width: 100%;
     overflow: hidden;
 }
-form .textarea textarea{
+form .textarea .ratingtext{
     height:100%;
     width: 100%;
     color: #000000;
@@ -112,6 +112,7 @@ form .textarea textarea{
     padding: 10px;
     font-size: 17px;
     resize: none;
+    display: initial !important;
 }
 form .btn{
     height:45px;

@@ -7,24 +7,20 @@
   <link rel="stylesheet" href="{% static "reviews.css" %}">
 </head>
 <body>
-  <div class="wrapper">
-    <div class="box">
-      <i class="fas fa-quote-left quote"></i>
-      <p>random stuff jaefefijoesfjoifaesijoesjioesfjiefjioefjieasfjioefsaij</p>
-      <div class="content">
-        <div class="info">
-          <div class="name"></div>
-          <div class="icon"></div>
-          <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
+  {% for review in reviews %}
+  <div class="testimonials">
+    <div class="card">
+        <div class="layer"></div>
+        <div class="content">
+            <p>{{review.text}}</p>
+              {% if review.rating == 1 %}
+                <div class="stars">{{review.rating}}</div>
+              {% endif %}
+                <div class="details"><h2>{{review.user}}</h2></div>
         </div>
-      </div>
     </div>
   </div>
+
+  {% endfor %}
 </body>
 {% endblock %}
