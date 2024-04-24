@@ -149,7 +149,7 @@ def submit_review(request):
 @login_required
 def reviews(request):
     reviews = Review.objects.all() 
-    return render(request, 'rating.html', {'reviews': reviews})
+    return render(request, 'reviews.html', {'reviews': reviews})
 
 @login_required
 @user_passes_test(lambda u: u.is_superuser)

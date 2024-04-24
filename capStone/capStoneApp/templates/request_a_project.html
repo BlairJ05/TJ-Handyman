@@ -1,51 +1,30 @@
 {% extends 'base.html'%}
 {% load static %}
-<!DOCTYPE html>
-<html>
+{% block content %}
 <head>
     <title>Request</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <style>
-        .container {
-            margin: auto;
-            width: 80%;
-            text-align: center;
-            top: 80px;
-        }
+    <link rel="stylesheet" href="{% static "request_project.css" %}">
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-row {
-            margin-bottom: 20px;
-            text-align: left;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .form-control {
-            width: calc(33.33% - 10px);
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-    </style>
 </head>
-{% block content %}
+
 <body>
     <div class="container">
         <form target="_blank" action="https://formsubmit.co/chcleland2@gmail.com" method="POST">
             <div class="form-group">
                 <div class="form-row">
-                    <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Full Name" required>
-                    <label for="number">Phone Number:</label>
-                    <input type="phone" id="number" name="number" class="form-control" placeholder="Phone Number" required>
-                    <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Email Address" required>
+                    <div class="column">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Full Name" required>
+                    </div>
+                    <div class="column">
+                        <label for="number">Phone Number:</label>
+                        <input type="phone" id="number" name="number" class="form-control" placeholder="Phone Number" required>
+                    </div>
+                    <div class="column">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Email Address" required>
+                    </div>
                 </div>
             </div>
             <div class="form-group">
@@ -72,11 +51,11 @@
             </div>
             <div class='form-group'>
                 <label for="myFile" class="custom-file-upload">Choose File</label>
-                <input type="file" id="myFile" name="filename">
+                <input type="file" id="myFile" name="filename" style="color: rgba(0, 0, 0, 0)">
             </div>
-            <button type="submit" class="btn">Submit Form</button>
+            <button type="submit" class="btn" >Submit Form</button>
         </form>
     </div>
 </body>
 {% endblock content %}
-</html>
+
