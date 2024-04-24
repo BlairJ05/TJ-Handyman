@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -124,8 +123,3 @@ STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-
-# Disable collectstatic during deployment
-if os.getenv("DISABLE_COLLECTSTATIC"):
-    STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
