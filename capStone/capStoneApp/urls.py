@@ -22,7 +22,8 @@ urlpatterns = [
     path('reviews/', views.reviews, name='rating'),
     path('reviews/', views.reviews, name='reviews'),
     path('accounts/login/', views.signIn, name='login'),
-    path('create_card/', views.card, name='create_card')
+    path('create_card/', views.card, name='create_card'),
+    path('chatbot/', views.chatbot, name="chatbot"),
 
 ]
 
