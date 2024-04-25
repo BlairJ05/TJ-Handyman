@@ -10,9 +10,10 @@
 
 <body>
     <div class="container">
-        <form target="_blank" action="https://formsubmit.co/chcleland2@gmail.com" method="POST">
+        <form target="_blank" action="https://formsubmit.co/blairjohnson562@gmail.com" method="POST">
             <div class="form-group">
                 <div class="form-row">
+                    <img src="{% static "images/Tjs-old.jpg" %}" alt="Image" style="width:100%;height:15vw;margin-bottom:40px;position:relative;">
                     <div class="column">
                         <label for="name">Full Name:</label>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Full Name" required>
@@ -28,7 +29,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="location">Select Location:</label>
+                <label for="location">Select Location:</label><br>
                 <select id="location" name="location" class="form-control" required>
                     <option value="">Select Location</option>
                     <option value="Location 1">BAY ST. LOUIS</option>
@@ -43,11 +44,11 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="date">Select Date:</label>
+                <label for="date" style="text-align:left;">Select Date:</label><br>
                 <input type="date" id="date" name="date" class="form-control" required>
             </div>
             <div class="form-group">
-                <textarea id="message" placeholder="Please Discribe Your Issue" class="form-control" name="message" rows="10" required></textarea>
+                <textarea id="message" placeholder="Please Describe Your Issue" class="form-control" name="message" rows="10" required></textarea>
             </div>
             <div class='form-group'>
                 <label for="myFile" class="custom-file-upload">Choose File</label>

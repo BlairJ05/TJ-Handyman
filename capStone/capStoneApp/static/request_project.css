@@ -1,34 +1,46 @@
 .container {
     position: relative;
-    margin: auto;
-    width: 30%;
+    width: 100%;
     text-align: center;
-    margin-top: 100px;
-    display: block;
-    justify-content: center;
+    margin-top: 400px;
     align-items: center;
+    display: flex;
+    justify-content: center;
 }
 form{
     box-shadow: 0 10px 20px#333;
-    padding: 20px;
+    width: 50vw;
+    display: grid;
+    justify-content: center;
+    margin-top: 200px;
+    margin-bottom: 100px;
+    
 }
 .form-group {
     margin-bottom: 20px;
+    width: 30vw;
+    
 }
 
 .form-row {
     margin-bottom: 20px;
-    text-align: left;
+    text-align: center;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
+#location, #date{
+    width: 20vw;
+}
+label{
+    margin-bottom: 94px;
+}
 .form-control {
     width: calc(100% - 20px);
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
     box-sizing: border-box;
     margin-bottom: 20px;
 }
@@ -66,4 +78,8 @@ form{
 #myFile {
     position: absolute;
     left: -9999px;
+}
+.column{
+    display: block;
+    justify-content: center;
 }
