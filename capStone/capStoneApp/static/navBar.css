@@ -85,7 +85,7 @@ button {
 .menu {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 500px;
 }
 
 .menu-links {
@@ -93,7 +93,7 @@ button {
     display: flex;
     gap: 14px;
     border-right: 1px solid #999999;
-    padding-inline: 24px;
+    padding-inline: 80px;
 }
 
 .menu-links a {
@@ -118,11 +118,9 @@ button {
     font-family: "Ubuntu", sans-serif;
     top: 1.5vw;
     font-weight: 500;
-    padding: 8px 16px;
     position: relative;
     display: inline-block;
     background-color: #1a1a1a;
-    width: 25vw;
     
     
 }
