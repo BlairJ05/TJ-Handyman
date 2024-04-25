@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.admin-sidebar {
+    position: fixed;
+    left: 0;
+    top: 10;
+    height: 100%;
+    width: 200px;
+    background-color: #f0f0f0;
+    padding-top: 20px;
+}
+
+.option-button {
+    padding: 10px;
+}
+
+.option-button a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+}
+
+.option-button a:hover {
+    background-color: #ddd;
+}
