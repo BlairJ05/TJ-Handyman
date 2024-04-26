@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block content %}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PHX82QGLW4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PHX82QGLW4');
+</script>
+<br />
+{% load static %} <link rel="stylesheet" href="{% static "create.css" %}">
+<br /><br />
+<div class="custom-container">
+  <div class="custom-row">
+    <div class="custom-col-md-4">
+      <div class="custom-card text-center">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %} {{ form.as_p }}
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<br /><br /><br />
+{% endblock content %}

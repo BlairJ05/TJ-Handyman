@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Assembly</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="{% static 'assembly.css' %}">
+    <link rel='stylesheet' type='text/css' media='screen'href="{% static 'styles.css' %}">
+    <script src='main.js'></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PHX82QGLW4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PHX82QGLW4');
+</script>
+<body>
+    <button onclick="goBack()" style="color: aliceblue;">Go Back</button>
+    <h1>Assembly</h1>
+    <div class="card-container">
+        <div class="card">
+            <img src="static/images/handymanPicOne.jpg">
+            <div class="content">
+                <h2>Assembly</h2>
+                <p>Info</p>
+                <a href="{% url 'Assembly'%}">Read More</a>
+            </div>
+    </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

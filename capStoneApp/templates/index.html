@@ -1,0 +1,330 @@
+{% extends 'base.html'%}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PHX82QGLW4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PHX82QGLW4');
+</script>
+{% load static %}
+
+    {% block content %}
+        <div class='wrapper_outer'>
+                <div class='wrapper'>
+                    <div class='hero-section'>
+                        <img src='static/images/TJs.png'>
+                    </div>
+                </div>
+        </div>    
+
+            <!--
+                this can be the Section can be the body
+            -->
+            {% comment %} <h1 class="services">Services</h1> {% endcomment %}
+            <div class='underline'></div>
+            <div class='box'>
+                <div class="container">
+                    <img src="static/images/handymanPicOne.jpg">
+                    <h2>Crafting Your Space: Carpentry, Painting, and Custom Upgrades</h2>
+                    <p>Explore the artistry of carpentry, the transformative power of painting, and the personalized touch of custom upgrades for your interior and exterior spaces.</p>
+                </div>
+                <div class="container2">
+                    <img src="static/images/handymanPicTwo.jpg">
+                    <h2>From Welding to Woodwork: Expert Services for Your Property</h2>
+                    <p>Whether it's welding sturdy structures or crafting intricate woodwork, our skilled team offers a range of services to enhance your property's functionality and aesthetics.</p>
+                </div>
+                <div class="container">
+                    <img src="static/images/handymanPicThree.jpg"></a>
+                    <h2>Revamp Your Surroundings: Exterior Upgrades and Landscaping Solutions</h2>
+                    <p>Elevate your outdoor space with fence building, pergola installation, landscaping, and exterior upgrades tailored to suit your style and needs.</p>
+                </div>
+                <div class="container2">
+                    <img src="static/images/handymanPicFour.jpg">
+                    <h2>Beyond the Basics: Specialized Services for Home and Property</h2>
+                    <p>From blacksmithing to furniture assembly and odd jobs, trust us for a wide array of specialized services to meet your unique requirements.</p>
+                </div>
+            </div>
+                <script>
+                    function showSlide() {
+                        const slides = document.querySelectorAll('.gallery-track img');
+                        slides.forEach(slide => slide.style.display = 'none');
+                        slides[slideIndex].style.display = 'block';
+                    }
+
+                    function nextSlide() {
+                        const slides = document.querySelectorAll('.gallery-track img');
+                        if (slideIndex < slides.length - 1) {
+                            slideIndex++;
+                        } else {
+                            slideIndex = 0;
+                        }
+                        showSlide();
+                    }
+
+                    function prevSlide() {
+                        const slides = document.querySelectorAll('.gallery-track img');
+                        if (slideIndex > 0) {
+                            slideIndex--;
+                        } else {
+                            slideIndex = slides.length - 1;
+                        }
+                        showSlide();
+                    }
+
+                    showSlide();
+                    function goBack() {
+                        window.history.back();
+                    }
+                </script>
+            </div> 
+        </div>
+        </div> 
+
+        <section id="reviews">
+            <!--
+                This Section can be the carousel of pictures
+            -->
+            <div class='slideshow_box'>
+                <div class='before_after'>
+                    <h3>Before & After Pictures</h3>
+                </div>
+                <div class='slideshow'>
+                    
+                    <div class="gallery-container">
+                        <div class="gallery-track">
+                            <img src="static/images/fence_before.jpg" />
+                            <img src="static/images/fence_after.jpg" />
+                            <img src="static/images/flooring_before.jpg" />
+                            <img src="static/images/flooring_after.jpg" />
+                            <img src="static/images/ManCave_before.jpg" />
+                            <img src="static/images/ManCave_after.jpg" />
+                        </div>
+
+                        <!--
+                            These are the actual buttons for the uh arrows
+                        -->
+
+                        <button class="prev" onclick="prevSlide()">&#10094;</button>
+                        <button class="next" onclick="nextSlide()">&#10095;</button>
+                    </div>
+                    <script>
+                        let slideIndex = 0;
+
+                        function showSlide() {
+                            const slides = document.querySelectorAll('.gallery-track img');
+                            slides.forEach(slide => slide.style.display = 'none');
+                            slides[slideIndex].style.display = 'block';
+                        }
+
+                        function nextSlide() {
+                            const slides = document.querySelectorAll('.gallery-track img');
+                            if (slideIndex < slides.length - 1) {
+                                slideIndex++;
+                            } else {
+                                slideIndex = 0;
+                            }
+                            showSlide();
+                        }
+
+                        function prevSlide() {
+                            const slides = document.querySelectorAll('.gallery-track img');
+                            if (slideIndex > 0) {
+                                slideIndex--;
+                            } else {
+                                slideIndex = slides.length - 1;
+                            }
+                            showSlide();
+                        }
+
+                        showSlide();
+                        function goBack() {
+                            window.history.back();
+                        }
+                    </script>
+                </div> 
+            </div>
+        <!--
+                This Section will be the reviews for customers
+            -->
+            <script src='https://kit.fontawesome.come/44f557ccce.js'></script>
+            <div class="review-container">
+                <div class="review-box">   
+                    <div class="rev-section">
+                        <h2 class="title">Our Clients Love Us</h2>
+                        <div class="reviews">
+                        <div class="review">
+                            <div class="head-review">
+                                <img src='static/images/member.jpg' width='250px'>
+                            </div>
+                            <div class="body-review">
+                                <div class="name-review">
+                                    Blair J.
+                                </div>
+                                <div class="place-review">
+                                    Grenada
+                                </div>
+                                <div class="rating">
+                                    <i class='fas fa-star'></i>
+                                    <i class='fas fa-star'></i>
+                                    <i class='fas fa-star'></i>
+                                    <i class='fas fa-star'></i>
+                                    <i class='fas fa-star-half'></i>
+                                </div>
+                                <div class="desc-review">
+                                    Tyler has done a Great Job with the fence I needed built and installed. Thank you again
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review">
+                            <div class="head-review">
+                                <img src='static/images/member.jpg' width='250px'>
+                            </div>
+                            <div class="body-review">
+                                <div class="name-review">
+                                    Kelly M.
+                                </div>
+                                <div class="place-review">
+                                    Bay St. Louis
+                                </div>
+                                <div class="rating">
+                                    <i class='fas fa-star'></i>
+                                    <i class='fas fa-star'></i>
+                                    <i class='fas fa-star'></i>
+                                    <i class='fas fa-star-half'></i>
+                                </div>
+                                <div class="desc-review">
+                                    Tyler was such a help around the house and always had a smile on his face what a great guy
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review">
+                            <div class="head-review">
+                                <img src='static/images/member.jpg' width='250px'>
+                            </div>
+                            <div class="body-review">
+                                <div class="name-review">
+                                    Rickey J.
+                                </div>
+                                <div class="place-review">
+                                    Gulf Port
+                                </div>
+                                <div class="rating">
+                                    <i class='fas fa-star'></i>
+                                    <i class='fas fa-star'></i>
+                                    <i class='fas fa-star'></i>
+                                </div>
+                                <div class="desc-review">
+                                    He was very helpful with mowing and other yard work. thank you Tyler
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            {% if user.is_authenticated %}
+            {% if user.is_staff%}
+
+            {%else%}
+            <div class='rating-body'>
+                <div class="rating-container">
+                    <header class='rate-us'>Rate Us!</header>
+                    <div class="post">
+                        <div class="text"> Thanks for rating us!</div>
+                        <div class="edit">EDIT</div>
+                    </div>
+                    <div class="star-widget">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <input type='radio' name='rating' id='rate-5' value='5'>
+                            <label for='rate-5' class='fas fa-star'></label>
+                            <input type='radio' name='rating' id='rate-4' value='4'>
+                            <label for='rate-4' class='fas fa-star'></label>
+                            <input type='radio' name='rating' id='rate-3' value='3'>
+                            <label for='rate-3' class='fas fa-star'></label>
+                            <input type='radio' name='rating' id='rate-2' value='2'>
+                            <label for='rate-2' class='fas fa-star'></label>
+                            <input type='radio' name='rating' id='rate-1' value='1'>
+                            <label for='rate-1' class='fas fa-star'></label>
+                            <div class="rating-items">
+                                <header></header>
+                                <div class='textarea'>
+                                    <input class="ratingtext" cols='30' type='text' name="text" placeholder='Describe your experience...'/>
+                                </div>
+                                <div class="btn">
+                                    <button type="submit">Post</button>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        {% if messages %}
+                            <div class="messages">
+                                {% for message in messages %}
+                                    <div class="alert alert-{{ message.tags }}">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+              {% else %}
+            
+              {% endif %}
+              <script>
+                const btn = document.querySelector('#postbutton');
+                const post = document.querySelector('.post');
+                const widget = document.querySelector('.star-widget');
+                const editBtn = document.querySelector('.edit');
+                const rateUs = document.querySelector('.rate-us');
+
+                btn.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    
+                    widget.style.display = 'none';
+                    rateUs.style.display = 'none';
+
+                    post.style.display = 'block';
+                });
+
+                editBtn.addEventListener('click', function() {
+                    widget.style.display = 'block';
+                    post.style.display = 'none';
+                });
+
+                document.querySelector('form').addEventListener('submit', function(event) {
+                });
+
+                btn.addEventListener('click', function(event) {
+                    widget.style.display = 'none';
+                    rateUs.style.display = 'none';
+                    post.style.display = 'block';
+                });
+
+                editBtn.addEventListener('click', function() {
+                    widget.style.display = 'block';
+                    post.style.display = 'none';
+                });
+
+                const stars = document.querySelectorAll('.star-widget input[type="radio"]');
+                    stars.forEach(star => {
+                        star.addEventListener('change', function() {
+                            const rating = 0;
+                            document.querySelector('input[name="rating"]').value = rating;
+                        });
+                });
+
+
+              </script>
+
+    {% endblock content %}
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+  <title>Reviews</title>
+  <link rel="stylesheet" href="{% static "reviews.css" %}">
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PHX82QGLW4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PHX82QGLW4');
+</script>
+<body>
+  <section id="testimonial">
+    <div class="testimonial-heading">
+      <h1>Client Reviews</h1>
+    </div>
+    <div class="testimonial-list">
+      {% for review in reviews %}
+      <div class="testimonial-item">
+        <p>{{ review.text }}</p>
+        <p>Rating: {{ review.rating }}</p>
+        <p>User: {{ review.user }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</body>
+{% endblock %}
