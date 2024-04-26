@@ -217,3 +217,4 @@ def card(request):
             form.save()
             return render(request, "create.html", {"form": form})
     return render(request, "create.html", {"form": form})
+
