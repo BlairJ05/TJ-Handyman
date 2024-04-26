@@ -24,8 +24,9 @@ urlpatterns = [
     path("accounts/login/", views.signIn, name="login"),
     path("create_card/", views.card, name="create_card"),
     path("admin_page/", views.admin_page, name="admin_page"),
-    path('create_card/', views.card, name='create_card'),
-    path('chatbot/', views.chatbot, name="chatbot"),
+    path("api/analytics/", views.get_analytics_data, name="get_analytics_data"),
+    path("create_card/", views.card, name="create_card"),
+    path("chatbot/", views.chatbot, name="chatbot"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

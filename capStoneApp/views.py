@@ -18,34 +18,85 @@ from django.http import JsonResponse
 from django.contrib import messages
 from openai import OpenAI
 from django.utils import timezone
+from django.http import JsonResponse
+from google.oauth2.credentials import Credentials
+from googleapiclient.discovery import build
 
-client = OpenAI(api_key='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')
+client = OpenAI(api_key="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")
+
+# views.py
+
+
+def get_analytics_data(request):
+    credentials = Credentials.from_authorized_user_info(
+        request.session["google_credentials"],
+        scopes=["https://www.googleapis.com/auth/analytics.readonly"],
+    )
+
+    analytics = build("analyticsreporting", "v4", credentials=credentials)
+
+    response = (
+        analytics.reports()
+        .batchGet(
+            body={
+                "reportRequests": [
+                    {
+                        "viewId": "YOUR_VIEW_ID",
+                        "dateRanges": [{"startDate": "7daysAgo", "endDate": "today"}],
+                        "metrics": [
+                            {"expression": "ga:sessions"},
+                            {"expression": "ga:pageviews"},
+                        ],
+                    }
+                ]
+            }
+        )
+        .execute()
+    )
+
+    analytics_data = {
+        "totalVisitors": response["reports"][0]["data"]["totals"][0]["values"][0],
+        "pageViews": response["reports"][0]["data"]["totals"][0]["values"][1],
+    }
+
+    return JsonResponse(analytics_data)
+
 
 @login_required
 def chatbot(request):
     chats = Chat.objects.filter(user=request.user)
 
-    if request.method == 'POST':
-        message = request.POST.get('message')
+    if request.method == "POST":
+        message = request.POST.get("message")
         try:
             response = client.chat.completions.create(
                 model="gpt-4",
                 messages=[
                     {"role": "system", "content": "You answer questions."},
                     {"role": "user", "content": message},
-                ]
+                ],
             )
             bot_response = response.choices[0].message.content.strip()
 
-            chat = Chat(user=request.user, message=message, response=bot_response, created_at=timezone.now())
+            chat = Chat(
+                user=request.user,
+                message=message,
+                response=bot_response,
+                created_at=timezone.now(),
+            )
             chat.save()
 
-            return JsonResponse({'message': message, 'response': bot_response})
+            return JsonResponse({"message": message, "response": bot_response})
         except Exception as e:
             print(f"Error in chatbot view: {e}")
-            return JsonResponse({'error': 'An error occurred while processing your request.'}, status=500)
+            return JsonResponse(
+                {"error": "An error occurred while processing your request."},
+                status=500,
+            )
 
-    return render(request, 'chatbot.html', {'chats': chats})
+    return render(request, "chatbot.html", {"chats": chats})
+
+
 def Request(request):
     return render(request, "request_a_project.html")
 
@@ -107,13 +158,13 @@ def signIn(request):
                     login(request, user)
                     return redirect("index")
                 else:
-                    messages.error(request, 'Invalid username or password.')
+                    messages.error(request, "Invalid username or password.")
         elif "signup" in request.POST:
             form = UserCreationForm(request.POST)
             if form.is_valid():
                 if form.cleaned_data["password1"] != form.cleaned_data["password2"]:
                     password_error = True
-                    messages.error(request, 'Passwords do not match. Please try again.')
+                    messages.error(request, "Passwords do not match. Please try again.")
                 else:
                     form.save()
                     username = form.cleaned_data.get("username")
@@ -125,7 +176,7 @@ def signIn(request):
             else:
                 for field, errors in form.errors.items():
                     for error in errors:
-                        messages.error(request, f'{field}: {error}')
+                        messages.error(request, f"{field}: {error}")
 
     form_signin = AuthenticationForm()
     form_signup = UserCreationForm()
@@ -217,4 +268,3 @@ def card(request):
             form.save()
             return render(request, "create.html", {"form": form})
     return render(request, "create.html", {"form": form})
-
