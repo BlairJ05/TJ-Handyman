@@ -27,124 +27,122 @@
   gtag('config', 'G-PHX82QGLW4');
 </script>
 <body>
-    
-        <header>
-            <nav class="navbar">
-                <div class="logo">
-                        <p href="http://127.0.0.1:8000/" onclick="goBack()"> TJ's Handyman Service </p>
-                </div>
-                <div class="menu">
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                    <p href="http://127.0.0.1:8000/" onclick="goBack()"> TJ's Handyman Service </p>
+            </div>
+            <div class="menu">
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_staff %}
+                        <!-- Admin menu options -->
+                        <div class="menu-links">
+                            <a href="{% url 'index' %}"><h1 id="index">Home</h1></a>
+                            <a href="{% url 'reviews' %}"><h1 id="Review">Reviews</h1></a>
+                            <a href="{% url 'gallery' %}"><h1 id="gallery">Gallery</h1></a>
+                            <a href="{% url 'create_card' %}"><h1 id="create_card">Create Project</h1></a>
+                            <a href="#"><h1 id="admin">Admin</h1></a>
+                        </div>
+                    {% else %}
+                        <!-- Regular user menu options -->
+                        <div class="menu-links">
+                            <a href="{% url 'index' %}"><h1 id="index">Home</h1></a>
+                            <a href="{% url 'reviews' %}"><h1 id="Review">Reviews</h1></a>
+                            <a href="{% url 'gallery' %}"><h1 id="gallery">Gallery</h1></a>
+                            <a href="{% url 'request_a_project' %}"><h1 id="request_a_project">Request a Project</h1></a>
+                            <a href="{% url 'chatbot' %}"><h1 id="ChatBot">HandyMan ChatBot</h1></a>
+                        </div>
+                    {% endif %}
+                {% else %}
+                    <!-- Non-authenticated user menu options -->
                     <div class="menu-links">
                         <a href="{% url 'index' %}"><h1 id="index">Home</h1></a>
                         <a href="{% url 'reviews' %}"><h1 id="Review">Reviews</h1></a>
                         <a href="{% url 'gallery' %}"><h1 id="gallery">Gallery</h1></a>
-                
-                        {% if request.user.is_authenticated %}
-                            {% if request.user.is_staff %}
-                                {% comment %} <a href="{% url 'create_card' %}"><h1 id="create_card">Create Project</h1></a> {% endcomment %}
-                                <a href="{% url 'admin_page' %}"><h1 id="admin">Admin</h1></a>
-                            {% else %}
-                                <a href="{% url 'request_a_project' %}"><h1 id="request_a_project">Request a Project</h1></a>
-                            {% endif %}
-                        {% endif %}
                     </div>
-                </div>
-                
-                    <div class="login-signup" >
-                        
-                        {% if user.is_authenticated %}
-                            {% comment %} <h2 class='Hi-msg'>Hello {{request.user.username}}</h2> {% endcomment %}
-                            <div class="signOutBackground" >
-                                
-                                <div>
-                                    <a href="{% url 'signOut' %}" style="text-decoration: none;color: aliceblue;">Sign Out</a>
-                                </div>
+                {% endif %}
+            </div>
+                <div class="login-signup" >
+                    {% if user.is_authenticated %}
+                        {% comment %} <h2 class='Hi-msg'>Hello {{request.user.username}}</h2> {% endcomment %}
+                        <div class="signOutBackground" >
+                            <div>
+                                <a href="{% url 'signOut' %}" style="text-decoration: none;color: aliceblue;">Sign Out</a>
                             </div>
-            
-                            {% else %}
-                            <button class="log-in">
-                                <a href="{% url 'signIn' %}" style="text-decoration: none;color: white;">Login/Sign-Up</a>
-                            </button>
-                        {% endif %}
-                    </div>
-                    <div class="menu-btn">
-                        <i class="fas fa-bars"></i>
-                    </div>   
-                    <div class="close-btn">
-                        <i class="fas fa-times"></i>
-                    </div>         
+                        </div>
+                        {% else %}
+                        <button class="log-in">
+                            <a href="{% url 'signIn' %}" style="text-decoration: none;color: white;">Login/Sign-Up</a>
+                        </button>
+                    {% endif %}
                 </div>
-            </nav>
-        </header>
-    
-
-    <main>
-        {% block content %}
-
-        {% endblock %}
-    </main>
-
-    
-    <footer class='footer-distributed'>
-            <div class='footer-left'>
-                <h3><span>TJ's Handyman Service</span></h3>
-                
-                <p class='footer-links'>
-                    <a href='#'>Home</a>
-                    |
-                    <a href='#'>Reviews</a>
-                    |
-                    <a href='#'>Gallery</a>
-                    |
-                    <a href='#'>Request Project</a>
-                </p>
-
-                <p class="footer-company-name">Copyright &copy 2024 <strong>TJ's Handyman Services LLC</strong>
-                    All rights reserved
-                </p>   
-            </div> 
-            <div class="footer-center">
-                <div>
-                    <i class="fa fa-map-marker"></i>
-                    <p><span>Bay St. Louis</span>Mississippi</p>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
                 </div>
-                <div>
-                    <i class='fa fa-phone'></i>
-                    <p>+1 228-363-3068</p>
-                </div>
-                <div>
-                    <i class='fa fa-envelope'></i>
-                    <p><a href='mott'>tjhandymanservicellc21@gmail.com</a></p>
+                <div class="close-btn">
+                    <i class="fas fa-times"></i>
                 </div>
             </div>
-            <div class='footer-right'>
-                <p class="footer-company-about">
-                    <span><b>About the company</b></span>
-                    <strong>TJ's Handyman Service</strong> is a handyman service
-                        where you can meet all of your handyman needs. Assembling, 
-                        carpentry, and yard work are just a few things TJ has to offer.
-                </p>
-                <div class="footer-icons">
-                    <a href='#'><i class='fa fa-facebook'></i></a>
-                    <a href='#'><i class='fa fa-instagram'></i></a>
-                </div>
-            </div>
-            
-
-    </footer>
-
-    {% block javascript %}
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const menuBtn = document.querySelector('.menu-btn');
-            const navbar = document.querySelector('.navbar');
-        
-            menuBtn.addEventListener('click', function() {
-                navbar.classList.toggle('hide-items');
-                navbar.classList.toggle('show-links');
-            });
-        });        
-    </script>
+        </nav>
+    </header>
+<main>
+    {% block content %}
     {% endblock %}
+</main>
+<footer class='footer-distributed'>
+        <div class='footer-left'>
+            <h3><span>TJ's Handyman Service</span></h3>
+            <p class='footer-links'>
+                <a href='#'>Home</a>
+                |
+                <a href='#'>Reviews</a>
+                |
+                <a href='#'>Gallery</a>
+                |
+                <a href='#'>Request Project</a>
+            </p>
+            <p class="footer-company-name">Copyright &copy 2024 <strong>TJ's Handyman Services LLC</strong>
+                All rights reserved
+            </p>
+        </div>
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Bay St. Louis</span>Mississippi</p>
+            </div>
+            <div>
+                <i class='fa fa-phone'></i>
+                <p>+1 228-363-3068</p>
+            </div>
+            <div>
+                <i class='fa fa-envelope'></i>
+                <p><a href='mott'>tjhandymanservicellc21@gmail.com</a></p>
+            </div>
+        </div>
+        <div class='footer-right'>
+            <p class="footer-company-about">
+                <span><b>About the company</b></span>
+                <strong>TJ's Handyman Service</strong> is a handyman service
+                    where you can meet all of your handyman needs. Assembling,
+                    carpentry, and yard work are just a few things TJ has to offer.
+            </p>
+            <div class="footer-icons">
+                <a href='#'><i class='fa fa-facebook'></i></a>
+                <a href='#'><i class='fa fa-instagram'></i></a>
+            </div>
+        </div>
+</footer>
+{% block javascript %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const menuBtn = document.querySelector('.menu-btn');
+        const navbar = document.querySelector('.navbar');
+        menuBtn.addEventListener('click', function() {
+            navbar.classList.toggle('hide-items');
+            navbar.classList.toggle('show-links');
+        });
+    });
+</script>
+{% endblock %}
 </body>
 </html>
