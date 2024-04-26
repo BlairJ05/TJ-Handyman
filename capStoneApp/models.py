@@ -19,3 +19,12 @@ class CreateCard(models.Model):
     title = models.CharField(max_length=200, null=True)
     description = models.CharField(max_length=2000, null=True)
     url = models.URLField(max_length=200, null=True, blank=True)
+    
+class Chat(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    message = models.TextField()
+    response = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.user.username}: {self.message}'
