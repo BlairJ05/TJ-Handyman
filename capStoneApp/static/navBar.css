@@ -34,6 +34,7 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* border: rgb(0, 255, 72) solid 3px; */
 }
 
 @media (max-width: 48em) { 
@@ -86,15 +87,16 @@ button {
 .menu {
     display: flex;
     align-items: center;
-    gap: 500px;
+    /* border: rgb(204, 255, 0) solid 3px; */
 }
 
 .menu-links {
     position: relative;
     display: flex;
-    gap: 24px;
+    gap: 4px;
     border-right: 1px solid #999999;
-    padding-inline: 80px;
+    /* padding-inline: 80px; */
+    /* border: red solid 3px;  */
 }
 
 .menu-links a {
@@ -102,6 +104,7 @@ button {
     color: #999999;
     padding: 8px 32px;
     transition: .3s ease;
+    /* border: rgb(47, 0, 255) solid 3px; */
 }
 
 .menu-links a:hover {
@@ -112,6 +115,7 @@ button {
     padding: 0;
     margin: 0;
     list-style: none;
+    /* border: rgb(0, 255, 145) solid 3px; */
     
 }
 .menu-links ul li{
@@ -181,7 +185,7 @@ button {
     border-radius: 10px;
     border: 2px solid rgb(6, 127, 193);
     transition: 0.3s ease;
-    margin-left: 4vw;
+    margin-left: 1vw;
   
   
   }

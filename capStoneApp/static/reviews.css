@@ -20,12 +20,13 @@ body
     position: relative;
     width:350px;
     margin: 20px auto;
-    background:#333;
+    background:#ffffff;
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
     box-shadow: 0 10px 40px rgba(0,0,0,.5);
     overflow: hidden;
+    color: black;
 
 }
 .testimonials .card .layer
@@ -49,7 +50,7 @@ body
 {
    font-size: 18px;
    line-height: 24px;
-   color:#fff;
+   color:#000000;
 }
 .testimonials .card .content .image
 {
@@ -64,7 +65,7 @@ body
 .testimonials .card .content .details h2
 { 
    font-size: 18px;
-   color: #fff;
+   color: #020202;
 }
 .testimonials .card .content .details h2 span
 {
