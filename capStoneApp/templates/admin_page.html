@@ -2,46 +2,132 @@
 {% load static %}
 
 {% block content %}
-    <!-- Google Tag Manager -->
-    <script>
-        (function(w,d,s,l,i) {
-            w[l]=w[l]||[];
-            w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-            var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),
-                dl=l!='dataLayer'?'&l='+l:'';
-            j.async=true;
-            j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-            f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-PM7B8FRC');
-    </script>
-    <!-- End Google Tag Manager -->
+<link rel="stylesheet" href="{% static 'admin_page.css' %}">
 
-    <!-- Google Analytics Script -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PHX82QGLW4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
-        gtag('config', 'G-PHX82QGLW4');
-    </script>
-    <!-- End Google Analytics Script -->
-
-    <!-- Link to admin_page.js script -->
-    <script src="{% static 'js/admin_page.js' %}"></script>
-
-    <!-- Display Google Analytics Data -->
-    <div class="admin-container">
-        <div class="admin-sidebar">
-            <div class="option-button">
-                <a id="analyticsLink" href="#">Analytics</a>
-            </div>
-            <!-- Other sidebar options -->
-        </div>
-
-        <div class="analytics-data" id="analyticsDataContainer">
-            <!-- Analytics data will be displayed here -->
+<div class="admin-container">
+    <div class="admin-sidebar">
+        <div class="option-button">
+            <a href="{% url 'user_list' %}">View Users</a>
+            <a href="{% url 'reviews_list' %}">View Reviews</a>
+            <a href="{% url 'request_list' %}">View Requests</a>
         </div>
     </div>
+
+    <div class="admin_welcome_message">
+        {% if not selected_user %}
+        <h2>Welcome to the Admin Panel!</h2>
+        <p>This admin panel provides access to manage users, reviews, and requests. Use the sidebar navigation to view and interact with different sections:</p>
+        <ul>
+            <li><strong>View Users:</strong> Click on "View Users" to see a list of registered users and their details.</li>
+            <li><strong>View Reviews:</strong> Navigate to "View Reviews" to go through and moderate user reviews and ratings, choosing which ones will go on your website!</li>
+            <li><strong>View Requests:</strong> Access "View Requests" to review pending or completed requests submitted by users.</li>
+        </ul>
+        <p>Explore the features and functionalities to manage your platform effectively!</p>
+
+        {% endif %}
+
+        {% if selected_user %}
+        <div class="selected-user-details">
+            <h2>{{ selected_user.username }}'s Details</h2>
+            <p><strong>Username:</strong> {{ selected_user.username }}</p>
+            <p><strong>Email:</strong> {{ selected_user.email }}</p>
+            
+            <p><strong>Reviews:</strong></p>
+            {% if reviews %}
+                <ul>
+                    {% for review in reviews %}
+                        <li>
+                            <p><strong>Date:</strong> {{ review.date }}</p>
+                            <p><strong>Rating:</strong> {{ review.rating }}</p>
+                            <p><strong>Text:</strong> {{ review.text }}</p>
+                        </li>
+                    {% empty %}
+                        <li>No reviews found.</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No reviews found.</p>
+            {% endif %}
+            
+            <p><strong>Requests:</strong></p>
+            {% if selected_user.requests.all %}
+                <ul>
+                    {% for request in selected_user.requests.all %}
+                        <li>
+                            <p><strong>Name:</strong> {{ request.name }}</p>
+                            <p><strong>Location:</strong> {{ request.location }}</p>
+                            <p><strong>Date:</strong> {{ request.date }}</p>
+                            <p><strong>Status:</strong> {{ request.status }}</p>
+                            <p><strong>Message:</strong> {{ request.message }}</p>
+                            {% if request.filename %}
+                                <p><strong>Attachment:</strong> <a href="{{ request.filename.url }}">{{ request.filename.name }}</a></p>
+                            {% endif %}
+                        </li>
+                    {% empty %}
+                        <li>No requests found.</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No requests found.</p>
+            {% endif %}
+            
+        </div>
+        {% endif %}
+
+    </div>
+    
+
+    <div class="admin-content">
+        {% if users %}
+        <h1>User List</h1>
+        <div class="user-cards-container">
+            {% for user in users %}
+            <div class="user-card">
+                <h2>{{ user.username }}</h2>
+                <p>Email: {{ user.email }}</p>
+                <a href="{% url 'more_user' user.id %}" class="view-more-btn">View More</a>
+            </div>
+            {% empty %}
+            {% endfor %}
+        </div>
+        {% else %}
+        {% endif %}
+
+        {% if reviews %}
+        <div class="reviews-cards-container">
+            <h1>Reviews List</h1>
+            {% for review in reviews %}
+            <div class="review-card">
+                <h2>{{ review.user }}</h2>
+                <p>{{ review.text }}</p>
+                <p>{{ review.rating }}</p>
+            </div>
+            {% empty %}
+            <p>No reviews found.</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if requests %}
+        <h1>Request List</h1>
+        <div class="request-cards-container">
+            {% for request in requests %}
+            <div class="request-card">
+                <h2>{{ request.name }}</h2>
+                <p>{{ request.location }}</p>
+                <p>{{ request.date }}</p>
+                <p>{{ request.message }}</p>
+            </div>
+            {% empty %}
+            <p>No requests found.</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+
+<script src="{% static 'admin_page.js' %}"></script>
+
 {% endblock %}

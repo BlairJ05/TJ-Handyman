@@ -1,5 +1,5 @@
 from itertools import groupby
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from .forms import *
@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import *
 from django.contrib import messages
 import openai
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import HttpResponseBadRequest, JsonResponse
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from .models import Chat
@@ -19,47 +19,64 @@ from django.contrib import messages
 from openai import OpenAI
 from django.utils import timezone
 from django.http import JsonResponse
-from google.oauth2.credentials import Credentials
-from googleapiclient.discovery import build
+from reportlab.pdfgen import canvas
+from io import BytesIO
+from django.http import HttpResponseRedirect
+from .forms import InvoiceForm
+
 
 client = OpenAI(api_key="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")
 
-# views.py
 
+def more_user(request, user_id=None, username=None):
+    if user_id:
+        user = get_object_or_404(User, pk=user_id)
+    elif username:
+        user = get_object_or_404(User, username=username)
+    else:
+        return HttpResponseBadRequest("Invalid request")
 
-def get_analytics_data(request):
-    credentials = Credentials.from_authorized_user_info(
-        request.session["google_credentials"],
-        scopes=["https://www.googleapis.com/auth/analytics.readonly"],
+    users = User.objects.all()
+
+    reviews = user.reviews.all()
+
+    return render(
+        request,
+        "admin_page.html",
+        {"users": users, "selected_user": user, "reviews": reviews},
     )
 
-    analytics = build("analyticsreporting", "v4", credentials=credentials)
 
-    response = (
-        analytics.reports()
-        .batchGet(
-            body={
-                "reportRequests": [
-                    {
-                        "viewId": "YOUR_VIEW_ID",
-                        "dateRanges": [{"startDate": "7daysAgo", "endDate": "today"}],
-                        "metrics": [
-                            {"expression": "ga:sessions"},
-                            {"expression": "ga:pageviews"},
-                        ],
-                    }
-                ]
-            }
+def submit_form(request):
+    if request.method == "POST":
+        form_data = request.POST
+        file_data = request.FILES.get("filename", None)
+        request_model = RequestModel(
+            name=form_data["name"],
+            number=form_data["number"],
+            email=form_data["email"],
+            location=form_data["location"],
+            date=form_data["date"],
+            message=form_data["message"],
+            filename=file_data,
         )
-        .execute()
-    )
+        request_model.save()
+    return render(request, "request_a_project.html")
 
-    analytics_data = {
-        "totalVisitors": response["reports"][0]["data"]["totals"][0]["values"][0],
-        "pageViews": response["reports"][0]["data"]["totals"][0]["values"][1],
-    }
 
-    return JsonResponse(analytics_data)
+def user_list(request):
+    users = User.objects.all()
+    return render(request, "admin_page.html", {"users": users})
+
+
+def reviews_list(request):
+    reviews = Review.objects.all()
+    return render(request, "admin_page.html", {"reviews": reviews})
+
+
+def request_list(request):
+    requests = RequestModel.objects.all()
+    return render(request, "admin_page.html", {"requests": requests})
 
 
 @login_required
@@ -160,23 +177,20 @@ def signIn(request):
                 else:
                     messages.error(request, "Invalid username or password.")
         elif "signup" in request.POST:
-            form = UserCreationForm(request.POST)
-            if form.is_valid():
-                if form.cleaned_data["password1"] != form.cleaned_data["password2"]:
-                    password_error = True
-                    messages.error(request, "Passwords do not match. Please try again.")
-                else:
-                    form.save()
-                    username = form.cleaned_data.get("username")
-                    password = form.cleaned_data.get("password1")
-                    user = authenticate(username=username, password=password)
-                    if user is not None:
-                        login(request, user)
-                        return redirect("index")
+            username = request.POST.get("username")
+            email = request.POST.get("email")
+            password1 = request.POST.get("password1")
+            password2 = request.POST.get("password2")
+
+            if password1 != password2:
+                password_error = True
+                messages.error(request, "Passwords do not match. Please try again.")
             else:
-                for field, errors in form.errors.items():
-                    for error in errors:
-                        messages.error(request, f"{field}: {error}")
+                user = User.objects.create_user(
+                    username=username, email=email, password=password1
+                )
+                login(request, user)
+                return redirect("index")
 
     form_signin = AuthenticationForm()
     form_signup = UserCreationForm()
