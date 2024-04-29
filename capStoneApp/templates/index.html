@@ -14,7 +14,7 @@
         <div class='wrapper_outer'>
                 <div class='wrapper'>
                     <div class='hero-section'>
-                        <img src='static/images/TJs.png'>
+                        <img src={% static "images/TJs.png" %}>
                     </div>
                 </div>
         </div>    
@@ -101,14 +101,15 @@
                             <img src="static/images/ManCave_before.jpg" />
                             <img src="static/images/ManCave_after.jpg" />
                         </div>
-
+                        
                         <!--
                             These are the actual buttons for the uh arrows
                         -->
 
-                        <button class="prev" onclick="prevSlide()">&#10094;</button>
-                        <button class="next" onclick="nextSlide()">&#10095;</button>
+                        
                     </div>
+                    <button class="prev" onclick="prevSlide()">&#10094;</button>
+                    <button class="next" onclick="nextSlide()">&#10095;</button>
                     <script>
                         let slideIndex = 0;
 
@@ -145,6 +146,47 @@
                     </script>
                 </div> 
             </div>
+    
+
+               
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            let banner = document.getElementById('imagesection');
+            let devLayer = banner.querySelector('.firstimg');
+            let delta = 0;
+            let isDragging = false;
+    
+            let containerWidth = banner.offsetWidth;
+            let firstImgWidth = devLayer.offsetWidth;
+            let initialWidth = (containerWidth - firstImgWidth) / 2;
+    
+            devLayer.style.width = initialWidth + 'px';
+    
+            function handleDrag(e) {
+                if (isDragging) {
+                    delta = (e.clientX - window.innerWidth / -10) * 0.5;
+                    devLayer.style.width = initialWidth + delta + 'px';
+                }
+            }
+    
+            banner.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                handleDrag(e);
+            });
+    
+            banner.addEventListener('mousemove', handleDrag);
+    
+            banner.addEventListener('mouseup', function() {
+                isDragging = false;
+            });
+        });
+    </script>
+
+                  
+
+
+
+
         <!--
                 This Section will be the reviews for customers
             -->
@@ -156,7 +198,7 @@
                         <div class="reviews">
                         <div class="review">
                             <div class="head-review">
-                                <img src='static/images/member.jpg' width='250px'>
+                                <img src='static/images/fake_pfp2.jpg' width='250px'>
                             </div>
                             <div class="body-review">
                                 <div class="name-review">
@@ -179,7 +221,7 @@
                         </div>
                         <div class="review">
                             <div class="head-review">
-                                <img src='static/images/member.jpg' width='250px'>
+                                <img src='static/images/fake_pfp1.jpg' width='250px'>
                             </div>
                             <div class="body-review">
                                 <div class="name-review">
@@ -201,7 +243,7 @@
                         </div>
                         <div class="review">
                             <div class="head-review">
-                                <img src='static/images/member.jpg' width='250px'>
+                                <img src='static/images/fake_pfp3.jpg' width='250px'>
                             </div>
                             <div class="body-review">
                                 <div class="name-review">
