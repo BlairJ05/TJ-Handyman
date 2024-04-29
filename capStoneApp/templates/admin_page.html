@@ -15,7 +15,37 @@
     </div>
 
     <div class="admin_welcome_message">
-        {% if not selected_user %}
+        {% if request_obj %}
+            <h2>Request Details</h2>
+            <p><strong>Name:</strong> {{ request_obj.name }}</p>
+            <p><strong>Location:</strong> {{ request_obj.location }}</p>
+            <p><strong>Date:</strong> {{ request_obj.date }}</p>
+            <p><strong>Message:</strong> {{ request_obj.message }}</p>
+            <p><strong>Status:</strong> {{ request_obj.status }}</p>
+            
+            {% if request_obj.status == 'Pending' %}
+                <p>Change Status:</p>
+                <ul>
+                    <a href="{% url 'change_status' request_obj.id 'Finished' %}" onclick="confirmChangeStatus(event, 'Completed')">Completed</a>
+                    <hr>
+                    <a href="{% url 'change_status' request_obj.id 'Accepted' %}">Accepted</a>
+                </ul>
+            {% elif request_obj.status == 'Accepted' %}
+                <p>Change Status:</p>
+                <ul>
+                    <a href="{% url 'change_status' request_obj.id 'Finished' %}" onclick="confirmChangeStatus(event, 'Completed')">Completed</a>
+                    <hr>
+                    <a href="{% url 'change_status' request_obj.id 'Pending' %}">Pending</a>
+                </ul>
+            {% elif request_obj.status == 'Finished' %}
+                <a href="{% url 'invoice_form' %}" class="create-invoice-btn">Create Invoice</a>
+            {% endif %}
+
+        {% else %}
+        {% endif %}
+
+
+        {% if not selected_user and not request_obj %}
         <h2>Welcome to the Admin Panel!</h2>
         <p>This admin panel provides access to manage users, reviews, and requests. Use the sidebar navigation to view and interact with different sections:</p>
         <ul>
@@ -30,18 +60,18 @@
         {% if selected_user %}
         <div class="selected-user-details">
             <h2>{{ selected_user.username }}'s Details</h2>
-            <p><strong>Username:</strong> {{ selected_user.username }}</p>
-            <p><strong>Email:</strong> {{ selected_user.email }}</p>
+            <h2><strong>Email:</strong> {{ selected_user.email }}</h2>
             
-            <p><strong>Reviews:</strong></p>
+            <h2><strong>Reviews:</strong></h2>
             {% if reviews %}
                 <ul>
                     {% for review in reviews %}
-                        <li>
+                        <ul class="review-card">
                             <p><strong>Date:</strong> {{ review.date }}</p>
                             <p><strong>Rating:</strong> {{ review.rating }}</p>
                             <p><strong>Text:</strong> {{ review.text }}</p>
-                        </li>
+                            <p><strong>Approved:</strong> {{review.approved}}</p>
+                        </ul>
                     {% empty %}
                         <li>No reviews found.</li>
                     {% endfor %}
@@ -50,11 +80,11 @@
                 <p>No reviews found.</p>
             {% endif %}
             
-            <p><strong>Requests:</strong></p>
+            <h2><strong>Requests:</strong></h2>
             {% if selected_user.requests.all %}
                 <ul>
                     {% for request in selected_user.requests.all %}
-                        <li>
+                        <ul class="request-card">
                             <p><strong>Name:</strong> {{ request.name }}</p>
                             <p><strong>Location:</strong> {{ request.location }}</p>
                             <p><strong>Date:</strong> {{ request.date }}</p>
@@ -63,7 +93,7 @@
                             {% if request.filename %}
                                 <p><strong>Attachment:</strong> <a href="{{ request.filename.url }}">{{ request.filename.name }}</a></p>
                             {% endif %}
-                        </li>
+                        </ul>
                     {% empty %}
                         <li>No requests found.</li>
                     {% endfor %}
@@ -102,6 +132,15 @@
                 <h2>{{ review.user }}</h2>
                 <p>{{ review.text }}</p>
                 <p>{{ review.rating }}</p>
+                <p><strong>Approved:</strong> {{review.approved}}</p>
+                {% if not review.approved %}
+                    <p>Would you like to post this review to your website?</p>
+                    <form id="approveReviewForm" method="POST" action="{% url 'approve_review' review.id %}">
+                        {% csrf_token %}
+                        <button type="button" onclick="submitForm('True')">Yes</button>
+                        <button type="button" onclick="submitForm('False')">No</button>
+                    </form>
+                {% endif %}
             </div>
             {% empty %}
             <p>No reviews found.</p>
@@ -110,19 +149,23 @@
         {% endif %}
 
         {% if requests %}
-        <h1>Request List</h1>
-        <div class="request-cards-container">
-            {% for request in requests %}
-            <div class="request-card">
-                <h2>{{ request.name }}</h2>
-                <p>{{ request.location }}</p>
-                <p>{{ request.date }}</p>
-                <p>{{ request.message }}</p>
+            <h1>Request List</h1>
+            <div class="request-cards-container">
+                {% for request in requests %}
+                    <a href="{% url 'more_request' request.id %}" class="request-card">
+                        <div>
+                            <h2>{{ request.name }}</h2>
+                            <p>{{ request.location }}</p>
+                            <p>{{ request.date }}</p>
+                            <p>{{ request.message }}</p>
+                            <p>{{ request.status }}</p>    
+                            <p><strong>(Click for more)</strong></p>
+                        </div>
+                    </a>
+                {% empty %}
+                    <p>No requests found.</p>
+                {% endfor %}
             </div>
-            {% empty %}
-            <p>No requests found.</p>
-            {% endfor %}
-        </div>
         {% endif %}
     </div>
 </div>

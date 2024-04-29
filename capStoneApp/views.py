@@ -7,6 +7,7 @@ from .models import *
 from .models import Review
 from .decorators import *
 from django.contrib.auth.decorators import *
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 import openai
 from django.shortcuts import render
@@ -22,10 +23,94 @@ from django.http import JsonResponse
 from reportlab.pdfgen import canvas
 from io import BytesIO
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .forms import InvoiceForm
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+import random
+from datetime import date
 
 
 client = OpenAI(api_key="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")
+
+
+from django.core.mail import send_mail
+
+
+def send_status_change_email(user_email, new_status):
+    subject = "Status Change Notification"
+    message = f"Your request status has been changed to: {new_status}"
+    sender_email = "jd2721624@gmail.com"
+    recipient_list = [user_email]
+
+    send_mail(subject, message, sender_email, recipient_list)
+
+
+def change_request_status(request, request_id, new_status):
+    request_obj = get_object_or_404(Request, id=request_id)
+    old_status = request_obj.status
+    request_obj.status = new_status
+    request_obj.save()
+
+    send_status_change_email(request_obj.user.email, new_status)
+
+    return HttpResponse(f"Request status changed from {old_status} to {new_status}")
+
+
+def invoice_form(request):
+    if request.method == "POST":
+        form = InvoiceForm(request.POST)
+        if form.is_valid():
+            service_name = form.cleaned_data["service_name"]
+            service_price = form.cleaned_data["service_price"]
+            additional_comments = form.cleaned_data["additional_comments"]
+            invoice_number = random.randint(1000, 9999)
+            invoice_date = date.today()
+
+            # Prepare HttpResponse with attachment
+            response = HttpResponse(content_type="application/pdf")
+            response["Content-Disposition"] = (
+                f'attachment; filename="invoice_{invoice_number}.pdf"'
+            )
+
+            # Create PDF canvas
+            pdf_canvas = canvas.Canvas(response)
+
+            pdf_canvas.setFont("Helvetica-Bold", 18)  # Set font and size
+            pdf_canvas.drawString(50, 800, "TJ's Handyman Services")
+
+            # Add contact information
+            pdf_canvas.drawString(50, 730, "Bay St. Louis, Mississippi")
+            pdf_canvas.drawString(50, 710, "Phone: +1 228-363-3068")
+            pdf_canvas.drawString(50, 690, "Email: tjhandymanservicellc21@gmail.com")
+
+            # Invoice details
+            pdf_canvas.drawString(50, 670, f"Invoice Number: {invoice_number}")
+            pdf_canvas.drawString(50, 650, f"Invoice Date: {invoice_date}")
+            pdf_canvas.drawString(50, 630, f"Service Name: {service_name}")
+            pdf_canvas.drawString(50, 610, f"Service Price: ${service_price:.2f}")
+            pdf_canvas.drawString(
+                50, 590, f"Additional Comments: {additional_comments}"
+            )
+
+            # Official invoice text
+            pdf_canvas.drawString(50, 550, "This is an official invoice.")
+
+            pdf_canvas.save()
+            return response
+    else:
+        # Initialize the form with initial data
+        initial_data = {
+            "customer_name": (
+                request.user.username if request.user.is_authenticated else ""
+            ),
+            "customer_email": (
+                request.user.email if request.user.is_authenticated else ""
+            ),
+        }
+        form = InvoiceForm(initial=initial_data)
+
+    return render(request, "invoice_form.html", {"form": form})
 
 
 def more_user(request, user_id=None, username=None):
@@ -45,6 +130,43 @@ def more_user(request, user_id=None, username=None):
         "admin_page.html",
         {"users": users, "selected_user": user, "reviews": reviews},
     )
+
+
+def more_request(request, request_id=None):
+    request_obj = get_object_or_404(RequestModel, pk=request_id)
+
+    return render(
+        request,
+        "admin_page.html",
+        {"request_obj": request_obj},
+    )
+
+
+def change_status(request, request_id, new_status):
+    # Retrieve the request object or return 404 if not found
+    request_obj = get_object_or_404(RequestModel, pk=request_id)
+
+    # Save the old status for comparison later if needed
+    old_status = request_obj.status
+
+    # Update the request object's status
+    request_obj.status = new_status
+    request_obj.save()
+
+    # If the new status is "Accepted", send an email notification
+    if new_status == "Accepted":
+        subject = "Request Accepted"
+        message = f"Your request for {request_obj.message} has been accepted."
+        sender_email = "your_sender_email@example.com"
+        recipient_email = (
+            request_obj.email
+        )  # Retrieve user's email address from request_obj
+
+        # Send the email
+        send_mail(subject, message, sender_email, [recipient_email])
+
+    # Redirect to the admin page after processing
+    return redirect(reverse("admin_page"))
 
 
 def submit_form(request):
@@ -72,6 +194,16 @@ def user_list(request):
 def reviews_list(request):
     reviews = Review.objects.all()
     return render(request, "admin_page.html", {"reviews": reviews})
+
+
+@require_POST
+def approve_review(request, review_id):
+    review = get_object_or_404(Review, pk=review_id)
+    approved = request.POST.get("approved") == "True"
+    review.approved = approved
+    review.save()
+
+    return render(request, "admin_page.html", context={"review": review})
 
 
 def request_list(request):

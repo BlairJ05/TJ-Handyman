@@ -15,5 +15,10 @@ class CreateCardForm(forms.ModelForm):
 
 
 class InvoiceForm(forms.Form):
-    description = forms.CharField(max_length=200)
-    amount = forms.DecimalField()
+    service_name = forms.CharField(label="Service Name", max_length=100)
+    service_price = forms.DecimalField(
+        label="Service Price ($)", decimal_places=2, min_value=0.01
+    )
+    additional_comments = forms.CharField(
+        label="Additional Comments", widget=forms.Textarea
+    )

@@ -40,7 +40,7 @@ class Chat(models.Model):
 class RequestModel(models.Model):
     class RequestStatus(models.TextChoices):
         PENDING = "Pending", "Pending"
-        UNDER_DEVELOPMENT = "Under-Development", "Under Development"
+        ACCEPTED = "Accepted", "Accepted"
         FINISHED = "Finished", "Finished"
 
     user = models.ForeignKey(

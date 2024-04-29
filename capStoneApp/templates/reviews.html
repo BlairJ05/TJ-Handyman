@@ -20,14 +20,21 @@
     <div class="testimonial-heading">
       <h1>Client Reviews</h1>
     </div>
-    <div class="testimonial-list">
-      {% for review in reviews %}
-      <div class="testimonial-item">
-        <p>{{ review.text }}</p>
-        <p>Rating: {{ review.rating }}</p>
-        <p>User: {{ review.user }}</p>
-      </div>
-      {% endfor %}
+    {% if reviews %}
+        <div class="testimonial-list">
+            {% for review in reviews %}
+                {% if review.approved %}
+                    <div class="testimonial-item">
+                        <p>{{ review.text }}</p>
+                        <p>Rating: {{ review.rating }}</p>
+                        <p>User: {{ review.user }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No approved reviews found.</p>
+    {% endif %}
     </div>
   </section>
 </body>

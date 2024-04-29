@@ -31,6 +31,16 @@ urlpatterns = [
     path("request-list/", views.request_list, name="request_list"),
     path("submit-form/", views.submit_form, name="submit_form"),
     path("more_user/<int:user_id>/", views.more_user, name="more_user"),
+    path("more_request/<int:request_id>/", views.more_request, name="more_request"),
+    path(
+        "review/<int:review_id>/approve/", views.approve_review, name="approve_review"
+    ),
+    path(
+        "change_status/<int:request_id>/<str:new_status>/",
+        views.change_status,
+        name="change_status",
+    ),
+    path("invoice_form/", views.invoice_form, name="invoice_form"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
