@@ -41,7 +41,7 @@
                             <a href="{% url 'reviews' %}"><h1 id="Review">Reviews</h1></a>
                             <a href="{% url 'gallery' %}"><h1 id="gallery">Gallery</h1></a>
                             <a href="{% url 'create_card' %}"><h1 id="create_card">Create Project</h1></a>
-                            <a href="#"><h1 id="admin">Admin</h1></a>
+                            <a href="{% url 'admin_page' %}"><h1 id="admin">Admin</h1></a>
                         </div>
                     {% else %}
                         <!-- Regular user menu options -->

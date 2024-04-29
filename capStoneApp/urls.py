@@ -24,8 +24,13 @@ urlpatterns = [
     path("accounts/login/", views.signIn, name="login"),
     path("create_card/", views.card, name="create_card"),
     path("admin_page/", views.admin_page, name="admin_page"),
-    path('create_card/', views.card, name='create_card'),
-    path('chatbot/', views.chatbot, name="chatbot"),
+    path("create_card/", views.card, name="create_card"),
+    path("chatbot/", views.chatbot, name="chatbot"),
+    path("user-list/", views.user_list, name="user_list"),
+    path("reviews-list/", views.reviews_list, name="reviews_list"),
+    path("request-list/", views.request_list, name="request_list"),
+    path("submit-form/", views.submit_form, name="submit_form"),
+    path("more_user/<int:user_id>/", views.more_user, name="more_user"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

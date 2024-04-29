@@ -1,16 +1,20 @@
 function loadAnalyticsData() {
   fetch("/api/analytics")
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch analytics data");
+      }
+      return response.json();
+    })
     .then((data) => {
       const analyticsDataContainer = document.getElementById(
         "analyticsDataContainer"
       );
-
       analyticsDataContainer.innerHTML = `
                 <h3>Analytics Data</h3>
                 <p>Total Visitors: ${data.totalVisitors}</p>
                 <p>Page Views: ${data.pageViews}</p>
-                <!-- Add more metrics as needed -->
+                <!-- Add more analytics data as needed -->
             `;
 
       renderAnalyticsChart(data);
@@ -50,3 +54,8 @@ function renderAnalyticsChart(data) {
     },
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const analyticsLink = document.querySelector("#analyticsLink");
+  analyticsLink.addEventListener("click", loadAnalyticsData);
+});
