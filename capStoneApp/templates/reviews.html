@@ -16,19 +16,19 @@
   gtag('config', 'G-PHX82QGLW4');
 </script>
 <body>
-  <section id="testimonial">
-    <div class="testimonial-heading">
-      <h1>Client Reviews</h1>
+  <div class="testimonials">
+    {% for review in reviews %}
+    <div class="card">
+        <div class="layer"></div>
+        <div class="content">
+            <p>{{review.text}}</p>
+              {% if review.rating == 1 %}
+                <div class="stars">{{review.rating}}</div>
+              {% endif %}
+                <div class="details"><h2>{{review.user}}</h2></div>
+        </div>
     </div>
-    <div class="testimonial-list">
-      {% for review in reviews %}
-      <div class="testimonial-item">
-        <p>{{ review.text }}</p>
-        <p>Rating: {{ review.rating }}</p>
-        <p>User: {{ review.user }}</p>
-      </div>
       {% endfor %}
     </div>
-  </section>
 </body>
 {% endblock %}

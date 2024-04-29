@@ -1,66 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*{
+
+body
+{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-html{
-    display: flex;
-    justify-content: center;
-}
-
-.wrapper-container{
-    display: grid;
-    place-items: center;
+    width: 100%;
     height: 100%;
+    font-family: sans-serif;
 }
-
-.wrapper{
-    max-width: 1200px;
-    padding:  50px 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-
+.testimonials
+{
+    margin: 200px auto 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+    grid-gap: 20px;
 }
-
-/* reviews.css */
-
-.testimonial-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 20px;
-  }
-  
-  .testimonial-item {
-    width: 45%;
-    background-color: #f9f9f9;
+.testimonials .card
+{
+    position: relative;
+    width:350px;
+    margin: 20px auto;
+    background:#ffffff;
     padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .testimonial-item p {
-    margin: 10px 0;
-  }
-  
-  .testimonial-heading {
+    box-sizing: border-box;
     text-align: center;
-  }
-  
-  .testimonial-heading span {
-    font-size: 18px;
-    color: #999;
-  }
-  
-  .testimonial-heading h1 {
-    margin-top: 10px;
-    font-size: 32px;
-    color: #333;
-  }
-  
+    box-shadow: 0 10px 40px rgba(0,0,0,.5);
+    overflow: hidden;
+    color: black;
+
+}
+.testimonials .card .layer
+{
+    position: absolute;
+    top:calc(100% - 2px);
+    left:0;
+    width:100%;
+    height: 100%;
+    background: linear-gradient(rgb(6, 127, 193), #05032c);
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.testimonials .card .content
+{
+   position: relative;
+   z-index: 2;
+}
+.testimonials .card .content p
+{
+   font-size: 18px;
+   line-height: 24px;
+   color:#000000;
+}
+.testimonials .card .content .image
+{
+   width: 100px;
+   height: 100px;
+   margin: 0 auto;
+   border-radius: 50%;
+   overflow: hidden;
+   border: 4px solid #fff;
+   box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+.testimonials .card .content .details h2
+{ 
+   font-size: 18px;
+   color: #020202;
+}
+.testimonials .card .content .details h2 span
+{
+    color: #03a9f4;
+    font-size: 14px;
+    transition: 0.5s;
+}
+.testimonials .card:hover .content .details h2 span
+{
+    color: #fff;
+}

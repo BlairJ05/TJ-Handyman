@@ -1,52 +1,35 @@
-function loadAnalyticsData() {
-  fetch("/api/analytics")
-    .then((response) => response.json())
-    .then((data) => {
-      const analyticsDataContainer = document.getElementById(
-        "analyticsDataContainer"
-      );
+document.addEventListener("DOMContentLoaded", function () {
+  var reviews_list = document.querySelector(".reviews-cards-container");
+  var selectedUserDetails = document.querySelector(".selected-user-details");
 
-      analyticsDataContainer.innerHTML = `
-                <h3>Analytics Data</h3>
-                <p>Total Visitors: ${data.totalVisitors}</p>
-                <p>Page Views: ${data.pageViews}</p>
-                <!-- Add more metrics as needed -->
-            `;
+  if (selectedUserDetails) {
+    reviews_list.style.display = "none";
+  }
+});
 
-      renderAnalyticsChart(data);
-    })
-    .catch((error) => {
-      console.error("Error fetching analytics data:", error);
-    });
+function submitForm(approvalValue) {
+  const form = document.getElementById("approveReviewForm");
+
+  const approvalInput = document.createElement("input");
+  approvalInput.setAttribute("type", "hidden");
+  approvalInput.setAttribute("name", "approved");
+  approvalInput.setAttribute("value", approvalValue);
+
+  form.appendChild(approvalInput);
+
+  form.submit();
+
+  const message =
+    approvalValue === "True" ? "Review posted!" : "Review not posted.";
+  alert(message);
 }
 
-function renderAnalyticsChart(data) {
-  const analyticsChartCanvas = document
-    .getElementById("analyticsChart")
-    .getContext("2d");
-  new Chart(analyticsChartCanvas, {
-    type: "bar",
-    data: {
-      labels: ["Visitors", "Page Views"],
-      datasets: [
-        {
-          label: "Analytics Data",
-          data: [data.totalVisitors, data.pageViews],
-          backgroundColor: [
-            "rgba(54, 162, 235, 0.2)",
-            "rgba(255, 99, 132, 0.2)",
-          ],
-          borderColor: ["rgba(54, 162, 235, 1)", "rgba(255, 99, 132, 1)"],
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
-  });
+function confirmChangeStatus(event, newStatus) {
+  event.preventDefault();
+
+  if (confirm(`Are you sure you want to set the status to ${newStatus}?`)) {
+    window.location = event.target.href;
+  } else {
+    return false;
+  }
 }
