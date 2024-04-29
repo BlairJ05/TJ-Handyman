@@ -14,17 +14,13 @@ from django.http import JsonResponse
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from .models import Chat
-from django.http import JsonResponse
 from django.contrib import messages
 from openai import OpenAI
 from django.utils import timezone
-
 client = OpenAI(api_key='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')
-
 @login_required
 def chatbot(request):
     chats = Chat.objects.filter(user=request.user)
-
     if request.method == 'POST':
         message = request.POST.get('message')
         try:
@@ -36,16 +32,14 @@ def chatbot(request):
                 ]
             )
             bot_response = response.choices[0].message.content.strip()
-
             chat = Chat(user=request.user, message=message, response=bot_response, created_at=timezone.now())
             chat.save()
-
             return JsonResponse({'message': message, 'response': bot_response})
         except Exception as e:
             print(f"Error in chatbot view: {e}")
             return JsonResponse({'error': 'An error occurred while processing your request.'}, status=500)
-
     return render(request, 'chatbot.html', {'chats': chats})
+
 def Request(request):
     return render(request, "request_a_project.html")
 
@@ -217,4 +211,3 @@ def card(request):
             form.save()
             return render(request, "create.html", {"form": form})
     return render(request, "create.html", {"form": form})
-
