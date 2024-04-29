@@ -26,6 +26,11 @@ button {
     font-size: inherit;
     cursor: pointer;
 }
+header{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
 
 .navbar {
     height: 90px;
@@ -35,6 +40,7 @@ button {
     justify-content: space-between;
     align-items: center;
     /* border: rgb(0, 255, 72) solid 3px; */
+    
 }
 
 @media (max-width: 48em) { 
@@ -68,12 +74,12 @@ button {
         text-align: center; 
     }
 }
-.navbar .logo i{
+/* .navbar .logo i{
     color: #0aa5ff;
     font-size: 22px;
-}
+} */
 
-.navbar .logo p {
+/* .navbar .logo p {
     font-size: 24px;
     color: white;
     margin-left: 12px;
@@ -82,7 +88,7 @@ button {
     font-weight: 700;
     font-style: normal;
     letter-spacing: 2px;
-}
+} */
 
 .menu {
     display: flex;
@@ -258,8 +264,33 @@ button {
     top: .7vw;
 }
 
+.navbar .logo {
+    font-size: 24px;
+    color: white;
+    margin-left: 12px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 2px;
+}
 
+.navbar .logo span {
+    display: inline-block;
+    animation: animate 1s ease-in-out ;
+    animation-delay: calc(0.1s * var(--i));
+}
 
+@keyframes animate {
+    0% {
+        transform: translateY(0px);
+    }
+    20% {
+        transform: translateY(-20px);
+    }
+    40%, 100% {
+        transform: translateY(0px);
+    }
+}
 @media (max-width: 75rem) {
     .menu-links {
         display: none; 
