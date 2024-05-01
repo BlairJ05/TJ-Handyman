@@ -272,8 +272,7 @@ def index(request):
     return render(request, "index.html", {"form": form})
 
 
-def pricing(request):
-    return render(request, "pricing.html")
+
 
 
 def signUp(request):
@@ -340,41 +339,8 @@ def signOut(request):
     logout(request)
     return redirect("index")
 
-
-def Assembly(request):
-    return render(request, "Assembly.html")
-
-
 def admin(request):
     return render(request, "admin_page.html")
-
-
-def Carpenter(request):
-    return render(request, "Carpenter.html")
-
-
-def Home_Repairs(request):
-    return render(request, "Home_Repairs.html")
-
-
-def Installation(request):
-    return render(request, "Instulation.html")
-
-
-def More_About_Me(request):
-    return render(request, "More_About_Me.html")
-
-
-def Moving(request):
-    return render(request, "Moving.html")
-
-
-def Outdoor_Help(request):
-    return render(request, "Outdoor_Help.html")
-
-
-def Painting(request):
-    return render(request, "Painting.html")
 
 
 def admin_page(request):

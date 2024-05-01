@@ -11,13 +11,135 @@
 {% load static %}
 
     {% block content %}
-        <div class='wrapper_outer'>
+    {% comment %} <header class="Header__container">
+        <nav class="navbar" style='z-index:1;'>
+            <div class="logo" style='color:white;'>
+                <span style="--i:1;">T</span>
+                <span style="--i:2;">J</span>
+                <span style="--i:3;">'</span>
+                <span style="--i:4;">s</span>
+                <span style="--i:5;"></span>
+                <span style="--i:6;">H</span>
+                <span style="--i:7;">a</span>
+                <span style="--i:8;">n</span>
+                <span style="--i:9;">d</span>
+                <span style="--i:10;">y</span>
+                <span style="--i:11;">m</span>
+                <span style="--i:12;">a</span>
+                <span style="--i:13;">n</span>
+                <span style="--i:14;"></span>
+                <span style="--i:15;">S</span>
+                <span style="--i:16;">e</span>
+                <span style="--i:17;">r</span>
+                <span style="--i:18;">v</span>
+                <span style="--i:19;">i</span>
+                <span style="--i:20;">c</span>
+                <span style="--i:21;">e</span>
+            </div>
+            <div class="menu">
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_staff %}
+                        <!-- Admin menu options -->
+                        <div class="menu-links">
+                            <a href="{% url 'index' %}"><h1 id="index">Home</h1></a>
+                            <a href="{% url 'reviews' %}"><h1 id="Review">Reviews</h1></a>
+                            <a href="{% url 'gallery' %}"><h1 id="gallery">Gallery</h1></a>
+                            <a href="{% url 'create_card' %}"><h1 id="create_card">Create Project</h1></a>
+                            <a href="{% url 'admin_page' %}"><h1 id="admin">Admin</h1></a>
+                        </div>
+                    {% else %}
+                        <!-- Regular user menu options -->
+                        <div class="menu-links">
+                            <a href="{% url 'index' %}"><h1 id="index">Home</h1></a>
+                            <a href="{% url 'reviews' %}"><h1 id="Review">Reviews</h1></a>
+                            <a href="{% url 'gallery' %}"><h1 id="gallery">Gallery</h1></a>
+                            <a href="{% url 'request_a_project' %}"><h1 id="request_a_project">Request a Project</h1></a>
+                            <a href="{% url 'chatbot' %}"><h1 id="ChatBot">HandyMan ChatBot</h1></a>
+                        </div>
+                    {% endif %}
+                {% else %}
+                    <!-- Non-authenticated user menu options -->
+                    <div class="menu-links">
+                        <a href="{% url 'index' %}"><h1 id="index">Home</h1></a>
+                        <a href="{% url 'reviews' %}"><h1 id="Review">Reviews</h1></a>
+                        <a href="{% url 'gallery' %}"><h1 id="gallery">Gallery</h1></a>
+                
+                        {% if request.user.is_authenticated %}
+                            {% if request.user.is_staff %}
+                                <a href="{% url 'create_card' %}"><h1 id="create_card">Create Project</h1></a>
+                                <a href="{% url 'admin_page' %}"><h1 id="admin">Admin</h1></a>
+                            {% else %}
+                                <a href="{% url 'request_a_project' %}"><h1 id="request_a_project">Request a Project</h1></a>
+                                <a href="{% url 'chatbot' %}"><h1 id="ChatBot">HandyMan ChatBot</h1></a>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+                <div class="login-signup" >
+                    {% if user.is_authenticated %}
+                        <h2 class='Hi-msg'>Hello {{request.user.username}}</h2>
+                        <div class="signOutBackground" >
+                            <div>
+                                <a href="{% url 'signOut' %}" style="text-decoration: none;color: aliceblue;">Sign Out</a>
+                            </div>
+                        </div>
+                        {% else %}
+                        <button class="log-in">
+                            <a href="{% url 'signIn' %}" style="text-decoration: none;color: white;">Login/Sign-Up</a>
+                        </button>
+                    {% endif %}
+                </div>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="close-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+        </nav>
+        <div class="Header__left">
+          <svg class="Header__logo" id="logo" y="0px" viewBox="0 0 483 324" xml:space="preserve">
+            <style type="text/css">
+              .st0 {
+                fill: #FFFFFF;
+              }
+            </style>
+
+        </div>
+
+      </header> {% endcomment %}
+      <header>
+        <section class="Hero">
+          <div class="Hero__content">
+            <h2 class="Hero__title">Request Serice Today!</h2>
+            <p class="Hero__subtitle">Get it done right the first time with TJ's handyman services—saving you from the hassle and ensuring top-notch results tailored to your needs.</p>
+            <div class="Hero__action" role="button" tabindex=0><span class="Hero__actionText">Request Now!</span></div>
+          </div>
+          <div class="Hero__image" id="Hero__image"></div>
+          <div class="Hero__mask"></div>
+          <canvas id="snowfall" class="Hero__snowfall"></canvas>
+        </section>
+      </header>
+
+
+
+
+    {% comment %} <head>
+
+
+
+
                 <div class='wrapper'>
                     <div class='hero-section'>
-                        <img src={% static "images/TJs.png" %}>
+                        <img src={% static "images/Hero_section_2.jpg" %}>
+                        <div class="hero-text">
+                            <h1>Introducing TJS HANDYMAN SERVICE, a handyman service ready to meet your handyman needs.</h1>
+                        </div>
                     </div>
                 </div>
-        </div>    
+
+    </head>     {% endcomment %}
 
             <!--
                 this can be the Section can be the body
@@ -27,8 +149,7 @@
                 <div class="container">
                     <img src="static/images/handymanPicOne.jpg">
                     <h2>Crafting Your Space: Carpentry, Painting, and Custom Upgrades</h2>
-                    <p>Explore the artistry of carpentry, the transformative power of painting, and the personalized touch of custom upgrades for your interior and exterior spaces.</p>
-                    
+                    <p>Explore the artistry of carpentry, the transformative power of painting, and the personalized touch of custom upgrades for your interior and exterior spaces.</p>   
                 </div>
                 <div class="container_2">
                     <img src="static/images/handymanPicTwo.jpg">
