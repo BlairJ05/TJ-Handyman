@@ -1,81 +1,158 @@
-{% extends 'base.html'%}
+{% extends "base.html" %}
 {% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Request</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    {% block content %}
     <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            background-color: #f9f9f9 !important;
+            padding: 0;
+            margin: 0;
+        }
         .container {
             margin: auto;
-            width: 80%;
-            text-align: center;
-            top: 80px;
+            width: 60%;
+            padding: 30px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
+    
         .form-row {
-            margin-bottom: 20px;
-            text-align: left;
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
+            align-items: center; 
+            margin-bottom: 20px; 
+        }
+
+        label {
+            text-align: left;
+            width: 30%; 
+            margin-right: 20px;
         }
 
         .form-control {
-            width: calc(33.33% - 10px);
-            padding: 10px;
+            width: 60%; 
+            padding: 12px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 6px;
             box-sizing: border-box;
+            transition: border-color 0.3s;
         }
+    
+        .form-control:focus {
+            outline: none;
+            border-color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+        }
+    
+        .btn {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px; 
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+    
+        .btn:hover {
+            background-color: #45a049;
+        }
+    
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            margin-bottom: 20px; 
+            top: 0;
+        }
+    
+        .custom-file-upload {
+            display: inline-block;
+            padding: 8px 16px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+    
+        input[type="file"] {
+            display: none;
+        }
+    
+        .form-header h2 {
+            margin: 0;
+            padding: 0;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        
     </style>
+    
+    
 </head>
-{% block content %}
 <body>
     <div class="container">
         <form target="_blank" action="{% url 'submit_form' %}" method="POST">
             {% csrf_token %}
+            <div class="form-header">
+                <h2>Request A Project</h2>
+            </div>
+            <br>
             <div class="form-group">
                 <div class="form-row">
                     <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Full Name" required>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-row">
                     <label for="number">Phone Number:</label>
-                    <input type="phone" id="number" name="number" class="form-control" placeholder="Phone Number" required>
+                    <input type="phone" id="number" name="number" class="form-control" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-row">
                     <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Email Address" required>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="location">Select Location:</label>
                 <select id="location" name="location" class="form-control" required>
-                    <option value="">Select Location</option>
-                    <option value="BAY ST. LOUIS">BAY ST. LOUIS</option>
-                    <option value="DIAMONDHEAD">DIAMONDHEAD</option>
-                    <option value="WAVELAND">WAVELAND</option>
-                    <option value="PASS CHRISTIAN">PASS CHRISTIAN</option>
-                    <option value="DELISLE">DELISLE</option>
-                    <option value="KILN">KILN</option>
-                    <option value="LONG BEACH">LONG BEACH</option>
-                    <option value="GULFPORT">GULFPORT</option>
-                    <option value="SLIDELL">SLIDELL</option>
+                    <option value="">Select location</option>
+                    <option value="BAY ST. LOUIS">Bay St. Louis</option>
+                    <option value="DIAMONDHEAD">Diamondhead</option>
+                    <option value="WAVELAND">Waveland</option>
+                    <option value="PASS CHRISTIAN">Pass Christian</option>
+                    <option value="DELISLE">Delisle</option>
+                    <option value="KILN">Kiln</option>
+                    <option value="LONG BEACH">Long Beach</option>
+                    <option value="GULFPORT">Gulfport</option>
+                    <option value="SLIDELL">Slidell</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="date">Select Date:</label>
                 <input type="date" id="date" name="date" class="form-control" required>
             </div>
+            <br>
             <div class="form-group">
-                <textarea id="message" placeholder="Please Discribe Your Issue" class="form-control" name="message" rows="10" required></textarea>
+                <textarea id="message" placeholder="Please describe your issue" class="form-control" name="message" rows="6" required></textarea>
             </div>
             <div class='form-group'>
                 <label for="myFile" class="custom-file-upload">Choose File</label>
                 <input type="file" id="myFile" name="filename">
             </div>
-            <button type="submit" class="btn">Submit Form</button>
+            <button type="submit" class="btn">Submit Request</button>
         </form>
     </div>
 </body>

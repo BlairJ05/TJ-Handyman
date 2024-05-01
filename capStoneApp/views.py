@@ -15,7 +15,6 @@ from django.http import HttpResponseBadRequest, JsonResponse
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from .models import Chat
-from django.http import JsonResponse
 from django.contrib import messages
 from openai import OpenAI
 from django.utils import timezone
