@@ -4,7 +4,6 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
 }
 
 
@@ -17,6 +16,7 @@ body {
 
 a {
     text-decoration: none;
+    
 }
 
 button {
@@ -27,25 +27,29 @@ button {
     cursor: pointer;
 }
 header{
-    position: sticky;
-    top: 0;
     z-index: 1;
 }
 
 .navbar {
+    position: sticky;
+    z-index: 3;
+    width: 100%;
     height: 90px;
-    background-color: #1a1a1a;
-    padding: 40px 40px;
+    background-color: transparent;
+    padding:  0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
     /* border: rgb(0, 255, 72) solid 3px; */
-    
+    background-color: rgba(22, 18, 38, 0.605);
 }
 
 @media (max-width: 48em) { 
     body {
-        font-size: 14px; 
+        font-size: 3pt; 
     }
 
     .navbar {
@@ -77,9 +81,9 @@ header{
 /* .navbar .logo i{
     color: #0aa5ff;
     font-size: 22px;
-} */
+}
 
-/* .navbar .logo p {
+.navbar .logo p {
     font-size: 24px;
     color: white;
     margin-left: 12px;
@@ -89,6 +93,40 @@ header{
     font-style: normal;
     letter-spacing: 2px;
 } */
+
+.logo {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+}
+
+/* Adjust the font size and color for menu links */
+.menu-links a {
+    font-size: 16px; /* Adjust this size as needed */
+    color: #d6d1d1;
+}
+
+/* Show the menu links properly */
+.menu-links {
+    display: flex;
+    gap: 20px; /* Adjust the gap between links */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 48em) {
+    body {
+        font-size: 14px; /* Adjust the font size for smaller screens */
+    }
+
+    /* Hide the menu links and show the menu button */
+    .menu-links {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+}
 
 .menu {
     display: flex;
@@ -103,14 +141,16 @@ header{
     border-right: 1px solid #999999;
     /* padding-inline: 80px; */
     /* border: red solid 3px;  */
+    
 }
 
 .menu-links a {
     font-weight: 500;
-    color: #999999;
+    color: #d2d2d2;
     padding: 8px 32px;
     transition: .3s ease;
     /* border: rgb(47, 0, 255) solid 3px; */
+    font-size: 5pt;
 }
 
 .menu-links a:hover {
@@ -125,14 +165,14 @@ header{
     
 }
 .menu-links ul li{
-    font-size: 17pt;
+    font-size: 1pt;
     font-family: "Ubuntu", sans-serif;
     top: 1.5vw;
     font-weight: 500;
     position: relative;
     display: inline-block;
-    background-color: #1a1a1a;
-    
+    background-color: transparent;
+    /* border: rgb(255, 0, 225) solid 3px; */
     
 }
 .menu-links ul ul{
@@ -200,80 +240,17 @@ header{
       color: white;
   }
 
-  .tooltip {
-    display:inline-block;
-    position:relative;
-    border-bottom:1px dotted #666;
-    text-align:center;
-}
-
-.tooltip h3 {margin:0px 0;}
-
-.tooltip .bottom {
-    min-width:200px;
-    /*max-width:400px;*/
-    top:40px;
-    left:50%;
-    transform:translate(-50%, 0);
-    padding:20px;
-    color:#666666;
-    background-color:#EEEEEE;
-    font-weight:normal;
-    font-size:10px;
-    border-radius:8px;
-    position:absolute;
-    z-index:99999999;
-    box-sizing:border-box;
-    box-shadow:0 1px 8px rgba(0,0,0,0.5);
-    display:none;
-}
-
-.tooltip:hover .bottom {
-    display:block;
-}
-
-.tooltip .bottom img {
-    width:400px;
-}
-
-.tooltip .bottom i {
-    position:absolute;
-    bottom:100%;
-    left:50%;
-    margin-left:-12px;
-    width:24px;
-    height:12px;
-    overflow:hidden;
-}
-
-.tooltip .bottom i::after {
-    content:'';
-    position:absolute;
-    width:12px;
-    height:12px;
-    left:50%;
-    transform:translate(-50%,50%) rotate(45deg);
-    background-color:#EEEEEE;
-    box-shadow:0 1px 8px rgba(0,0,0,0.5);
-}
-.Hi-msg{
-    text-align: center;
-    color: white;
-    position: absolute;
-    right: 12.5vw;
-    top: .7vw;
-}
-
 .navbar .logo {
-    font-size: 24px;
+    font-size: 26px;
     color: white;
     margin-left: 12px;
     font-family: "Raleway", sans-serif;
     font-weight: 700;
     font-style: normal;
-    letter-spacing: 2px;
 }
-
+nav{
+    background-color: transparent;
+}
 .navbar .logo span {
     display: inline-block;
     animation: animate 1s ease-in-out ;

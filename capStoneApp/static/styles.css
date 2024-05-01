@@ -17,7 +17,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color:transparent;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -216,23 +216,27 @@ body {
 }
 
 .slideshow{
-  width: 100%;
-  height: 32vw;
+  width: 80vw;
+  height: 40vw;
   display: flex;
   justify-content: center;
   position: relative;
   overflow: hidden;
   box-shadow: 0 ;
   align-items: center;
+  /* border: red solid; */
 }
 .slideshow_box{
   background-color: #dcdada64;
   padding-bottom: 50px;
+  /* border: rgb(0, 255, 251) solid; */
+  display: grid;
+  justify-content: center;
 }
 
 .gallery-container {
   width: 100%;
-  max-height: 30vw;
+  max-height: 40vw;
   position: absolute;
   overflow: hidden;
   box-shadow: 0px 0px 10px 1px;
@@ -285,7 +289,7 @@ body {
   margin-top: 100px;
   margin-bottom: 100px;
   position: relative;
-  /* border: rgb(70, 2, 2) 3px solid; */
+  /* border: rgb(255, 0, 0) 3px solid; */
   grid-template-columns: 1fr;
 }
 
@@ -393,7 +397,7 @@ body {
 
 
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1000px) {
 
 
   .container {
@@ -513,13 +517,14 @@ body {
 
 .hero-section{
   position: relative;
-  height: 40vw;
+  height: 44vw;
   transform-style: preserve-3d;
+  top: 0;
   
 }
 .hero-section img{
   width:100%;
-  height: 40vw;
+  height: 44vw;
   position: relative;
   z-index: -1;
   bottom: 7vw;
@@ -536,9 +541,11 @@ span{
 }
 
 .wrapper{
+  position: relative;
   height: 100%;
   perspective: 1px;
-  overflow: hidden;
+  top: 0;
+  background-image: url(https://cdn.smartstuff.howstuffworks.com/smartstuffhowstuffworks/wp-content/uploads/2021/03/smartstuff-handyman.jpg);
 }
 
 
@@ -770,4 +777,253 @@ footer{
 }
 
 
+/* ///////////////////////Chat Bot\\\\\\\\\\\\\\\\\\\\\\\\\ */
 
+/* .main-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container{
+  height: 550px;
+  width: 390px;
+  border: 3px solid rgba(255,255,255,.5);
+  border-radius: 20px;
+  background: #fff;
+  overflow: hidden;
+}
+.container .top-part{
+  height: 100px;
+  background: #0f0f20;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.container .top-part i{
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+.top-part .agent-details{
+  display: flex;
+  align-items: center;
+}
+.container .top-part .agent-details img{
+  height: 70px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #fff;
+}
+.top-part .agent-text{
+  margin-left: 10px;
+
+}
+.agent-text h3{
+  font-size: 15px;
+
+}
+.agent-text p{
+  font-size: 11px;
+}
+.agent-text span{
+  color: #0f0;
+  font-size: 11px;
+}
+.chart-section{
+  position: relative;
+}
+.left-part img{
+  height: 50px;
+}
+.left-part p{
+  color: #555;
+} */
+
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Heebo:900|Roboto|Satisfy&display=swap");
+
+body {
+  margin: 0;
+
+  font-family: "Roboto", sans-serif;
+}
+
+.Header__container {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5em;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em 5vw;
+  width: 100%;
+}
+
+.Header__left {
+  display: flex;
+  flex-direction: row;
+  font-family: "Satisfy", cursive;
+}
+
+.Header__logo {
+  width: 4.5em;
+  margin: auto;
+}
+
+.Header__title {
+  display: flex;
+  margin-left: 0.6em;
+}
+
+h1 {
+  font-weight: normal;
+  margin: 0.1em;
+}
+
+.Header__menu {
+  margin: auto 0;
+  display: flex;
+  flex-direction: row;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+.Header__menuItem {
+  list-style-type: none;
+  margin: auto 1em;
+}
+
+.Hero {
+  color: white;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.Hero__content {
+  margin: 40vh auto auto 10vw;
+  width: 50%;
+}
+
+.Hero__title {
+  font-family: "Heebo", sans-serif;
+  font-weight: 900;
+  margin: 0;
+  text-shadow: 0px 0px 8px black;
+  font-size: 3em;
+  line-height: 1em;
+}
+
+.Hero__subtitle {
+  opacity: 0.85;
+  margin-top: 0.5em;
+  text-shadow: 0px 0px 8px black;
+  font-size: 1.5em;
+}
+
+.Hero__action {
+  height: 3em;
+  border-radius: 2em;
+  background-color: #c49000;
+  color: white;
+  border: none;
+  padding: 0.4em 2em;
+  box-shadow: 0px 0px 8px black;
+  position: relative;
+  width: 14em;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .Hero__content {
+    width: 90%;
+    margin: 40vh 2em auto 2em;
+  }
+}
+
+.Hero__action:hover {
+  animation: callToAction 1500ms ease-in infinite;
+}
+
+@keyframes callToAction {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.07);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  60% {
+    transform: scale(1.07);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.Hero__actionText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  font-family: "Heebo", sans-serif;
+  font-size: 1.1em;
+  transform: translate(-50%, -50%);
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.2);
+}
+
+@media (max-height: 500px) {
+  .Hero__title {
+    font-size: 2em;
+  }
+
+  .Hero__subtitle {
+    font-size: 1em;
+  }
+
+  .Hero__action {
+    height: 1.4em;
+    border-radius: 1.4em;
+    width: 4.5em;
+  }
+
+  .Hero__actionText {
+    font-size: 0.9em;
+  }
+}
+
+.Hero__image {
+  display: inline-block;
+  position: absolute;
+  z-index: -10;
+  height: 100vh;
+  width: 100%;
+  background-color: red;
+  background-image: url("https://cdn.smartstuff.howstuffworks.com/smartstuffhowstuffworks/wp-content/uploads/2021/03/smartstuff-handyman.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+
+
+.Hero__snowfall {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -6;
+  opacity: 0.75;
+}
