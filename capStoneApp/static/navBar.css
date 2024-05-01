@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 *,
 *::before,
@@ -95,7 +95,7 @@ header{
 } */
 
 .logo {
-    font-family: "Raleway", sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 700;
     font-size: 26px;
 }
@@ -135,22 +135,25 @@ header{
 }
 
 .menu-links {
-    position: relative;
+    position: absolute;
     display: flex;
     gap: 4px;
     border-right: 1px solid #999999;
     /* padding-inline: 80px; */
     /* border: red solid 3px;  */
+    right: 0vw;
+    margin-right: 12vw;
     
 }
 
 .menu-links a {
     font-weight: 500;
     color: #d2d2d2;
-    padding: 8px 32px;
+    padding: 8px 20px;
     transition: .3s ease;
     /* border: rgb(47, 0, 255) solid 3px; */
     font-size: 5pt;
+
 }
 
 .menu-links a:hover {
@@ -164,7 +167,7 @@ header{
     /* border: rgb(0, 255, 145) solid 3px; */
     
 }
-.menu-links ul li{
+/* .menu-links ul li{
     font-size: 1pt;
     font-family: "Ubuntu", sans-serif;
     top: 1.5vw;
@@ -172,9 +175,9 @@ header{
     position: relative;
     display: inline-block;
     background-color: transparent;
-    /* border: rgb(255, 0, 225) solid 3px; */
+    border: rgb(255, 0, 225) solid 3px;
     
-}
+} */
 .menu-links ul ul{
     display: none;
     position: absolute;
@@ -231,7 +234,6 @@ header{
     border-radius: 10px;
     border: 2px solid rgb(6, 127, 193);
     transition: 0.3s ease;
-    margin-left: 1vw;
   
   
   }
@@ -244,9 +246,10 @@ header{
     font-size: 26px;
     color: white;
     margin-left: 12px;
-    font-family: "Raleway", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
+    padding-left: 1vw;
 }
 nav{
     background-color: transparent;
@@ -255,6 +258,12 @@ nav{
     display: inline-block;
     animation: animate 1s ease-in-out ;
     animation-delay: calc(0.1s * var(--i));
+    font-size: 25px;
+}
+.login-signup{
+    /* border: 3px solid red; */
+    padding-right: 2vw;
+    padding-left: 0vw;
 }
 
 @keyframes animate {

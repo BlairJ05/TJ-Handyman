@@ -130,8 +130,11 @@
     {% block content %}
 
     {% endblock %}
-    <div class="main-div">
-        <div class="container">
+    {% comment %} <div class="main-div">
+        <div class="menuToggle">
+            <i class='bx bx-hard-hat'></i>
+        </div>
+        <div class="chatbot_container">
             <div class="top-part">
                 <div class='agent-details'>
                 <img src='{% static "images/ChatBotPFP.jpg" %}' alt='ChatBot'>
@@ -158,6 +161,12 @@
             <i class='bx bxs-send'></i>
         </div>
     </div>
+    <script>
+        const menuToggle = document.querySelector('.menuToggle');
+        menuToggle.onclick = function(){
+            menuToggle.classList.toggle('active')
+        }
+    </script> {% endcomment %}
 </main>
 <footer class='footer-distributed'>
         <div class='footer-left'>
