@@ -64,6 +64,7 @@ body {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 100%;
 }
 
 .admin_welcome_message h2 {
@@ -99,6 +100,7 @@ body {
     background-color: #343a40;
     color: #fff;
     padding: 20px;
+    height: 100%;
 }
 
 .request-card a {

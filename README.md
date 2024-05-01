@@ -1,55 +1,50 @@
-# CapStone
-CapStone Group project
-#
+##
+TJ's HandyMan Service
+##
+Project Description
+TJ's HandyMan Service is a comprehensive handyman services website showcasing a diverse range of home improvement solutions. The website is built using Django and leverages Python for backend functionality, along with JavaScript for interactive features. It is deployed on Heroku and utilizes HTML/CSS for frontend presentation.
 
-###
+The website is designed to exhibit expertise in various services including carpentry, painting, custom upgrades, welding, woodwork, and landscaping. It aims to establish credibility and attract potential clients seeking professional home improvement solutions.
+##
+Features and Functionality
 
-SuperUser 
-Username - Admin
-Password - Password
+User Access:
+Guests can browse the home page, view reviews, and explore the gallery.
+Logged-in users can access additional features like leaving reviews, requesting projects, and utilizing the handyman chatbot.
 
-###
+Key Components:
+Frontend Development (Blair):
+Responsible for planning and developing the entire CSS layout for the website.
 
-Jordan - Middle Man
-Blair - FrontEnd
-Conner - Middle Man
+Backend Development (Conner):
+Manages the functionality and logic of the website, including database interactions and user authentication.
 
-###
+Project Coordination (Jordan):
+Focuses on integrating frontend and backend components, with an emphasis on developing the admin panel.
+##
+Project Structure
 
-###
-Things To Do
-- Review page
+The project is organized into distinct components:
+Django Framework: Powers the backend logic and serves dynamic web content.
+HTML/CSS: Provides the frontend structure and styling.
+JavaScript: Enhances user interactivity and dynamic content.
+Heroku: Used for deployment and hosting of the website.
+##
+Team Contributions
 
-- Request a project page [X]
+Blair (Frontend Developer):
+Led the planning and execution of CSS styling for the entire website.
 
-- Slide Show Pics - Conner [X]
+Conner (Backend Developer):
+Developed backend functionalities, managed databases, and implemented user authentication.
 
-- Better styling
+Jordan (Project Coordinator):
+Played a crucial role in bridging frontend and backend development efforts, focusing on integrating and refining features like the admin panel.
+##
+Usage Instructions
 
-- Making user [X]
+Guest Access:
+Navigate the website to view the homepage, reviews, and gallery.
 
-- Pic of dude
-
-- Reviews page 
-
-- More about him and his work
-
-- Pricings page/Pricing per job
-
-- System Notifications - Conner
-
-Things Needed 
-[] More Design
-[] Easier user appeal
-[] Making a user
-[] 
-
-###
-
-Key Stuff
-[] Slide show of pics
-[] 
-[]
-
-###
-Jordan could you do the Request html with the email. That would help me out
+User Login:
+Register or log in to access additional features such as leaving reviews, requesting projects, and utilizing the handyman chatbot.
