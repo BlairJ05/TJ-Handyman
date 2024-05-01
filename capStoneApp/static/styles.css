@@ -779,7 +779,7 @@ footer{
 
 /* ///////////////////////Chat Bot\\\\\\\\\\\\\\\\\\\\\\\\\ */
 
-/* .main-div{
+.main-div{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -793,6 +793,7 @@ footer{
   border-radius: 20px;
   background: #fff;
   overflow: hidden;
+  position: relative;
 }
 .container .top-part{
   height: 100px;
@@ -834,14 +835,78 @@ footer{
 }
 .chart-section{
   position: relative;
+  padding: 10px;
+}
+.left-part{
+  margin: 60px 0;
+  max-width: 260px;
 }
 .left-part img{
   height: 50px;
+  background: #0f0f20;
+  border-radius: 50%;
 }
 .left-part p{
   color: #555;
-} */
+  font-weight: 400;
+  font-size: 14px;
+  background: rgba(0,0,0,.1);
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 10px;
+}
+.agent-chart{
+  display: flex;
+  align-items: center
+  
+}
+.chart-section .right-part{
+  margin: -50px 0;
+  text-align: right;
+  max-width: 260px 0;
+  float: right;
+  font-size: 14px;
+}
+.chart-section .right-part p{
+  color: #fff;
+  font-size: 13px;
+  background: #0f0f20;
+  padding: 8px 24px;
+  border-radius: 10px;
+}
+.chart-section.right-part span{
+  color: #555;
+  font-size:11px;
+   font-weight: 500
+}
+.bottom-section{
+  position: absolute;
+  bottom: 10px;
+  /* height: 45px; */
+  width: 80%;
+  background: #000;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  border-top: 2px solid rgba(0,0,0,.1);
+  padding: 10px;
 
+}
+.bottom-section i{
+  color: #0f0f20;
+  font-size: 30px;
+}
+.bottom-section textarea{
+  height: 40px;
+  color: #0f0f20;
+  width: 80%;
+  padding: 0 5px;
+  resize: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize
+}
 
 
 
