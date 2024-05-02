@@ -15,17 +15,18 @@
   gtag('config', 'G-PHX82QGLW4');
 </script>
 <body>
-    
-    
-    
     <div class='Gallery-container'>
-        <h2><br>Welcome, Please Have A Look At My Work!</h2>
+        <div class="input-group">
+            <input id="searchInput" type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+            <button type="button" class="btn btn-outline-primary" data-mdb-ripple-init>search</button>
+        </div>
+          
         {% for header, cards_group in cards.items %}
-            <div class="Gallery-container">
+            <div class="Gallery-container" style='position:relative;top:1vw'>
                 <div class="header">{{ header }}</div>
                 <div class="card-container">
                     {% for card in cards_group %}
-                        <div class="card">
+                        <div class="card" data-title="{{ card.title|lower }}" data-header="{{ header|lower }}">
                             <img src="{{ card.before_Pic.url }}">
                             <img src="{{ card.after_Pic.url }}">
                             <div class="content">
@@ -42,9 +43,22 @@
         {% endfor %}
     </div>
     
-    
-
-    
+<script>
+    document.getElementById('searchInput').addEventListener('input', function() {
+        const searchValue = this.value.trim().toLowerCase();
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(function(card) {
+            const cardTitle = card.getAttribute('data-title');
+            const cardHeader = card.getAttribute('data-header');
+            if (cardTitle.includes(searchValue) || cardHeader.includes(searchValue)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+</script>
+</body>
 {% endblock content %}    
 </body>
 </html>

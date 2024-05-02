@@ -12,10 +12,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Tauri&amp;display=swap" rel="stylesheet">
     <title>{% block title %}TJ HandyMan Service{% endblock %}</title>
+    
     {% block css %}
         <link rel="stylesheet" href="{% static 'styles.css' %}">
         <link rel="stylesheet" href="{% static 'navBar.css' %}">
-        <link rel="stylesheet" href="{% static 'rating.css' %}">
+        
     {% endblock %}  
 </head>
 <!-- Google tag (gtag.js) -->
@@ -27,13 +28,13 @@
   gtag('config', 'G-PHX82QGLW4');
 </script>
 <header class="Header__container">
-    <nav class="navbar" style='z-index:1;'>
+    <nav class="navbar">
         <div class="logo" style='color:white;'>
             <span style="--i:1;">T</span>
             <span style="--i:2;">J</span>
             <span style="--i:3;">'</span>
             <span style="--i:4;">s</span>
-            <span style="--i:5;"></span>
+            <span style="--i:5;margin-right:5px"></span>
             <span style="--i:6;">H</span>
             <span style="--i:7;">a</span>
             <span style="--i:8;">n</span>
@@ -42,7 +43,7 @@
             <span style="--i:11;">m</span>
             <span style="--i:12;">a</span>
             <span style="--i:13;">n</span>
-            <span style="--i:14;"></span>
+            <span style="--i:14;margin-right:5px"> </span>
             <span style="--i:15;">S</span>
             <span style="--i:16;">e</span>
             <span style="--i:17;">r</span>
@@ -56,28 +57,27 @@
                 {% if request.user.is_staff %}
                     <!-- Admin menu options -->
                     <div class="menu-links" style='font-size:;'>
-                        <a href="{% url 'index' %}"><h4 id="index">Home</h4></a>
-                        <a href="{% url 'reviews' %}"><h4 id="Review">Reviews</h4></a>
-                        <a href="{% url 'gallery' %}"><h4 id="gallery">Gallery</h4></a>
-                        <a href="{% url 'create_card' %}"><h4 id="create_card">Create Project</h4></a>
-                        <a href="{% url 'admin_page' %}"><h4 id="admin">Admin</h4></a>
+                        <a href="{% url 'index' %}"><h3 id="index">Home</h3></a>
+                        <a href="{% url 'reviews' %}"><h3 id="Review">Reviews</h3></a>
+                        <a href="{% url 'gallery' %}"><h3 id="gallery">Gallery</h3></a>
+                        <a href="{% url 'create_card' %}"><h3 id="create_card">Create Project</h4></a>
+                        <a href="{% url 'admin_page' %}"><h3 id="admin">Admin</h3></a>
                     </div>
                 {% else %}
                     <!-- Regular user menu options -->
                     <div class="menu-links">
-                        <a href="{% url 'index' %}"><h4 id="index">Home</h4></a>
-                        <a href="{% url 'reviews' %}"><h4 id="Review">Reviews</h4></a>
-                        <a href="{% url 'gallery' %}"><h4 id="gallery">Gallery</h4></a>
-                        <a href="{% url 'request_a_project' %}"><h4 id="request_a_project">Request a Project</h4></a>
-                        <a href="{% url 'chatbot' %}"><h4 id="ChatBot">HandyMan ChatBot</h4></a>
+                        <a href="{% url 'index' %}"><h3 id="index">Home</h3></a>
+                        <a href="{% url 'reviews' %}"><h3 id="Review">Reviews</h3></a>
+                        <a href="{% url 'gallery' %}"><h3 id="gallery">Gallery</h3></a>
+                        <a href="{% url 'request_a_project' %}"><h3 id="request_a_project">Request a Project</h3></a>
                     </div>
                 {% endif %}
             {% else %}
                 <!-- Non-authenticated user menu options -->
                 <div class="menu-links">
-                    <a href="{% url 'index' %}"><h4 id="index">Home</h4></a>
-                    <a href="{% url 'reviews' %}"><h4 id="Review">Reviews</h4></a>
-                    <a href="{% url 'gallery' %}"><h4 id="gallery">Gallery</h4></a>
+                    <a href="{% url 'index' %}"><h3 id="index">Home</h3></a>
+                    <a href="{% url 'reviews' %}"><h3 id="Review">Reviews</h3></a>
+                    <a href="{% url 'gallery' %}"><h3 id="gallery">Gallery</h3></a>
             
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_staff %}
@@ -85,7 +85,6 @@
                             <a href="{% url 'admin_page' %}"><h4 id="admin">Admin</h4></a>
                         {% else %}
                             <a href="{% url 'request_a_project' %}"><h4 id="request_a_project">Request a Project</h4></a>
-                            <a href="{% url 'chatbot' %}"><h4 id="ChatBot">HandyMan ChatBot</h4></a>
                         {% endif %}
                     {% endif %}
                 </div>
@@ -105,12 +104,12 @@
                     </button>
                 {% endif %}
             </div>
-            <div class="menu-btn">
+            {% comment %} <div class="menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
             <div class="close-btn">
                 <i class="fas fa-times"></i>
-            </div>
+            </div> {% endcomment %}
         </div>
     </nav>
     <div class="Header__left">
@@ -123,13 +122,114 @@
 
     </div>
     
-  </header>
+</header>
 
 
 <main>
     {% block content %}
 
     {% endblock %}
+    
+    <button class='open-btn' onclick='openChatWindow()'><i class='bx bx-message-square-dots'></i> Chat</button>
+    <div class="chat-popup" id="chat-form-container">
+        <div class="chat-window">
+            <div class="card flex-grow-1">
+                <div class="card-header bg-primary text-white" style='padding-top:1vw;height:4vw'>
+                    <h3 style="font-family:Lato">Chat Window</h3>
+                    <span class='close-btn' onclick='closeChatWindow()'>
+                    <i class='fa fa-times' style='margin-left:15.8vw;position:relative;top:-2vw;font-size:15pt'></i>
+                </span>
+                </div>
+                
+                <div class="card-body messages-box">
+                    <ul class="list-unstyled messages-list">
+                        <!-- Messages will be dynamically added here -->
+                    </ul>
+                </div>
+                <form class="message-form">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <textarea class="form-control message-input" placeholder="Type your message..." style='height:15px;position:relative;top:vw'></textarea>
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary btn-send" >Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function openChatWindow() {
+            document.getElementById('chat-form-container').style.display = "block";
+        }
+        
+        function closeChatWindow() {
+            document.getElementById('chat-form-container').style.display = "none";
+        }
+        const messagesList = document.querySelector('.messages-list');
+  const messageForm = document.querySelector('.message-form');
+  const messageInput = document.querySelector('.message-input');
+
+  messageForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const message = messageInput.value.trim();
+    if (message.length === 0) {
+      return;
+    }
+
+    const messageItem = document.createElement('li');
+    messageItem.classList.add('message', 'sent');
+    messageItem.innerHTML = `
+      <div class="message-text">
+        <div class="message-sender">
+          <b>You</b>
+        </div>
+        <div class="message-content">
+          ${message}
+        </div>
+      </div>`;
+    messagesList.appendChild(messageItem);
+
+    messageInput.value = '';
+
+    try {
+      const response = await fetch('{% url 'chatbot' %}', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'csrfmiddlewaretoken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+          'message': message
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      const data = await response.json();
+      const botResponse = data.response;
+
+      const botMessageItem = document.createElement('li');
+      botMessageItem.classList.add('message', 'received');
+      botMessageItem.innerHTML = `
+        <div class="message-text">
+          <div class="message-sender">
+            <b>Henry (ChatBot)</b>
+          </div>
+          <div class="message-content">
+            ${botResponse}
+          </div>
+        </div>`;
+      messagesList.appendChild(botMessageItem);
+    } catch (error) {
+      console.error('Error sending message:', error.message);
+    }
+  });
+    </script>
+
+
     {% comment %} <div class="main-div">
         <div class="menuToggle">
             <i class='bx bx-hard-hat'></i>

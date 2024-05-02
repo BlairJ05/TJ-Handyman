@@ -42,7 +42,7 @@
   }
   .message-form .btn-send {
     background-color: #4caf50;
-    color: #fff;
+    color: #449aeb;
     border: none;
     border-radius: 10px;
     padding: 10px 20px;
@@ -84,8 +84,8 @@
                 </div>
               </div>
             </li>
-          {% endif %}
-        {% endfor %}
+            {% for chat in chats %}
+            {% if chat.user == request.user %}
       </ul>
     </div>
   </div>

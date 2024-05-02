@@ -11,21 +11,29 @@
 {% load static %}
 
     {% block content %}
+    <head>
+        <link rel="stylesheet" href="{% static 'rating.css' %}">
+    </head>
 
       <header>
-        <section class="Hero">
-          <div class="Hero__content">
-            <h2 class="Hero__title">Request Service Today!</h2>
-            <p class="Hero__subtitle">Get it done right the first time with TJ's handyman services—saving you from the hassle and ensuring top-notch results tailored to your needs.</p>
-            <div class="Hero__action" role="button" tabindex=0><span class="Hero__actionText">
-                <a href="{% url "request_a_project" %}" style='color:white;'>Request Now!</a></span></div>
-          </div>
-          <div class="Hero__image" id="Hero__image"></div>
-          <div class="Hero__mask"></div>
-          <canvas id="snowfall" class="Hero__snowfall"></canvas>
-        </section>
+        <div class="wrapper">
+            <section class="Hero">
+            <div class="Hero__content">
+                <h2 class="Hero__title">Request Service Today!</h2>
+                <p class="Hero__subtitle">Get it done right the first time with TJ's handyman services—saving you from the hassle and ensuring top-notch results tailored to your needs.</p>
+                <div class="Hero__action" role="button" tabindex=0><span class="Hero__actionText">
+                    <a href="{% url "request_a_project" %}" style='color:white;'>Request Now!</a></span></div>
+            </div>
+            <div class="Hero__image" id="Hero__image"></div>
+            <div class="Hero__mask"></div>
+            <canvas id="snowfall" class="Hero__snowfall"></canvas>
+            </section>
+        </div>
       </header>
             <div class='box'>
+                <div class="services">
+                    <h1 style='font-size: 4vw;font-family:Poppins'>Services</h1>
+                </div>
                 <div class="container">
                     <img src="static/images/handymanPicOne.jpg">
                     <h2>Crafting Your Space: Carpentry, Painting, and Custom Upgrades</h2>
@@ -90,7 +98,7 @@
             -->
             <div class='slideshow_box'>
                 <div class='before_after'>
-                    <h3>Before & After Pictures</h3>
+                    <h3 style='font-size: 3vw;position:relative;top:2vw;font-family:Poppins'>Before & After Pictures</h3>
                 </div>
                 <div class='slideshow'>
                     

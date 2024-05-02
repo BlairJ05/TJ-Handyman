@@ -75,19 +75,19 @@ input#rate-5:checked ~ label{
     text-shadow: 0 0 20px #952;
 }
 #rate-1:checked ~ .rating-items header:before{
-    content: "It needs improvement 😠";
+    content: "Never Again";
 }
 #rate-2:checked ~ .rating-items header:before{
-    content: "I don't like it 😒";
+    content: "Still needs work";
 }
 #rate-3:checked ~ .rating-items header:before{
-    content: "I just like it 😎";
+    content: "The job got done";
 }
 #rate-4:checked ~ .rating-items header:before{
-    content: "It is awesome 😃";
+    content: "I like the result";
 }
 #rate-5:checked ~ .rating-items header:before{
-    content: "I just love it 😍";
+    content: "I love the result! 😍";
 }
 .rating-container .rating-items{
     display: none;

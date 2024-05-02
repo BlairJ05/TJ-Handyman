@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 *,
 *::before,
 *::after {
+    box-sizing: border-box;
 }
 
 
@@ -44,7 +46,7 @@ header{
     left: 0;
     top: 0;
     /* border: rgb(0, 255, 72) solid 3px; */
-    background-color: rgba(22, 18, 38, 0.605);
+    background-color: rgba(36, 35, 40, 0.89);
 }
 
 @media (max-width: 48em) { 
@@ -143,16 +145,18 @@ header{
     /* border: red solid 3px;  */
     right: 0vw;
     margin-right: 12vw;
-    
+    margin-left: 26vw;
 }
 
 .menu-links a {
+    position: relative;
     font-weight: 500;
     color: #d2d2d2;
     padding: 8px 20px;
     transition: .3s ease;
     /* border: rgb(47, 0, 255) solid 3px; */
     font-size: 5pt;
+    top: 5px;
 
 }
 
@@ -217,9 +221,9 @@ header{
     width: 1vw;
 }
 
-.close-btn {
+/* .close-btn {
     display: none;
-}
+} */
 .signOutBackground {
     width: 8vw;
     display: flex;
@@ -258,7 +262,11 @@ nav{
     display: inline-block;
     animation: animate 1s ease-in-out ;
     animation-delay: calc(0.1s * var(--i));
-    font-size: 25px;
+    font-size: 30px;
+    font-family:'Roboto';
+    letter-spacing: -2px;
+    color: rgb(255, 255, 255);
+
 }
 .login-signup{
     /* border: 3px solid red; */
