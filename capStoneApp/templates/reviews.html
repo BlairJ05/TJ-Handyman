@@ -30,8 +30,8 @@
                     </div>
                     <p class="description">{{ review.text }}</p>
                   </div>
-                  <h3 class="title">{{ review.user }}</h3>
-                  <div class="stars">
+                  <h3 class="title" style='margin-left:15px;'>{{ review.user }}</h3>
+                  <div class="stars" style='margin-left:15px;margin-bottom:15px;'>
                     {% for _ in "x"|ljust:review.rating %}
                       <span class="fa fa-star" style="color:#ebeb00;"></span>
                     {% endfor %}

@@ -151,7 +151,7 @@ header{
     /* padding-inline: 80px; */
     /* border: red solid 3px;  */
     right: 0vw;
-    margin-right: 12vw;
+    margin-right: 13vw;
     margin-left: 26vw;
 }
 
@@ -232,7 +232,7 @@ header{
     display: none;
 } */
 .signOutBackground {
-    width: 8vw;
+    width: 10vw;
     display: flex;
     align-items: center;
     justify-content: center;
