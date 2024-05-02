@@ -20,25 +20,28 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="testimonial-container"> <!-- Add a container for testimonials -->
+          <div class="testimonial-container">
             {% for review in reviews %}
-            <div class="testimonial" style='box-shadow: 0 0 8px gray;'>
-              <div class="testimonial-content">
-                <div class="testimonial-icon">
-                  <i class="fa fa-quote-left"></i>
+              {% if review.approved %}
+                <div class="testimonial" style="box-shadow: 0 0 8px gray;">
+                  <div class="testimonial-content">
+                    <div class="testimonial-icon">
+                      <i class="fa fa-quote-left"></i>
+                    </div>
+                    <p class="description">{{ review.text }}</p>
+                  </div>
+                  <h3 class="title">{{ review.user }}</h3>
+                  <div class="stars">
+                    {% for _ in "x"|ljust:review.rating %}
+                      <span class="fa fa-star" style="color:#ebeb00;"></span>
+                    {% endfor %}
+                  </div>
                 </div>
-                <p class="description">{{ review.text }}</p>
-                
-              </div>
-              <h3 class="title" style="margin-bottom:5px;margin-left:1vw;">{{ review.user }}</h3>
-              <div class="stars" style='margin-bottom:5px;margin-left:1vw;'>
-                  {% for _ in "x"|ljust:review.rating %}
-                  <span class="fa fa-star" style="color:#ebeb00;"></span>
-                  {% endfor %}
-              </div>
-              
-            </div>
+              {% endif %}
             {% endfor %}
+            {% if reviews|length == 0 %}
+              <p>No approved reviews found.</p>
+            {% endif %}
           </div>
         </div>
       </div>
