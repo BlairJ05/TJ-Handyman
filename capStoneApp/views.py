@@ -31,7 +31,12 @@ from datetime import date
 
 
 client = OpenAI(api_key="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")
-
+PAGE_WIDTH, PAGE_HEIGHT = letter
+LEFT_MARGIN = 50
+LINE_SPACING = 20
+FONT_SIZE_NORMAL = 12
+FONT_SIZE_TITLE = 18
+FONT_NAME = "Helvetica-Bold"
 
 from django.core.mail import send_mail
 
@@ -56,6 +61,50 @@ def change_request_status(request, request_id, new_status):
     return HttpResponse(f"Request status changed from {old_status} to {new_status}")
 
 
+def generate_invoice_pdf(
+    service_name, service_price, additional_comments, invoice_number, invoice_date
+):
+    response = HttpResponse(content_type="application/pdf")
+    response["Content-Disposition"] = (
+        f'attachment; filename="invoice_{invoice_number}.pdf"'
+    )
+
+    pdf_canvas = canvas.Canvas(response, pagesize=letter)
+
+    pdf_canvas.setFont(FONT_NAME, FONT_SIZE_TITLE)
+    pdf_canvas.drawString(LEFT_MARGIN, PAGE_HEIGHT - 50, "TJ's Handyman Services")
+
+    pdf_canvas.setFont(FONT_NAME, FONT_SIZE_NORMAL)
+    pdf_canvas.drawString(LEFT_MARGIN, PAGE_HEIGHT - 100, "Bay St. Louis, Mississippi")
+    pdf_canvas.drawString(LEFT_MARGIN, PAGE_HEIGHT - 120, "Phone: +1 228-363-3068")
+    pdf_canvas.drawString(
+        LEFT_MARGIN, PAGE_HEIGHT - 140, "Email: tjhandymanservicellc21@gmail.com"
+    )
+
+    pdf_canvas.drawString(
+        LEFT_MARGIN, PAGE_HEIGHT - 180, f"Invoice Number: {invoice_number}"
+    )
+    pdf_canvas.drawString(
+        LEFT_MARGIN, PAGE_HEIGHT - 200, f"Invoice Date: {invoice_date}"
+    )
+    pdf_canvas.drawString(
+        LEFT_MARGIN, PAGE_HEIGHT - 240, f"Service Name: {service_name}"
+    )
+    pdf_canvas.drawString(
+        LEFT_MARGIN, PAGE_HEIGHT - 260, f"Service Price: ${service_price:.2f}"
+    )
+    pdf_canvas.drawString(
+        LEFT_MARGIN, PAGE_HEIGHT - 280, f"Additional Comments: {additional_comments}"
+    )
+
+    pdf_canvas.drawString(
+        LEFT_MARGIN, PAGE_HEIGHT - 320, "This is an official invoice."
+    )
+
+    pdf_canvas.save()
+    return response
+
+
 def invoice_form(request):
     if request.method == "POST":
         form = InvoiceForm(request.POST)
@@ -66,39 +115,15 @@ def invoice_form(request):
             invoice_number = random.randint(1000, 9999)
             invoice_date = date.today()
 
-            # Prepare HttpResponse with attachment
-            response = HttpResponse(content_type="application/pdf")
-            response["Content-Disposition"] = (
-                f'attachment; filename="invoice_{invoice_number}.pdf"'
+            response = generate_invoice_pdf(
+                service_name,
+                service_price,
+                additional_comments,
+                invoice_number,
+                invoice_date,
             )
-
-            # Create PDF canvas
-            pdf_canvas = canvas.Canvas(response)
-
-            pdf_canvas.setFont("Helvetica-Bold", 18)  # Set font and size
-            pdf_canvas.drawString(50, 800, "TJ's Handyman Services")
-
-            # Add contact information
-            pdf_canvas.drawString(50, 730, "Bay St. Louis, Mississippi")
-            pdf_canvas.drawString(50, 710, "Phone: +1 228-363-3068")
-            pdf_canvas.drawString(50, 690, "Email: tjhandymanservicellc21@gmail.com")
-
-            # Invoice details
-            pdf_canvas.drawString(50, 670, f"Invoice Number: {invoice_number}")
-            pdf_canvas.drawString(50, 650, f"Invoice Date: {invoice_date}")
-            pdf_canvas.drawString(50, 630, f"Service Name: {service_name}")
-            pdf_canvas.drawString(50, 610, f"Service Price: ${service_price:.2f}")
-            pdf_canvas.drawString(
-                50, 590, f"Additional Comments: {additional_comments}"
-            )
-
-            # Official invoice text
-            pdf_canvas.drawString(50, 550, "This is an official invoice.")
-
-            pdf_canvas.save()
             return response
     else:
-        # Initialize the form with initial data
         initial_data = {
             "customer_name": (
                 request.user.username if request.user.is_authenticated else ""
@@ -142,29 +167,21 @@ def more_request(request, request_id=None):
 
 
 def change_status(request, request_id, new_status):
-    # Retrieve the request object or return 404 if not found
     request_obj = get_object_or_404(RequestModel, pk=request_id)
 
-    # Save the old status for comparison later if needed
     old_status = request_obj.status
 
-    # Update the request object's status
     request_obj.status = new_status
     request_obj.save()
 
-    # If the new status is "Accepted", send an email notification
     if new_status == "Accepted":
         subject = "Request Accepted"
         message = f"Your request for {request_obj.message} has been accepted."
         sender_email = "your_sender_email@example.com"
-        recipient_email = (
-            request_obj.email
-        )  # Retrieve user's email address from request_obj
+        recipient_email = request_obj.email
 
-        # Send the email
         send_mail(subject, message, sender_email, [recipient_email])
 
-    # Redirect to the admin page after processing
     return redirect(reverse("admin_page"))
 
 
@@ -272,9 +289,6 @@ def index(request):
     return render(request, "index.html", {"form": form})
 
 
-
-
-
 def signUp(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
@@ -338,6 +352,7 @@ def signIn(request):
 def signOut(request):
     logout(request)
     return redirect("index")
+
 
 def admin(request):
     return render(request, "admin_page.html")

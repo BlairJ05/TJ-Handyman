@@ -22,7 +22,12 @@
                 <h2 class="Hero__title">Request Service Today!</h2>
                 <p class="Hero__subtitle">Get it done right the first time with TJ's handyman services—saving you from the hassle and ensuring top-notch results tailored to your needs.</p>
                 <div class="Hero__action" role="button" tabindex=0><span class="Hero__actionText">
-                    <a href="{% url "request_a_project" %}" style='color:white;'>Request Now!</a></span></div>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'request_a_project' %}" style="color: white;">Request Now!</a></span>
+                    {% else %}
+                    <a href="{% url 'signIn' %}"  style="color: white; text-decoration: none;">Request Now!</a></span>
+                    {% endif %}
+
             </div>
             <div class="Hero__image" id="Hero__image"></div>
             <div class="Hero__mask"></div>
