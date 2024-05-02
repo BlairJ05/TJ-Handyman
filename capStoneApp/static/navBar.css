@@ -80,6 +80,13 @@ header{
         text-align: center; 
     }
 }
+
+.messages-box {
+    height: 300px; /* Set your desired fixed height here */
+    overflow-y: auto; /* Enable vertical scrolling when content overflows */
+    padding: 10px; /* Optional: Add padding to the messages box */
+}
+
 /* .navbar .logo i{
     color: #0aa5ff;
     font-size: 22px;
